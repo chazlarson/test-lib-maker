@@ -1,0 +1,245 @@
+<movie>
+  <title>Mad Max: Fury Road</title>
+  <originaltitle>Mad Max: Fury Road</originaltitle>
+  <sorttitle>mad max fury road</sorttitle>
+  <ratings>
+    <rating name="imdb" max="10" default="true">
+      <value>8.1</value>
+      <votes>1013849</votes>
+    </rating>
+    <rating name="themoviedb" max="10">
+      <value>7.6</value>
+      <votes>20264</votes>
+    </rating>
+  </ratings>
+  <rating>7.6</rating>
+  <userrating />
+  <top250 />
+  <outline />
+  <plot>An apocalyptic story set in the furthest reaches of our planet, in a stark desert landscape where humanity is broken, and most everyone is crazed fighting for the necessities of life. Within this world exist two rebels on the run who just might be able to restore order.</plot>
+  <tagline />
+  <runtime>121</runtime>
+  <thumb aspect="poster" preview="https://image.tmdb.org/t/p/original/hA2ple9q4qnwxp3hKVNhroipsir.jpg">https://image.tmdb.org/t/p/original/hA2ple9q4qnwxp3hKVNhroipsir.jpg</thumb>
+  <fanart>
+    <thumb preview="https://image.tmdb.org/t/p/original/8yACFuo4OaIiKr9hHFlmPcGalKx.jpg">https://image.tmdb.org/t/p/original/8yACFuo4OaIiKr9hHFlmPcGalKx.jpg</thumb>
+  </fanart>
+  <mpaa>R</mpaa>
+  <playcount />
+  <lastplayed />
+  <id>76341</id>
+  <uniqueid type="tmdb" default="true">76341</uniqueid>
+  <uniqueid type="imdb">tt1392190</uniqueid>
+  <genre>Action</genre>
+  <genre>Adventure</genre>
+  <genre>Science Fiction</genre>
+  <country />
+  <set>
+    <name>Mad Max Collection</name>
+    <overview />
+  </set>
+  <director>George Miller</director>
+  <premiered>2015-05-13</premiered>
+  <year>2015</year>
+  <studio>Village Roadshow Pictures</studio>
+  <trailer>plugin://plugin.video.youtube/play/?video_id=MonFNCgK4WE</trailer>
+  <watched>false</watched>
+  <fileinfo>
+    <streamdetails>
+      <video>
+        <aspect>1.7777778</aspect>
+        <bitrate>0</bitrate>
+        <codec>h264</codec>
+        <framerate>23.976023976023976023976023976</framerate>
+        <height>1080</height>
+        <scantype>Progressive</scantype>
+        <width>1920</width>
+        <duration>120.38986666666666</duration>
+        <durationinseconds>7223</durationinseconds>
+      </video>
+      <audio>
+        <bitrate>0</bitrate>
+        <channels>8</channels>
+        <codec>TrueHD Atmos</codec>
+        <language>engeng</language>
+      </audio>
+      <subtitle>
+        <language>engfreporspa</language>
+      </subtitle>
+    </streamdetails>
+  </fileinfo>
+  <actor>
+    <name>Antoinette Kellerman</name>
+    <role>The Vuvalini</role>
+    <order>21</order>
+    <thumb>https://image.tmdb.org/t/p/original/c3ObBUDVq34C4EcCUepofYTeJux.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Nicholas Hoult</name>
+    <role>Nux</role>
+    <order>2</order>
+    <thumb>https://image.tmdb.org/t/p/original/laeAYQVBV9U3DkJ1B4Cn1XhpT8P.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Josh Helman</name>
+    <role>Slit</role>
+    <order>9</order>
+    <thumb>https://image.tmdb.org/t/p/original/1thwLjrgvFv7ifjyVtTKQh23OCh.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Abbey Lee</name>
+    <role>The Dag</role>
+    <order>7</order>
+    <thumb>https://image.tmdb.org/t/p/original/y4ZIuFjtglTjSLxhGTkzsCPFMQZ.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Richard Carter</name>
+    <role>The Bullet Farmer</role>
+    <order>12</order>
+    <thumb>https://image.tmdb.org/t/p/original/2TxGLBCLWYyZDXSiqVnbuGt9lhi.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Tom Hardy</name>
+    <role>Max Rockatansky</role>
+    <order>0</order>
+    <thumb>https://image.tmdb.org/t/p/original/4CR1D9VLWZcmGgh4b6kKuY2NOel.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Rosie Huntington-Whiteley</name>
+    <role>The Splendid Angharad</role>
+    <order>6</order>
+    <thumb>https://image.tmdb.org/t/p/original/oq5iX2VoLGF41P5DmNDNJcczESR.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Chris Patton</name>
+    <role>Morsov</role>
+    <order>26</order>
+    <thumb>https://image.tmdb.org/t/p/original/h7qCLOM41vbLCjPGtz5MvORGE4W.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Vincent Roxburgh</name>
+    <role>Imperator</role>
+    <order>29</order>
+    <thumb>https://image.tmdb.org/t/p/original/7JqIRQAinhYgMqeuBvPzzWaQUym.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Zoë Kravitz</name>
+    <role>Toast the Knowing</role>
+    <order>4</order>
+    <thumb>https://image.tmdb.org/t/p/original/tiQ3TBSvU4YAyrWMmVk6MTrKBAi.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Quentin Kenihan</name>
+    <role>Corpus Colossus</role>
+    <order>24</order>
+    <thumb>https://image.tmdb.org/t/p/original/eJniyl3ekN3WXz1S2b44CxiwCbs.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Charlize Theron</name>
+    <role>Imperator Furiosa</role>
+    <order>1</order>
+    <thumb>https://image.tmdb.org/t/p/original/gd7ShD0yt4bsR2STeQ19KQ6hvXL.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Hugh Keays-Byrne</name>
+    <role>Immortan Joe</role>
+    <order>3</order>
+    <thumb>https://image.tmdb.org/t/p/original/rkDIHG6gZnFwOJjDwnhFV81YmqL.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Nathan Jones</name>
+    <role>Rictus Erectus</role>
+    <order>10</order>
+    <thumb>https://image.tmdb.org/t/p/original/hlu4qYy9JGPxGn0wT8Ea6mTWR8R.jpg</thumb>
+  </actor>
+  <actor>
+    <name>John Howard</name>
+    <role>The People Eater</role>
+    <order>11</order>
+    <thumb>https://image.tmdb.org/t/p/original/rgVBggEzPawj8Nr9XQOH5YVCh7L.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Iota</name>
+    <role>The Doof Warrior</role>
+    <order>13</order>
+    <thumb>https://image.tmdb.org/t/p/original/7M5UNXClGVGOg9Onwq5IKVuNO8K.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Angus Sampson</name>
+    <role>The Organic Mechanic</role>
+    <order>14</order>
+    <thumb>https://image.tmdb.org/t/p/original/8EX6ul2zyVUg91oDvI3RpYS5szV.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Jennifer Hagan</name>
+    <role>Miss Giddy</role>
+    <order>15</order>
+    <thumb>https://image.tmdb.org/t/p/original/rng4eUNDsvvs8wOUmBuEl55vREg.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Stephen Dunlevy</name>
+    <role>The Rock Rider Chief / The Winchman</role>
+    <order>27</order>
+    <thumb>https://image.tmdb.org/t/p/original/e0HDyS2xosZ7ByWFBfRoaw07tE5.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Melita Jurišić</name>
+    <role>The Vuvalini</role>
+    <order>18</order>
+  </actor>
+  <actor>
+    <name>Gillian Jones</name>
+    <role>The Vuvalini</role>
+    <order>19</order>
+  </actor>
+  <actor>
+    <name>Joy Smithers</name>
+    <role>The Vuvalini</role>
+    <order>20</order>
+  </actor>
+  <actor>
+    <name>Christina Koch</name>
+    <role>The Vuvalini</role>
+    <order>22</order>
+  </actor>
+  <actor>
+    <name>Jon Iles</name>
+    <role>The Ace</role>
+    <order>23</order>
+  </actor>
+  <actor>
+    <name>Coco Jack Gillies</name>
+    <role>Glory the Child</role>
+    <order>25</order>
+    <thumb>https://image.tmdb.org/t/p/original/cDVjO4BfTn4O5vqrBZExwRfmrt9.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Riley Keough</name>
+    <role>Capable</role>
+    <order>5</order>
+    <thumb>https://image.tmdb.org/t/p/original/eg1PAXJMgmwTO4UeW7p7oBPKMbU.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Courtney Eaton</name>
+    <role>Cheedo the Fragile</role>
+    <order>8</order>
+    <thumb>https://image.tmdb.org/t/p/original/jmDszxVsDdNf2ZUCqRkWPu5ltv3.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Megan Gale</name>
+    <role>The Valkyrie</role>
+    <order>16</order>
+    <thumb>https://image.tmdb.org/t/p/original/jaMXrsz6wXzqlquSYuGqGSDAdgQ.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Melissa Jaffer</name>
+    <role>Keeper of the Seeds</role>
+    <order>17</order>
+    <thumb>https://image.tmdb.org/t/p/original/lLkIVNj62vSnnhLzE1UlsYdbebu.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Richard Norton</name>
+    <role>The Prime Imperator</role>
+    <order>28</order>
+    <thumb>https://image.tmdb.org/t/p/original/mUTbImPCWhB9jwTqoYgR3s4bKM0.jpg</thumb>
+  </actor>
+</movie>

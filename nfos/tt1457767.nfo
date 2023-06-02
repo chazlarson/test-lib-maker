@@ -1,0 +1,249 @@
+<movie>
+  <title>The Conjuring</title>
+  <originaltitle>The Conjuring</originaltitle>
+  <sorttitle>conjuring</sorttitle>
+  <ratings>
+    <rating name="imdb" max="10" default="true">
+      <value>7.5</value>
+      <votes>521032</votes>
+    </rating>
+    <rating name="themoviedb" max="10">
+      <value>7.539</value>
+      <votes>10314</votes>
+    </rating>
+  </ratings>
+  <rating>7.539</rating>
+  <userrating />
+  <top250 />
+  <outline />
+  <plot>Paranormal investigators Ed and Lorraine Warren work to help a family terrorized by a dark presence in their farmhouse. Forced to confront a powerful entity, the Warrens find themselves caught in the most terrifying case of their lives.</plot>
+  <tagline />
+  <runtime>112</runtime>
+  <thumb aspect="poster" preview="https://image.tmdb.org/t/p/original/wVYREutTvI2tmxr6ujrHT704wGF.jpg">https://image.tmdb.org/t/p/original/wVYREutTvI2tmxr6ujrHT704wGF.jpg</thumb>
+  <fanart>
+    <thumb preview="https://image.tmdb.org/t/p/original/ecKQlAEG95k62SMGhvX83oEqANK.jpg">https://image.tmdb.org/t/p/original/ecKQlAEG95k62SMGhvX83oEqANK.jpg</thumb>
+  </fanart>
+  <mpaa>R</mpaa>
+  <playcount />
+  <lastplayed />
+  <id>138843</id>
+  <uniqueid type="tmdb" default="true">138843</uniqueid>
+  <uniqueid type="imdb">tt1457767</uniqueid>
+  <genre>Horror</genre>
+  <genre>Thriller</genre>
+  <country />
+  <set>
+    <name>The Conjuring Collection</name>
+    <overview />
+  </set>
+  <credits>Carey Hayes</credits>
+  <credits>Chad Hayes</credits>
+  <director>James Wan</director>
+  <premiered>2013-07-18</premiered>
+  <year>2013</year>
+  <studio>Evergreen Media Group</studio>
+  <trailer>plugin://plugin.video.youtube/play/?video_id=k10ETZ41q5o</trailer>
+  <watched>false</watched>
+  <fileinfo>
+    <streamdetails>
+      <video>
+        <aspect>1.7777778</aspect>
+        <bitrate>0</bitrate>
+        <codec>HEVC</codec>
+        <framerate>23.976023976023976023976023976</framerate>
+        <height>2160</height>
+        <scantype>Progressive</scantype>
+        <width>3840</width>
+        <duration>111.95211666666667</duration>
+        <durationinseconds>6717</durationinseconds>
+      </video>
+      <audio>
+        <bitrate>0</bitrate>
+        <channels>6</channels>
+        <codec>DTS-HD MA</codec>
+        <language>eng</language>
+      </audio>
+      <subtitle>
+        <language>eng</language>
+      </subtitle>
+      <subtitle>
+        <language>eng</language>
+      </subtitle>
+    </streamdetails>
+  </fileinfo>
+  <actor>
+    <name>Vera Farmiga</name>
+    <role>Lorraine Warren</role>
+    <order>1</order>
+    <thumb>https://image.tmdb.org/t/p/original/zpdjQwP68TCVjg4eumyPSi3Z13p.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Ron Livingston</name>
+    <role>Roger Perron</role>
+    <order>3</order>
+    <thumb>https://image.tmdb.org/t/p/original/pr5CjWnkaf5WKTIYh8wtNufjmyb.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Joey King</name>
+    <role>Christine Perron</role>
+    <order>5</order>
+    <thumb>https://image.tmdb.org/t/p/original/kL0lWLJA6lbvmPM3YL0ISE6rVr6.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Kyla Deaver</name>
+    <role>April Perron</role>
+    <order>10</order>
+    <thumb>https://image.tmdb.org/t/p/original/yK2pAqrhei8N49ZOHL8u6ccaSPr.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Sterling Jerins</name>
+    <role>Judy Warren</role>
+    <order>11</order>
+    <thumb>https://image.tmdb.org/t/p/original/10kkqqbO8Ct58DqsBPSQIsG9ve4.jpg</thumb>
+  </actor>
+  <actor>
+    <name>James D. Nelson</name>
+    <role>David</role>
+    <order>18</order>
+  </actor>
+  <actor>
+    <name>Carmella Gioio</name>
+    <role>Sra. Walker</role>
+    <order>20</order>
+    <thumb>https://image.tmdb.org/t/p/original/nQpecHHyz3QdfX8TFaq1z8eLtEA.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Ashley White</name>
+    <role>Estudante</role>
+    <order>22</order>
+    <thumb>https://image.tmdb.org/t/p/original/1vFqidsy0LFUFNMcWw2ryFJotVS.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Desi Domo</name>
+    <role>Mulher suicida</role>
+    <order>26</order>
+  </actor>
+  <actor>
+    <name>Mackenzie Foy</name>
+    <role>Cindy Perron</role>
+    <order>4</order>
+    <thumb>https://image.tmdb.org/t/p/original/6n8yZKJ3YHkm4Ds3zNjJpankHUk.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Shannon Kook</name>
+    <role>Drew Thomas</role>
+    <order>6</order>
+    <thumb>https://image.tmdb.org/t/p/original/gBJmrtY2fBFfkQRfosLv2MNWx2J.jpg</thumb>
+  </actor>
+  <actor>
+    <name>John Brotherton</name>
+    <role>Brad Hamilton</role>
+    <order>7</order>
+    <thumb>https://image.tmdb.org/t/p/original/9LX6rRtiCjkTMT30PJh1dg1jx56.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Hayley McFarland</name>
+    <role>Nancy Perron</role>
+    <order>8</order>
+    <thumb>https://image.tmdb.org/t/p/original/x2JAEC10XI6Ie2sArUzMbe4l2Mh.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Shanley Caswell</name>
+    <role>Andrea Perron</role>
+    <order>9</order>
+    <thumb>https://image.tmdb.org/t/p/original/yySEoaskedLZKKHSAOOZ5cr7HHo.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Joseph Bishara</name>
+    <role>Bathsheba Sherman</role>
+    <order>12</order>
+    <thumb>https://image.tmdb.org/t/p/original/jkFmkZcd16cEX2yGFNNAsNJyN5U.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Marion Guyot</name>
+    <role>Georgiana Moran</role>
+    <order>13</order>
+    <thumb>https://image.tmdb.org/t/p/original/5444iiLk5xgZQh5u1UmPXAsYEBV.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Morganna Bridgers</name>
+    <role>Debbie</role>
+    <order>14</order>
+    <thumb>https://image.tmdb.org/t/p/original/pgC0IUVPJJGQQswmkXEXSf6Do7a.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Amy Tipton</name>
+    <role>Camilla</role>
+    <order>15</order>
+    <thumb>https://image.tmdb.org/t/p/original/sH06Xfi7f2nLJ2qzMk8oe7sKBjW.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Rose Bachtel</name>
+    <role>Leah</role>
+    <order>17</order>
+    <thumb>https://image.tmdb.org/t/p/original/rQtQZkLKPVQ6AOAFtuDGF1yNZyx.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Christof Veillon</name>
+    <role>Maurice Theriault</role>
+    <order>19</order>
+    <thumb>https://image.tmdb.org/t/p/original/muDWbDReBQp0CxPweLxoE43uBPv.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Steve Coulter</name>
+    <role>Padre Gordon</role>
+    <order>21</order>
+    <thumb>https://image.tmdb.org/t/p/original/5bK6a5Cfy5DxVoNpzt4nbhUUW85.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Kymoura Kennedy</name>
+    <role>Estudante #1</role>
+    <order>23</order>
+    <thumb>https://image.tmdb.org/t/p/original/ubBa09lUNiHZuBk8eaC6YTTQazd.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Sean Flynn</name>
+    <role>Estudante #2</role>
+    <order>24</order>
+  </actor>
+  <actor>
+    <name>Nate Seman</name>
+    <role>Rory (uncredited)</role>
+    <order>27</order>
+    <thumb>https://image.tmdb.org/t/p/original/AqJyF7ukYFxJ1sbklDSyR4OzN4c.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Lorraine Warren</name>
+    <role>Woman in Audience (uncredited)</role>
+    <order>28</order>
+    <thumb>https://image.tmdb.org/t/p/original/tz4MjdJNJC0S4oHAsGT0rMUmIL9.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Patrick Wilson</name>
+    <role>Ed Warren</role>
+    <order>0</order>
+    <thumb>https://image.tmdb.org/t/p/original/tc1ezEfIY8BhCy85svOUDtpBFPt.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Lili Taylor</name>
+    <role>Carolyn Perron</role>
+    <order>2</order>
+    <thumb>https://image.tmdb.org/t/p/original/if8rbaj1TXlzg0Oq4g0bpU3b5rh.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Zach Pappas</name>
+    <role>Rick</role>
+    <order>16</order>
+  </actor>
+  <actor>
+    <name>George T. Zervos</name>
+    <role>Padre católico</role>
+    <order>25</order>
+  </actor>
+  <actor>
+    <name>Arnell Powell</name>
+    <role>Reporter</role>
+    <order>29</order>
+    <thumb>https://image.tmdb.org/t/p/original/m7Zl9av9H9CX76AxPyaYhHYIJWi.jpg</thumb>
+  </actor>
+</movie>

@@ -1,0 +1,89 @@
+<movie>
+  <title>#AnneFrank. Parallel Stories</title>
+  <originaltitle>#AnneFrank. Parallel Stories</originaltitle>
+  <sorttitle>annefrank parallel stories</sorttitle>
+  <ratings>
+    <rating name="imdb" max="10" default="true">
+      <value>6.5</value>
+      <votes>1629</votes>
+    </rating>
+    <rating name="themoviedb" max="10">
+      <value>7.1</value>
+      <votes>44</votes>
+    </rating>
+  </ratings>
+  <rating>7.1</rating>
+  <userrating />
+  <top250 />
+  <outline />
+  <plot>One single Anne Frank moves us more than the countless others who suffered just as she did but whose faces have remained in the shadows-Primo Levi. The Oscar®-winning Helen Mirren will introduce audiences to Anne Frank's story through the words in her diary. The set will be her room in the secret refuge in Amsterdam, reconstructed in every detail by set designers from the Piccolo Theatre in Milan. Anne Frank this year would have been 90 years old. Anne's story is intertwined with that of five Holocaust survivors, teenage girls just like her, with the same ideals, the same desire to live: Arianna Szörenyi, Sarah Lichtsztejn-Montard, Helga Weiss and sisters Andra and Tatiana Bucci. Their testimonies alternate with those of their children and grandchildren.</plot>
+  <tagline />
+  <runtime>92</runtime>
+  <thumb aspect="poster" preview="https://image.tmdb.org/t/p/original/hkC4yNDFmW1yQuQhtZydMeRuaAb.jpg">https://image.tmdb.org/t/p/original/hkC4yNDFmW1yQuQhtZydMeRuaAb.jpg</thumb>
+  <fanart>
+    <thumb preview="https://image.tmdb.org/t/p/original/pYziM5SEmptPW0LdNhWvjzR2zD1.jpg">https://image.tmdb.org/t/p/original/pYziM5SEmptPW0LdNhWvjzR2zD1.jpg</thumb>
+  </fanart>
+  <mpaa>NR</mpaa>
+  <playcount />
+  <lastplayed />
+  <id>610643</id>
+  <uniqueid type="tmdb" default="true">610643</uniqueid>
+  <uniqueid type="imdb">tt9850370</uniqueid>
+  <genre>Documentary</genre>
+  <genre>Drama</genre>
+  <genre>History</genre>
+  <country />
+  <director>Sabina Fedeli</director>
+  <director>Anna Migotto</director>
+  <premiered>2019-10-18</premiered>
+  <year>2019</year>
+  <studio>3D Produzioni</studio>
+  <trailer>plugin://plugin.video.youtube/play/?video_id=FzT7-NfkxLA</trailer>
+  <watched>false</watched>
+  <fileinfo>
+    <streamdetails>
+      <video>
+        <aspect>1.7777778</aspect>
+        <bitrate>0</bitrate>
+        <codec>h264</codec>
+        <framerate>24</framerate>
+        <height>1080</height>
+        <scantype>Progressive</scantype>
+        <width>1920</width>
+        <duration>94.69085</duration>
+        <durationinseconds>5681</durationinseconds>
+      </video>
+      <audio>
+        <bitrate>0</bitrate>
+        <channels>2</channels>
+        <codec>AAC</codec>
+        <language>eng</language>
+      </audio>
+      <subtitle>
+        <language>eng</language>
+      </subtitle>
+    </streamdetails>
+  </fileinfo>
+  <actor>
+    <name>Helen Mirren</name>
+    <role>Narrator</role>
+    <order>0</order>
+    <thumb>https://image.tmdb.org/t/p/original/eY26gqv9EGunId7kp32pLueXvz4.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Anne Frank</name>
+    <role>Self</role>
+    <order>1</order>
+    <thumb>https://image.tmdb.org/t/p/original/5ex70IPbbsMwSEqWmRPB7Zn9ZU5.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Arianna Szorenyi</name>
+    <role>Self</role>
+    <order>3</order>
+  </actor>
+  <actor>
+    <name>Martina Gatti</name>
+    <role>Self</role>
+    <order>2</order>
+  </actor>
+</movie>

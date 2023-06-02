@@ -1,0 +1,164 @@
+<movie>
+  <title>Poor Little Rich Girl</title>
+  <originaltitle>Poor Little Rich Girl</originaltitle>
+  <sorttitle>poor little rich girl</sorttitle>
+  <ratings>
+    <rating name="imdb" max="10" default="true">
+      <value>7</value>
+      <votes>1519</votes>
+    </rating>
+    <rating name="themoviedb" max="10">
+      <value>6.5</value>
+      <votes>14</votes>
+    </rating>
+  </ratings>
+  <rating>6.5</rating>
+  <userrating />
+  <top250 />
+  <outline />
+  <plot>Cossetted and bored, Barbara Barry is finally sent off to school by her busy if doting widowed soap manufacturer father. When her nurse is injured en route, Barbara finds herself alone in town, ending up as part of radio song-and-dance act Dolan and Dolan sponsored by a rival soap company.</plot>
+  <tagline />
+  <runtime>79</runtime>
+  <thumb aspect="poster" preview="https://image.tmdb.org/t/p/original/w1yAlXypI8T7gr4BJloTYoNRalE.jpg">https://image.tmdb.org/t/p/original/w1yAlXypI8T7gr4BJloTYoNRalE.jpg</thumb>
+  <fanart>
+    <thumb preview="https://image.tmdb.org/t/p/original/wJT7AJHs545rH4rH7K6Xi3A4cBY.jpg">https://image.tmdb.org/t/p/original/wJT7AJHs545rH4rH7K6Xi3A4cBY.jpg</thumb>
+  </fanart>
+  <mpaa>NR</mpaa>
+  <playcount />
+  <lastplayed />
+  <id>43268</id>
+  <uniqueid type="tmdb" default="true">43268</uniqueid>
+  <uniqueid type="imdb">tt0028118</uniqueid>
+  <genre>Adventure</genre>
+  <genre>Family</genre>
+  <genre>Music</genre>
+  <country />
+  <credits>Harry Tugend</credits>
+  <credits>Sam Hellman</credits>
+  <credits>Gladys Lehman</credits>
+  <director>Irving Cummings</director>
+  <premiered>1936-07-18</premiered>
+  <year>1936</year>
+  <studio>20th Century Fox</studio>
+  <trailer>plugin://plugin.video.youtube/play/?video_id=</trailer>
+  <watched>false</watched>
+  <fileinfo>
+    <streamdetails>
+      <video>
+        <aspect>1.3333334</aspect>
+        <bitrate>1200164</bitrate>
+        <codec>x264</codec>
+        <framerate>25</framerate>
+        <height>576</height>
+        <scantype>Progressive</scantype>
+        <width>768</width>
+        <duration>79.492</duration>
+        <durationinseconds>4770</durationinseconds>
+      </video>
+      <audio>
+        <bitrate>127969</bitrate>
+        <channels>2</channels>
+        <codec>AAC</codec>
+        <language>und</language>
+      </audio>
+    </streamdetails>
+  </fileinfo>
+  <actor>
+    <name>Alice Faye</name>
+    <role>Jerry Dolan</role>
+    <order>1</order>
+    <thumb>https://image.tmdb.org/t/p/original/g1Hd3MmFahWoIQVQZw9qtxWfIsF.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Gloria Stuart</name>
+    <role>Margaret Allen</role>
+    <order>2</order>
+    <thumb>https://image.tmdb.org/t/p/original/9aG7UUX3PWIGGf1KRY5TsBSoNz9.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Jack Haley</name>
+    <role>Jimmy Dolan</role>
+    <order>3</order>
+    <thumb>https://image.tmdb.org/t/p/original/9KSDR9ABg1pPLN8ZJMF3HxemlNH.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Michael Whalen</name>
+    <role>Richard Barry</role>
+    <order>4</order>
+    <thumb>https://image.tmdb.org/t/p/original/1DMvoLjbBmDjsmAbzxytOYnoq6V.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Sara Haden</name>
+    <role>Collins</role>
+    <order>5</order>
+    <thumb>https://image.tmdb.org/t/p/original/gCq0DS13A2QjxFPIu68t5s8tY6Y.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Jane Darwell</name>
+    <role>Woodward</role>
+    <order>6</order>
+    <thumb>https://image.tmdb.org/t/p/original/xWTsj5z2N94OOnimMmUYewQXOIi.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Paul Stanton</name>
+    <role>George Hathaway</role>
+    <order>8</order>
+    <thumb>https://image.tmdb.org/t/p/original/gDKmkYRtXIya6HAxtZ3VxCaj0I2.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Henry Armetta</name>
+    <role>Tony</role>
+    <order>9</order>
+    <thumb>https://image.tmdb.org/t/p/original/9Bvd4g9QaFoMtYm3VYpJeAa9R3I.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Tony Martin</name>
+    <role>Radio Baritone Soloist (uncredited)</role>
+    <order>10</order>
+    <thumb>https://image.tmdb.org/t/p/original/qKsFTry1dp8So4EZagXBT58Rkx7.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Charles Coleman</name>
+    <role>Stebbins</role>
+    <order>11</order>
+    <thumb>https://image.tmdb.org/t/p/original/iGllAgHM5PuLOeocDNddfyTYks4.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Arthur Hoyt</name>
+    <role>Percival Gooch</role>
+    <order>12</order>
+    <thumb>https://image.tmdb.org/t/p/original/pVUoMq4jT8AgBgKbUrHH7lOLoGy.jpg</thumb>
+  </actor>
+  <actor>
+    <name>John Wray</name>
+    <role>Flagin</role>
+    <order>13</order>
+    <thumb>https://image.tmdb.org/t/p/original/9s4mIx46i6LrWdpDMFwmBXzQr1V.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Tyler Brooke</name>
+    <role>Dan Ward</role>
+    <order>14</order>
+    <thumb>https://image.tmdb.org/t/p/original/wro7pwBOg7g3Jv7IaW8TlivrOZn.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Mathilde Comont</name>
+    <role>Tony's Wife</role>
+    <order>15</order>
+    <thumb>https://image.tmdb.org/t/p/original/44qmnEOT2iMPu23oTzYpDZcfKfE.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Shirley Temple</name>
+    <role>Barbara Barry</role>
+    <order>0</order>
+    <thumb>https://image.tmdb.org/t/p/original/5jBfns8fqeFp5WrrmO6NZThpia2.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Claude Gillingwater</name>
+    <role>Simon Peck</role>
+    <order>7</order>
+    <thumb>https://image.tmdb.org/t/p/original/z85soo8DC5UxtRL7G5FikszEB7i.jpg</thumb>
+  </actor>
+</movie>
+https://www.themoviedb.org/movie/43268
+https://www.imdb.com/title/tt0028118

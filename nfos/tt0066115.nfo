@@ -1,0 +1,241 @@
+<movie>
+  <title>Myra Breckinridge</title>
+  <originaltitle>Myra Breckinridge</originaltitle>
+  <sorttitle>myra breckinridge</sorttitle>
+  <ratings>
+    <rating name="imdb" max="10" default="true">
+      <value>4.4</value>
+      <votes>3290</votes>
+    </rating>
+    <rating name="themoviedb" max="10">
+      <value>4.018</value>
+      <votes>28</votes>
+    </rating>
+  </ratings>
+  <rating>4.018</rating>
+  <userrating />
+  <top250 />
+  <outline />
+  <plot>Myron Breckinridge flies to Europe to get a sex-change operation and is transformed into the beautiful Myra. She travels to Hollywood, meets up with her rich Uncle Buck and, claiming to be Myron's widow, demands money. Instead, Buck gives Myra a job in his acting school. There, Myra meets aspiring actor Rusty and his girlfriend, Mary Ann. With Myra as catalyst, the trio begin to outrageously expand their sexual horizons.</plot>
+  <tagline />
+  <runtime>94</runtime>
+  <thumb aspect="poster" preview="https://image.tmdb.org/t/p/original/15Asucd1byN8KcjUY6Eb9YpDtzF.jpg">https://image.tmdb.org/t/p/original/15Asucd1byN8KcjUY6Eb9YpDtzF.jpg</thumb>
+  <fanart>
+    <thumb preview="https://image.tmdb.org/t/p/original/kme5jFECpbf3NBwvdB8dyHBNw89.jpg">https://image.tmdb.org/t/p/original/kme5jFECpbf3NBwvdB8dyHBNw89.jpg</thumb>
+  </fanart>
+  <mpaa>R</mpaa>
+  <playcount />
+  <lastplayed />
+  <id>40973</id>
+  <uniqueid type="tmdb" default="true">40973</uniqueid>
+  <uniqueid type="imdb">tt0066115</uniqueid>
+  <genre>Comedy</genre>
+  <genre>Drama</genre>
+  <country />
+  <credits>David Giler</credits>
+  <credits>Michael Sarne</credits>
+  <director>Michael Sarne</director>
+  <premiered>1970-06-24</premiered>
+  <year>1970</year>
+  <studio>20th Century Fox</studio>
+  <trailer>plugin://plugin.video.youtube/play/?video_id=</trailer>
+  <watched>false</watched>
+  <fileinfo>
+    <streamdetails>
+      <video>
+        <aspect>2.3529413</aspect>
+        <bitrate>0</bitrate>
+        <codec>x264</codec>
+        <framerate>23.976023976023976023976023976</framerate>
+        <height>816</height>
+        <scantype>Progressive</scantype>
+        <width>1920</width>
+        <duration>94.11703333333334</duration>
+        <durationinseconds>5647</durationinseconds>
+      </video>
+      <audio>
+        <bitrate>256000</bitrate>
+        <channels>2</channels>
+        <codec>AC3</codec>
+        <language />
+      </audio>
+      <subtitle>
+        <language>engspaeng</language>
+      </subtitle>
+    </streamdetails>
+  </fileinfo>
+  <actor>
+    <name>Farrah Fawcett</name>
+    <role>Mary Ann Pringle</role>
+    <order>4</order>
+    <thumb>https://image.tmdb.org/t/p/original/v1osF8x0G4OiXfGmElnyymyrUCn.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Roger Herren</name>
+    <role>Rusty Godowski</role>
+    <order>6</order>
+    <thumb>https://image.tmdb.org/t/p/original/ny9ss8TkYMH3gPk25XQO8CRzpTC.jpg</thumb>
+  </actor>
+  <actor>
+    <name>George Furth</name>
+    <role>Charlie Flager Jr.</role>
+    <order>7</order>
+    <thumb>https://image.tmdb.org/t/p/original/yihCpzbX8zoDn8CI8erebgFFOcL.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Calvin Lockhart</name>
+    <role>Irving Amadeus</role>
+    <order>8</order>
+    <thumb>https://image.tmdb.org/t/p/original/nlEJUu02kFZ4Ds7nvZkm6IzhbEa.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Jim Backus</name>
+    <role>Doctor</role>
+    <order>9</order>
+    <thumb>https://image.tmdb.org/t/p/original/9jCwiBAPyYdngUx2aKHZqSvrbHS.jpg</thumb>
+  </actor>
+  <actor>
+    <name>John Carradine</name>
+    <role>Surgeon</role>
+    <order>10</order>
+    <thumb>https://image.tmdb.org/t/p/original/hv2AAXNlTHVmGgXn8q7025S0g2b.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Andy Devine</name>
+    <role>Coyote Bill</role>
+    <order>11</order>
+    <thumb>https://image.tmdb.org/t/p/original/2U0KIVdWCbNMFLhCnpB5568eMrU.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Kathleen Freeman</name>
+    <role>Bobby Dean Loner</role>
+    <order>15</order>
+    <thumb>https://image.tmdb.org/t/p/original/7UTN2SEcdQ4Ez9br7a8yy1bJV7e.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Tom Selleck</name>
+    <role>Stud</role>
+    <order>19</order>
+    <thumb>https://image.tmdb.org/t/p/original/3JaeMTmbrufVo6BZsLVeRQ9V7JR.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Monte Landis</name>
+    <role>Vince</role>
+    <order>18</order>
+    <thumb>https://image.tmdb.org/t/p/original/lTsPA1axwQIXgyGgU4nYfW9riKb.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Peter Ireland</name>
+    <role>Student</role>
+    <order>20</order>
+  </actor>
+  <actor>
+    <name>Nelson Sardelli</name>
+    <role>Mario</role>
+    <order>21</order>
+  </actor>
+  <actor>
+    <name>Don Ames</name>
+    <role>Spectator at Operation (uncredited)</role>
+    <order>22</order>
+  </actor>
+  <actor>
+    <name>Boyd Cabeen</name>
+    <role>Spectator at Operation (uncredited)</role>
+    <order>26</order>
+  </actor>
+  <actor>
+    <name>Bill Chatham</name>
+    <role>Chauffeur (uncredited)</role>
+    <order>27</order>
+  </actor>
+  <actor>
+    <name>Vic Christy</name>
+    <role>Spectator at Operation (uncredited)</role>
+    <order>28</order>
+  </actor>
+  <actor>
+    <name>Choo Choo Collins</name>
+    <role>Party Guest (uncredited)</role>
+    <order>29</order>
+  </actor>
+  <actor>
+    <name>Roger C. Carmel</name>
+    <role>Dr. Randolph Spencer Montag</role>
+    <order>5</order>
+    <thumb>https://image.tmdb.org/t/p/original/6JZgOpDoYmjAomrfmvF5bfNoJbk.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Thordis Brandt</name>
+    <role>Whip-Cracking Masseuse (uncredited)</role>
+    <order>25</order>
+    <thumb>https://image.tmdb.org/t/p/original/5N0m2UE9JGZmalYkzTpkHZLl9w3.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Raquel Welch</name>
+    <role>Myra Breckinridge</role>
+    <order>0</order>
+    <thumb>https://image.tmdb.org/t/p/original/gsKsY1PlhZ8qGx54zq7ciswZ0zw.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Rex Reed</name>
+    <role>Young Man</role>
+    <order>1</order>
+    <thumb>https://image.tmdb.org/t/p/original/pzUz1pvhZRXQImPSDxk94VtoVNo.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Mae West</name>
+    <role>Leticia Van Allen</role>
+    <order>2</order>
+    <thumb>https://image.tmdb.org/t/p/original/xtlUd8VnOor4OuA8dexgDG9JlIP.jpg</thumb>
+  </actor>
+  <actor>
+    <name>John Huston</name>
+    <role>Buck Loner</role>
+    <order>3</order>
+    <thumb>https://image.tmdb.org/t/p/original/5sUmPA9XjEV05lhNAypxwbnjzJ7.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Grady Sutton</name>
+    <role>Kid Barlow</role>
+    <order>12</order>
+    <thumb>https://image.tmdb.org/t/p/original/qV83gmmU7eBe7FfMbzf05eZ6j2v.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Robert P. Lieb</name>
+    <role>Charlie Flager, Sr.</role>
+    <order>13</order>
+  </actor>
+  <actor>
+    <name>Skip Ward</name>
+    <role>Chance</role>
+    <order>14</order>
+    <thumb>https://image.tmdb.org/t/p/original/2ymovqHQZyDeNs0PtfjXAO39yhc.jpg</thumb>
+  </actor>
+  <actor>
+    <name>B.S. Pully</name>
+    <role>Tex</role>
+    <order>16</order>
+    <thumb>https://image.tmdb.org/t/p/original/kpVvlRC0eU1IiSSpFbckNsDgI7k.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Buck Kartalian</name>
+    <role>Jeff</role>
+    <order>17</order>
+    <thumb>https://image.tmdb.org/t/p/original/b74CafK0iSNHq1rqTKvbuwSrvdq.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Cal Bartlett</name>
+    <role>Letitia's Secretary (uncredited)</role>
+    <order>23</order>
+    <thumb>https://image.tmdb.org/t/p/original/c2AfPZPN53O89gBLQtK7sNsmvqo.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Toni Basil</name>
+    <role>Cigarette Girl (uncredited)</role>
+    <order>24</order>
+    <thumb>https://image.tmdb.org/t/p/original/gKXRSWexAbL9g10IkcLrw6NhTsu.jpg</thumb>
+  </actor>
+</movie>
+https://www.themoviedb.org/movie/40973
+https://www.imdb.com/title/tt0066115

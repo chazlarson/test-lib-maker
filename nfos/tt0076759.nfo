@@ -1,0 +1,424 @@
+<movie>
+  <title>Star Wars</title>
+  <originaltitle>Star Wars</originaltitle>
+  <sorttitle>star wars</sorttitle>
+  <ratings>
+    <rating name="imdb" max="10" default="true">
+      <value>8.6</value>
+      <votes>1389169</votes>
+    </rating>
+    <rating name="themoviedb" max="10">
+      <value>8.208</value>
+      <votes>18597</votes>
+    </rating>
+  </ratings>
+  <rating>8.208</rating>
+  <userrating />
+  <top250 />
+  <outline />
+  <plot>Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire.</plot>
+  <tagline />
+  <runtime>121</runtime>
+  <thumb aspect="poster" preview="https://image.tmdb.org/t/p/original/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg">https://image.tmdb.org/t/p/original/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg</thumb>
+  <fanart>
+    <thumb preview="https://image.tmdb.org/t/p/original/zqkmTXzjkAgXmEWLRsY4UpTWCeo.jpg">https://image.tmdb.org/t/p/original/zqkmTXzjkAgXmEWLRsY4UpTWCeo.jpg</thumb>
+  </fanart>
+  <mpaa>PG</mpaa>
+  <playcount />
+  <lastplayed />
+  <id>11</id>
+  <uniqueid type="tmdb" default="true">11</uniqueid>
+  <uniqueid type="imdb">tt0076759</uniqueid>
+  <genre>Adventure</genre>
+  <genre>Action</genre>
+  <genre>Science Fiction</genre>
+  <country />
+  <set>
+    <name>Star Wars Collection</name>
+    <overview />
+  </set>
+  <director>George Lucas</director>
+  <premiered>1977-05-25</premiered>
+  <year>1977</year>
+  <studio>Lucasfilm Ltd.</studio>
+  <trailer>plugin://plugin.video.youtube/play/?video_id=XsS1yE2f-hE</trailer>
+  <watched>false</watched>
+  <fileinfo>
+    <streamdetails>
+      <video>
+        <aspect>1.7777778</aspect>
+        <bitrate>0</bitrate>
+        <codec>HEVC</codec>
+        <framerate>23.976023976023976023976023976</framerate>
+        <height>2160</height>
+        <scantype>Progressive</scantype>
+        <width>3840</width>
+        <duration>124.7568</duration>
+        <durationinseconds>7485</durationinseconds>
+      </video>
+      <audio>
+        <bitrate>0</bitrate>
+        <channels>8</channels>
+        <codec>TrueHD Atmos</codec>
+        <language>engengengeng</language>
+      </audio>
+      <subtitle>
+        <language>eng</language>
+      </subtitle>
+      <subtitle>
+        <language>eng</language>
+      </subtitle>
+      <subtitle>
+        <language>eng</language>
+      </subtitle>
+      <subtitle>
+        <language>ara</language>
+      </subtitle>
+      <subtitle>
+        <language>bul</language>
+      </subtitle>
+      <subtitle>
+        <language>chi</language>
+      </subtitle>
+      <subtitle>
+        <language>chi</language>
+      </subtitle>
+      <subtitle>
+        <language>chi</language>
+      </subtitle>
+      <subtitle>
+        <language>hrv</language>
+      </subtitle>
+      <subtitle>
+        <language>cze</language>
+      </subtitle>
+      <subtitle>
+        <language>dan</language>
+      </subtitle>
+      <subtitle>
+        <language>dut</language>
+      </subtitle>
+      <subtitle>
+        <language>fin</language>
+      </subtitle>
+      <subtitle>
+        <language>fre</language>
+      </subtitle>
+      <subtitle>
+        <language>ger</language>
+      </subtitle>
+      <subtitle>
+        <language>gre</language>
+      </subtitle>
+      <subtitle>
+        <language>heb</language>
+      </subtitle>
+      <subtitle>
+        <language>hun</language>
+      </subtitle>
+      <subtitle>
+        <language>ice</language>
+      </subtitle>
+      <subtitle>
+        <language>ita</language>
+      </subtitle>
+      <subtitle>
+        <language>jpn</language>
+      </subtitle>
+      <subtitle>
+        <language>kor</language>
+      </subtitle>
+      <subtitle>
+        <language>nor</language>
+      </subtitle>
+      <subtitle>
+        <language>pol</language>
+      </subtitle>
+      <subtitle>
+        <language>por</language>
+      </subtitle>
+      <subtitle>
+        <language>por</language>
+      </subtitle>
+      <subtitle>
+        <language>rum</language>
+      </subtitle>
+      <subtitle>
+        <language>rus</language>
+      </subtitle>
+      <subtitle>
+        <language>slv</language>
+      </subtitle>
+      <subtitle>
+        <language>spa</language>
+      </subtitle>
+      <subtitle>
+        <language>spa</language>
+      </subtitle>
+      <subtitle>
+        <language>swe</language>
+      </subtitle>
+      <subtitle>
+        <language>tha</language>
+      </subtitle>
+      <subtitle>
+        <language>tur</language>
+      </subtitle>
+      <subtitle>
+        <language>eng</language>
+      </subtitle>
+      <subtitle>
+        <language>dan</language>
+      </subtitle>
+      <subtitle>
+        <language>dut</language>
+      </subtitle>
+      <subtitle>
+        <language>fin</language>
+      </subtitle>
+      <subtitle>
+        <language>fre</language>
+      </subtitle>
+      <subtitle>
+        <language>ger</language>
+      </subtitle>
+      <subtitle>
+        <language>ita</language>
+      </subtitle>
+      <subtitle>
+        <language>nor</language>
+      </subtitle>
+      <subtitle>
+        <language>por</language>
+      </subtitle>
+      <subtitle>
+        <language>rus</language>
+      </subtitle>
+      <subtitle>
+        <language>spa</language>
+      </subtitle>
+      <subtitle>
+        <language>spa</language>
+      </subtitle>
+      <subtitle>
+        <language>swe</language>
+      </subtitle>
+      <subtitle>
+        <language>eng</language>
+      </subtitle>
+      <subtitle>
+        <language>dan</language>
+      </subtitle>
+      <subtitle>
+        <language>dut</language>
+      </subtitle>
+      <subtitle>
+        <language>fin</language>
+      </subtitle>
+      <subtitle>
+        <language>fre</language>
+      </subtitle>
+      <subtitle>
+        <language>ger</language>
+      </subtitle>
+      <subtitle>
+        <language>ita</language>
+      </subtitle>
+      <subtitle>
+        <language>nor</language>
+      </subtitle>
+      <subtitle>
+        <language>por</language>
+      </subtitle>
+      <subtitle>
+        <language>spa</language>
+      </subtitle>
+      <subtitle>
+        <language>spa</language>
+      </subtitle>
+      <subtitle>
+        <language>swe</language>
+      </subtitle>
+    </streamdetails>
+  </fileinfo>
+  <actor>
+    <name>Anthony Daniels</name>
+    <role>C-3PO</role>
+    <order>5</order>
+    <thumb>https://image.tmdb.org/t/p/original/7kR4kwXtvXtvrsxWeX3QLX5NS5V.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Angus MacInnes</name>
+    <role>Gold Leader</role>
+    <order>20</order>
+    <thumb>https://image.tmdb.org/t/p/original/dOguFZS0jlFREigfMpcS8aitMBj.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Jeremy Sinden</name>
+    <role>Gold Two</role>
+    <order>21</order>
+    <thumb>https://image.tmdb.org/t/p/original/4XJOeDKTlkAQH18A3t3W2UY9BYV.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Harrison Ford</name>
+    <role>Han Solo</role>
+    <order>1</order>
+    <thumb>https://image.tmdb.org/t/p/original/5M7oN3sznp99hWYQ9sX0xheswWX.jpg</thumb>
+  </actor>
+  <actor>
+    <name>William Hootkins</name>
+    <role>Red Six (Porkins)</role>
+    <order>19</order>
+    <thumb>https://image.tmdb.org/t/p/original/dav2i86GN0UvYIyoTwQmGE8Nweg.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Richard LeParmentier</name>
+    <role>General Motti</role>
+    <order>24</order>
+    <thumb>https://image.tmdb.org/t/p/original/sxKfuif3ngW26TZOhKgyc1beJzC.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Carrie Fisher</name>
+    <role>Princess Leia Organa</role>
+    <order>2</order>
+    <thumb>https://image.tmdb.org/t/p/original/utKPqWm9MAcL6NqN0Kd71dWUmXM.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Peter Cushing</name>
+    <role>Grand Moff Tarkin</role>
+    <order>3</order>
+    <thumb>https://image.tmdb.org/t/p/original/if5g03wn6uvHx7F6FxXHLebKc0q.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Alec Guinness</name>
+    <role>Obi-Wan "Ben" Kenobi</role>
+    <order>4</order>
+    <thumb>https://image.tmdb.org/t/p/original/gplGgl6XERpvYdluiwY8GlxSdpi.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Peter Mayhew</name>
+    <role>Chewbacca</role>
+    <order>7</order>
+    <thumb>https://image.tmdb.org/t/p/original/bWv4RHLhjH6Ujrfhzm6ZC8ms3f2.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Eddie Byrne</name>
+    <role>General Willard</role>
+    <order>14</order>
+    <thumb>https://image.tmdb.org/t/p/original/9CfcebeFE3EpJ2cibv2XkPfYWqW.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Denis Lawson</name>
+    <role>Red Two (Wedge Antilles)</role>
+    <order>16</order>
+    <thumb>https://image.tmdb.org/t/p/original/b4BcP3UGtpgK1LYgpgFeYx7bD8V.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Alex McCrindle</name>
+    <role>General Dodonna</role>
+    <order>13</order>
+    <thumb>https://image.tmdb.org/t/p/original/LTLiQPMnKESxGVHhZ7n2qPAuMi.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Jack Klaff</name>
+    <role>Red Four (John "D")</role>
+    <order>18</order>
+    <thumb>https://image.tmdb.org/t/p/original/tD8WY2RRmhBQdNY9gGHFgcI4yBA.jpg</thumb>
+  </actor>
+  <actor>
+    <name>David Ankrum</name>
+    <role>Red Two, Wedge Antilles (voice) (uncredited)</role>
+    <order>27</order>
+    <thumb>https://image.tmdb.org/t/p/original/vgU0ZzZV1OljLyuStevHRsVqHEF.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Mark Hamill</name>
+    <role>Luke Skywalker</role>
+    <order>0</order>
+    <thumb>https://image.tmdb.org/t/p/original/2ZulC2Ccq1yv3pemusks6Zlfy2s.jpg</thumb>
+  </actor>
+  <actor>
+    <name>James Earl Jones</name>
+    <role>Darth Vader (voice)</role>
+    <order>9</order>
+    <thumb>https://image.tmdb.org/t/p/original/oqMPIsXrl9SZkRfIKN08eFROmH6.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Jack Purvis</name>
+    <role>Chief Jawa</role>
+    <order>12</order>
+    <thumb>https://image.tmdb.org/t/p/original/cbrOMCFG50f7tWpQlXdLx0v8HgD.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Kenny Baker</name>
+    <role>R2-D2</role>
+    <order>6</order>
+    <thumb>https://image.tmdb.org/t/p/original/uo3RorCoGDWHecLtqjviwzFExxR.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Phil Brown</name>
+    <role>Uncle Owen</role>
+    <order>10</order>
+    <thumb>https://image.tmdb.org/t/p/original/bzX8avS5m0aODFh4VZaMs0lJnyX.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Shelagh Fraser</name>
+    <role>Aunt Beru</role>
+    <order>11</order>
+    <thumb>https://image.tmdb.org/t/p/original/2QucvNmG3mOvSflbXRkY5renpQT.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Garrick Hagon</name>
+    <role>Red Three (Biggs Darklighter)</role>
+    <order>17</order>
+    <thumb>https://image.tmdb.org/t/p/original/lDtVxw5eMfmexYgL6OZJTfSCRCN.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Michael Leader</name>
+    <role>Stormtrooper</role>
+    <order>26</order>
+    <thumb>https://image.tmdb.org/t/p/original/cFehQFHIymmckgvfsEhMXxQ6ni9.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Scott Beach</name>
+    <role>Stormtrooper (voice) (uncredited)</role>
+    <order>28</order>
+    <thumb>https://image.tmdb.org/t/p/original/5Y3SbZeqOcw2w5KUUwnUjGoir6b.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Graham Ashley</name>
+    <role>Gold Five</role>
+    <order>22</order>
+    <thumb>https://image.tmdb.org/t/p/original/fapQU8j2ffZWON2Qav0DJDtYVJV.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Don Henderson</name>
+    <role>General Taggi</role>
+    <order>23</order>
+    <thumb>https://image.tmdb.org/t/p/original/93Zcpxng8e4aACOgsjU5i727oQc.jpg</thumb>
+  </actor>
+  <actor>
+    <name>David Prowse</name>
+    <role>Darth Vader (performer)</role>
+    <order>8</order>
+    <thumb>https://image.tmdb.org/t/p/original/xTocYiKHlRYN8tfh8vyQFsRXC0K.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Drewe Henley</name>
+    <role>Red Leader</role>
+    <order>15</order>
+    <thumb>https://image.tmdb.org/t/p/original/qPwONYRA8YRC7z2i1ZIJZlm1PNs.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Leslie Schofield</name>
+    <role>Commander #1</role>
+    <order>25</order>
+    <thumb>https://image.tmdb.org/t/p/original/zl0NIWhvXcladZDPiJ9pWYi5vkD.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Lightning Bear</name>
+    <role>Stormtrooper (uncredited)</role>
+    <order>29</order>
+    <thumb>https://image.tmdb.org/t/p/original/2QleSOdmvlByiYU8fiOPkFVDnPt.jpg</thumb>
+  </actor>
+</movie>

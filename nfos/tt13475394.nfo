@@ -1,0 +1,172 @@
+<movie>
+  <title>3 1/2 Hours</title>
+  <originaltitle>3 ½ Stunden</originaltitle>
+  <sorttitle>3 12 hours</sorttitle>
+  <ratings>
+    <rating name="imdb" max="10" default="true">
+      <value>6.3</value>
+      <votes>369</votes>
+    </rating>
+    <rating name="themoviedb" max="10">
+      <value>6.432</value>
+      <votes>22</votes>
+    </rating>
+  </ratings>
+  <rating>6.432</rating>
+  <userrating />
+  <top250 />
+  <outline />
+  <plot>August 13, 1961: The passengers on the interzonal train from Munich to East Berlin learn 3½ hours before crossing the border that the Wall is being built in Berlin. They have 3½ hours to make a life-changing decision: to get off the train or keep going.</plot>
+  <tagline />
+  <runtime>96</runtime>
+  <thumb aspect="poster" preview="https://image.tmdb.org/t/p/original/pB24jKxKdaEggpppfIz6CCRcH1S.jpg">https://image.tmdb.org/t/p/original/pB24jKxKdaEggpppfIz6CCRcH1S.jpg</thumb>
+  <fanart>
+    <thumb preview="https://image.tmdb.org/t/p/original/3Cl4ALQ39OigVcRUyKiJqQrlfAH.jpg">https://image.tmdb.org/t/p/original/3Cl4ALQ39OigVcRUyKiJqQrlfAH.jpg</thumb>
+  </fanart>
+  <playcount />
+  <lastplayed />
+  <id>847208</id>
+  <uniqueid type="tmdb" default="true">847208</uniqueid>
+  <uniqueid type="imdb">tt13475394</uniqueid>
+  <genre>TV Movie</genre>
+  <genre>Drama</genre>
+  <country />
+  <tag>german</tag>
+  <credits>Robert Krause</credits>
+  <credits>Beate Fraunholz</credits>
+  <director>Ed Herzog</director>
+  <year>2021</year>
+  <studio>Real Film Berlin GmbH</studio>
+  <trailer>plugin://plugin.video.youtube/play/?video_id=</trailer>
+  <watched>false</watched>
+  <fileinfo>
+    <streamdetails>
+      <video>
+        <aspect>1.7777778</aspect>
+        <bitrate>0</bitrate>
+        <codec>x264</codec>
+        <framerate>25</framerate>
+        <height>1080</height>
+        <scantype>Progressive</scantype>
+        <width>1920</width>
+        <duration>95.7712</duration>
+        <durationinseconds>5746</durationinseconds>
+      </video>
+      <audio>
+        <bitrate>448000</bitrate>
+        <channels>6</channels>
+        <codec>AC3</codec>
+        <language>ger</language>
+      </audio>
+    </streamdetails>
+  </fileinfo>
+  <actor>
+    <name>Peter Schneider</name>
+    <role>Rudolph Hoffmann</role>
+    <order>0</order>
+    <thumb>https://image.tmdb.org/t/p/original/f8s0gmEMafI2drpv5bb3fomZVFh.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Jeff Wilbusch</name>
+    <role>Sasha Goldberg</role>
+    <order>1</order>
+    <thumb>https://image.tmdb.org/t/p/original/cDDkZuOhm48mITvYp5fAR1yECRN.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Jördis Triebel</name>
+    <role>Christa Hartmann</role>
+    <order>2</order>
+    <thumb>https://image.tmdb.org/t/p/original/uD2Pd5MRxfHs68nB5CfDkCej9rC.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Susanne Bormann</name>
+    <role>Marlis Kügler</role>
+    <order>3</order>
+    <thumb>https://image.tmdb.org/t/p/original/tsSdHKw7pJJ9UQWzWLXs7RKAKy0.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Martin Feifel</name>
+    <role>Arthur Koch</role>
+    <order>4</order>
+    <thumb>https://image.tmdb.org/t/p/original/pqJIPUoL1rPAjBHJtXGNPfiyDtW.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Hannah Schiller</name>
+    <role>Sabine Schulz</role>
+    <order>5</order>
+    <thumb>https://image.tmdb.org/t/p/original/wVCry3OSn8OAGzupbnL2AlRImgF.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Alli Neumann</name>
+    <role>Carla Engel</role>
+    <order>6</order>
+    <thumb>https://image.tmdb.org/t/p/original/d9Y5kcEPBLdAqDHciALDstO5GXc.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Katrin Filzen</name>
+    <role>Ingrid Born</role>
+    <order>7</order>
+  </actor>
+  <actor>
+    <name>Uwe Kockisch</name>
+    <role>Paul Fuchs</role>
+    <order>8</order>
+    <thumb>https://image.tmdb.org/t/p/original/vStW4J8Opo8TmtNXxNpCa9dnfBR.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Luisa-Céline Gaffron</name>
+    <role>Edith Salzmann</role>
+    <order>9</order>
+    <thumb>https://image.tmdb.org/t/p/original/xwMVzh49TFLXRQcn72I6qy0k1rc.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Jan Krauter</name>
+    <role>Gerd Kügler</role>
+    <order>10</order>
+    <thumb>https://image.tmdb.org/t/p/original/gtqcWe8jN9x7aD2oyaEYIp6aVzu.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Moritz Katzmair</name>
+    <role>Andi Erler</role>
+    <order>11</order>
+    <thumb>https://image.tmdb.org/t/p/original/tfDL19IWLPgSTzFFgl9uCMP5Hic.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Harry Täschner</name>
+    <role>Ernst Melchior</role>
+    <order>12</order>
+  </actor>
+  <actor>
+    <name>Franz-Xaver Zeller</name>
+    <role>Schaffner</role>
+    <order>13</order>
+  </actor>
+  <actor>
+    <name>Micha R. Scholze</name>
+    <role>Älterer Ostdeutscher</role>
+    <order>14</order>
+  </actor>
+  <actor>
+    <name>Birgit Berthold</name>
+    <role>Anna Melchior</role>
+    <order>15</order>
+  </actor>
+  <actor>
+    <name>Brian Völkner</name>
+    <role>Zugbegleiter (Ost)</role>
+    <order>16</order>
+    <thumb>https://image.tmdb.org/t/p/original/g86ZfiRQtBYoVpOFFD9ySyPXSMG.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Steffi Kühnert</name>
+    <role>VP Ulrike</role>
+    <order>17</order>
+    <thumb>https://image.tmdb.org/t/p/original/6hW85ehTO43ypWbRxrpoy6WCfZ1.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Vincent Redetzki</name>
+    <role>Kurt Blochwitz</role>
+    <order>18</order>
+    <thumb>https://image.tmdb.org/t/p/original/7loFI0Arjl7kIL6Ltd55USDFjy0.jpg</thumb>
+  </actor>
+</movie>

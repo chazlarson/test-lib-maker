@@ -1,0 +1,224 @@
+<movie>
+  <title>Anna and the Apocalypse</title>
+  <originaltitle>Anna and the Apocalypse</originaltitle>
+  <sorttitle>anna apocalypse</sorttitle>
+  <ratings>
+    <rating name="imdb" max="10" default="true">
+      <value>6</value>
+      <votes>14315</votes>
+    </rating>
+    <rating name="themoviedb" max="10">
+      <value>6.055</value>
+      <votes>301</votes>
+    </rating>
+  </ratings>
+  <rating>6.055</rating>
+  <userrating />
+  <top250 />
+  <outline />
+  <plot>A zombie apocalypse threatens the sleepy town of Little Haven – at Christmas – forcing Anna and her friends to fight, slash and sing their way to survival, facing the undead in a desperate race to reach their loved ones. But they soon discover that no one is safe in this new world, and with civilization falling apart around them, the only people they can truly rely on are each other.</plot>
+  <tagline />
+  <runtime>98</runtime>
+  <thumb aspect="poster" preview="https://image.tmdb.org/t/p/original/pb60xSzUnS9D5iDvrV8N6QOG3ZR.jpg">https://image.tmdb.org/t/p/original/pb60xSzUnS9D5iDvrV8N6QOG3ZR.jpg</thumb>
+  <fanart>
+    <thumb preview="https://image.tmdb.org/t/p/original/7GR03LqwB7ePPPhaK5BAYNzt3Vm.jpg">https://image.tmdb.org/t/p/original/7GR03LqwB7ePPPhaK5BAYNzt3Vm.jpg</thumb>
+  </fanart>
+  <mpaa>R</mpaa>
+  <playcount />
+  <lastplayed />
+  <id>461928</id>
+  <uniqueid type="tmdb" default="true">461928</uniqueid>
+  <uniqueid type="imdb">tt6433880</uniqueid>
+  <genre>Horror</genre>
+  <genre>Comedy</genre>
+  <genre>Fantasy</genre>
+  <country />
+  <director>John McPhail</director>
+  <premiered>2018-11-30</premiered>
+  <year>2018</year>
+  <studio>Parkhouse Pictures</studio>
+  <trailer>plugin://plugin.video.youtube/play/?video_id=ES3SkjzO7CY</trailer>
+  <watched>false</watched>
+  <fileinfo>
+    <streamdetails>
+      <video>
+        <aspect>1.7777778</aspect>
+        <bitrate>0</bitrate>
+        <codec>AVC</codec>
+        <framerate>24</framerate>
+        <height>1080</height>
+        <scantype>Progressive</scantype>
+        <width>1920</width>
+        <duration>97.68285</duration>
+        <durationinseconds>5861</durationinseconds>
+      </video>
+      <audio>
+        <bitrate>0</bitrate>
+        <channels>6</channels>
+        <codec>DTS-HD MA</codec>
+        <language>engeng</language>
+      </audio>
+      <subtitle>
+        <language>engdutger</language>
+      </subtitle>
+    </streamdetails>
+  </fileinfo>
+  <actor>
+    <name>Ella Hunt</name>
+    <role>Anna Shepherd</role>
+    <order>0</order>
+    <thumb>https://image.tmdb.org/t/p/original/g4xwqi7hs7vq4yuDY1bQSCMnJSl.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Sarah Swire</name>
+    <role>Steph North</role>
+    <order>1</order>
+    <thumb>https://image.tmdb.org/t/p/original/yhJ3ju6vsJ9NJ119hJvmXOfOjWE.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Malcolm Cumming</name>
+    <role>John</role>
+    <order>2</order>
+    <thumb>https://image.tmdb.org/t/p/original/o1ieghnyjfdKoTTrqZQbPMhgtlT.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Christopher Leveaux</name>
+    <role>Chris Wise</role>
+    <order>3</order>
+    <thumb>https://image.tmdb.org/t/p/original/disM73F1s8FajPd9eguY7w6jizP.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Paul Kaye</name>
+    <role>Arthur Savage</role>
+    <order>4</order>
+    <thumb>https://image.tmdb.org/t/p/original/bGZxKojbRrgyI3gFtRsduJnbcrm.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Ben Wiggins</name>
+    <role>Nick</role>
+    <order>5</order>
+    <thumb>https://image.tmdb.org/t/p/original/6xIn49dDWHm9aFYYMP54GDWsRhE.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Mark Benton</name>
+    <role>Tony Shepherd</role>
+    <order>6</order>
+    <thumb>https://image.tmdb.org/t/p/original/hPMkW7sSs4fD7qgAOTnVVF7xWMd.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Marli Siu</name>
+    <role>Lisa</role>
+    <order>7</order>
+    <thumb>https://image.tmdb.org/t/p/original/pNi3TfnnJuDz25m93Nr2AKIYV4R.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Sean Connor</name>
+    <role>Graham</role>
+    <order>8</order>
+  </actor>
+  <actor>
+    <name>John Winchester</name>
+    <role>Tibbsy</role>
+    <order>9</order>
+  </actor>
+  <actor>
+    <name>Euan Bennet</name>
+    <role>Jake</role>
+    <order>10</order>
+  </actor>
+  <actor>
+    <name>Ella Jarvis</name>
+    <role>Katie</role>
+    <order>11</order>
+  </actor>
+  <actor>
+    <name>Jackie Bird</name>
+    <role>Herself</role>
+    <order>12</order>
+  </actor>
+  <actor>
+    <name>Tariqsafdar Hussain</name>
+    <role>Zombie</role>
+    <order>15</order>
+  </actor>
+  <actor>
+    <name>David Friel</name>
+    <role>Paramedic</role>
+    <order>16</order>
+  </actor>
+  <actor>
+    <name>Ben Bradley</name>
+    <role>Teacher / Zombie</role>
+    <order>17</order>
+  </actor>
+  <actor>
+    <name>Janet Lawson</name>
+    <role>Mrs. Hinzmann</role>
+    <order>18</order>
+  </actor>
+  <actor>
+    <name>Callum Johnstone</name>
+    <role>Snowman</role>
+    <order>19</order>
+  </actor>
+  <actor>
+    <name>Jake Richardson</name>
+    <role>Chas</role>
+    <order>20</order>
+  </actor>
+  <actor>
+    <name>Leigh Butler</name>
+    <role>Alf</role>
+    <order>21</order>
+  </actor>
+  <actor>
+    <name>Matthew Scott</name>
+    <role>Santa Boy</role>
+    <order>22</order>
+  </actor>
+  <actor>
+    <name>Kieran Morris</name>
+    <role>Santa Boy</role>
+    <order>23</order>
+  </actor>
+  <actor>
+    <name>Jack Douglas</name>
+    <role>Santa Boy</role>
+    <order>24</order>
+  </actor>
+  <actor>
+    <name>Fraser McLoughlin</name>
+    <role>Santa Boy</role>
+    <order>25</order>
+  </actor>
+  <actor>
+    <name>David Maris</name>
+    <role>Santa Boy</role>
+    <order>26</order>
+  </actor>
+  <actor>
+    <name>Benjamin Storey</name>
+    <role>Santa Boy</role>
+    <order>27</order>
+  </actor>
+  <actor>
+    <name>Michael Annis</name>
+    <role>Headmaster</role>
+    <order>28</order>
+  </actor>
+  <actor>
+    <name>Calum Cormack</name>
+    <role>Zombie Santa</role>
+    <order>29</order>
+  </actor>
+  <actor>
+    <name>Louise Macphail</name>
+    <role>Zombie</role>
+    <order>13</order>
+  </actor>
+  <actor>
+    <name>Andrew Kelly</name>
+    <role>Zombie</role>
+    <order>14</order>
+  </actor>
+</movie>

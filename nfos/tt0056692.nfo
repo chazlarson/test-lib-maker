@@ -1,0 +1,223 @@
+<movie>
+  <title>Wild Gals of the Naked West</title>
+  <originaltitle>Wild Gals of the Naked West</originaltitle>
+  <sorttitle>wild gals naked west</sorttitle>
+  <ratings>
+    <rating name="imdb" max="10" default="true">
+      <value>4.1</value>
+      <votes>725</votes>
+    </rating>
+    <rating name="themoviedb" max="10">
+      <value>3.7</value>
+      <votes>27</votes>
+    </rating>
+  </ratings>
+  <rating>3.7</rating>
+  <userrating />
+  <top250 />
+  <outline />
+  <plot>An old geezer recalls some of the antics of the men and women of his western town, more wild and woolly than Tombstone or Dodge City. In this town no one is a good shot, the women are hungry for new meat, and practical jokers abound. A stranger strolls into town, proving resistant to the mayhem, and after donning some cowboy duds begins cleaning up that town.</plot>
+  <tagline />
+  <runtime>65</runtime>
+  <thumb aspect="poster" preview="https://image.tmdb.org/t/p/original/oQbTEKAq7YHSTFaGGCWGmkYRgCR.jpg">https://image.tmdb.org/t/p/original/oQbTEKAq7YHSTFaGGCWGmkYRgCR.jpg</thumb>
+  <fanart>
+    <thumb preview="https://image.tmdb.org/t/p/original/abRspLcDYn4Oosc9c1voTFH1D1w.jpg">https://image.tmdb.org/t/p/original/abRspLcDYn4Oosc9c1voTFH1D1w.jpg</thumb>
+  </fanart>
+  <playcount />
+  <lastplayed />
+  <id>5646</id>
+  <uniqueid type="tmdb" default="true">5646</uniqueid>
+  <uniqueid type="imdb">tt0056692</uniqueid>
+  <genre>Comedy</genre>
+  <genre>Western</genre>
+  <country />
+  <credits>Russ Meyer</credits>
+  <credits>Jack Moran</credits>
+  <director>Russ Meyer</director>
+  <premiered>1962-05-09</premiered>
+  <year>1962</year>
+  <studio>Pad-Ram Enterprises</studio>
+  <trailer>plugin://plugin.video.youtube/play/?video_id=r7KSsYaHgew</trailer>
+  <watched>false</watched>
+  <fileinfo>
+    <streamdetails>
+      <video>
+        <aspect>1.3103448</aspect>
+        <bitrate>0</bitrate>
+        <codec>x264</codec>
+        <framerate>29.97002997002997002997002997</framerate>
+        <height>464</height>
+        <scantype>Progressive</scantype>
+        <width>608</width>
+        <duration>61.0669</duration>
+        <durationinseconds>3664</durationinseconds>
+      </video>
+      <audio>
+        <bitrate>0</bitrate>
+        <channels>2</channels>
+        <codec>AAC</codec>
+        <language />
+      </audio>
+    </streamdetails>
+  </fileinfo>
+  <actor>
+    <name>Werner Kirsch</name>
+    <role>Snick</role>
+    <order>5</order>
+  </actor>
+  <actor>
+    <name>Frank Bolger</name>
+    <role>Snake Wolf</role>
+    <order>4</order>
+  </actor>
+  <actor>
+    <name>Julie Williams</name>
+    <role>The Bosom</role>
+    <order>6</order>
+    <thumb>https://image.tmdb.org/t/p/original/oYfONKusR4ACYUpy4qqHAHIaaak.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Anthony-James Ryan</name>
+    <role>Crazy Redskin</role>
+    <order>1</order>
+  </actor>
+  <actor>
+    <name>Ken Parker</name>
+    <role></role>
+    <order>7</order>
+  </actor>
+  <actor>
+    <name>Charles G. Schelling</name>
+    <role></role>
+    <order>8</order>
+  </actor>
+  <actor>
+    <name>Nate Schwantze</name>
+    <role></role>
+    <order>9</order>
+  </actor>
+  <actor>
+    <name>Barbara Baral</name>
+    <role></role>
+    <order>10</order>
+  </actor>
+  <actor>
+    <name>Arlyn Solomon</name>
+    <role></role>
+    <order>11</order>
+  </actor>
+  <actor>
+    <name>Pegge Thomas</name>
+    <role></role>
+    <order>13</order>
+  </actor>
+  <actor>
+    <name>Princess Livingston</name>
+    <role>Scary Woman in Saloon</role>
+    <order>20</order>
+  </actor>
+  <actor>
+    <name>Janus Carter</name>
+    <role>Miss Floodback</role>
+    <order>19</order>
+  </actor>
+  <actor>
+    <name>Joyce McCord</name>
+    <role></role>
+    <order>21</order>
+  </actor>
+  <actor>
+    <name>Janette Davidson</name>
+    <role></role>
+    <order>22</order>
+  </actor>
+  <actor>
+    <name>Sandra Lind</name>
+    <role></role>
+    <order>24</order>
+  </actor>
+  <actor>
+    <name>Gloria Wallace</name>
+    <role></role>
+    <order>29</order>
+  </actor>
+  <actor>
+    <name>Jean Roche</name>
+    <role></role>
+    <order>14</order>
+  </actor>
+  <actor>
+    <name>Jean Rainey</name>
+    <role></role>
+    <order>15</order>
+  </actor>
+  <actor>
+    <name>Peter A. DeCenzie</name>
+    <role></role>
+    <order>18</order>
+  </actor>
+  <actor>
+    <name>Terri Taylor</name>
+    <role>Golden Nuggets Girl (as Teri Taylor)</role>
+    <order>3</order>
+    <thumb>https://image.tmdb.org/t/p/original/7elUcQaNVwaDiAi0TCM2KQZBeEu.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Rusty Taylor</name>
+    <role></role>
+    <order>12</order>
+    <thumb>https://image.tmdb.org/t/p/original/8HNpAi3QYSnS5a2ff4lU2L9NYxA.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Patty McMains</name>
+    <role></role>
+    <order>16</order>
+    <thumb>https://image.tmdb.org/t/p/original/sYymhve61I1RRGbzoj05lRD15Oh.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Russ Meyer</name>
+    <role></role>
+    <order>26</order>
+    <thumb>https://image.tmdb.org/t/p/original/zNVAAdgIk9q3SQadZuQKr6wHlXM.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Sammy Gilbert</name>
+    <role>The Stranger</role>
+    <order>0</order>
+  </actor>
+  <actor>
+    <name>Jackie Moran</name>
+    <role></role>
+    <order>2</order>
+    <thumb>https://image.tmdb.org/t/p/original/eZczaeyqUUyzrJXvHFAuV8RLnzl.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Mickey Jines</name>
+    <role>(as Michelle Mandale)</role>
+    <order>27</order>
+    <thumb>https://image.tmdb.org/t/p/original/xaavdHKjxWO7hUY3JO2HcFW4tc8.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Mel Fowler</name>
+    <role></role>
+    <order>17</order>
+  </actor>
+  <actor>
+    <name>Palva Itano</name>
+    <role>(as Palva Stano)</role>
+    <order>23</order>
+    <thumb>https://image.tmdb.org/t/p/original/asfMrqjxwLn1O7gPIqgTEeDWjkD.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Barney Caliendo</name>
+    <role>Pianist</role>
+    <order>25</order>
+  </actor>
+  <actor>
+    <name>William Arthur Creath</name>
+    <role></role>
+    <order>28</order>
+  </actor>
+</movie>
+https://www.themoviedb.org/movie/5646
+https://www.imdb.com/title/tt0056692

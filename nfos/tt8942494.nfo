@@ -1,0 +1,177 @@
+<movie>
+  <title>Christmas Pen Pals</title>
+  <originaltitle>Christmas Pen Pals</originaltitle>
+  <sorttitle>christmas pen pals</sorttitle>
+  <ratings>
+    <rating name="imdb" max="10" default="true">
+      <value>7</value>
+      <votes>1424</votes>
+    </rating>
+    <rating name="themoviedb" max="10">
+      <value>6.6</value>
+      <votes>39</votes>
+    </rating>
+  </ratings>
+  <rating>6.6</rating>
+  <userrating />
+  <top250 />
+  <outline />
+  <plot>Following an unexpected breakup weeks before Christmas, Hannah, tech wiz and creator of the dating app, Perfect One, heads home for the holidays, challenged to save her failing business by re-conceiving a new romantic dating model. Upon her return she runs into her high school boyfriend, Sam, who she has carefully avoided for years and reluctantly makes a deal with her dad to sign up for the town’s Christmas Cupid, an anonymous holiday pen pal service. As the season progresses, Hannah is smitten by each beautifully written letter she receives and starts to believe that her Christmas pen pal could be her soul mate.</plot>
+  <tagline />
+  <runtime>90</runtime>
+  <thumb aspect="poster" preview="https://image.tmdb.org/t/p/original/9xVKW4BKxfAzfgdxExmH7sKzBIU.jpg">https://image.tmdb.org/t/p/original/9xVKW4BKxfAzfgdxExmH7sKzBIU.jpg</thumb>
+  <fanart>
+    <thumb preview="https://image.tmdb.org/t/p/original/Ata61KVUAI1ZFspNZ5wArVMFmNY.jpg">https://image.tmdb.org/t/p/original/Ata61KVUAI1ZFspNZ5wArVMFmNY.jpg</thumb>
+  </fanart>
+  <mpaa>PG</mpaa>
+  <playcount />
+  <lastplayed />
+  <id>550648</id>
+  <uniqueid type="tmdb" default="true">550648</uniqueid>
+  <uniqueid type="imdb">tt8942494</uniqueid>
+  <genre>TV Movie</genre>
+  <genre>Romance</genre>
+  <country />
+  <director>Siobhan Devine</director>
+  <year>2018</year>
+  <studio>Howard Braunstein Films</studio>
+  <trailer>plugin://plugin.video.youtube/play/?video_id=</trailer>
+  <watched>false</watched>
+  <fileinfo>
+    <streamdetails>
+      <video>
+        <aspect>1.7777778</aspect>
+        <bitrate>0</bitrate>
+        <codec>h264</codec>
+        <framerate>23.976023976023976023976023976</framerate>
+        <height>1080</height>
+        <scantype>Progressive</scantype>
+        <width>1920</width>
+        <duration>87.75893333333333</duration>
+        <durationinseconds>5266</durationinseconds>
+      </video>
+      <audio>
+        <bitrate>224000</bitrate>
+        <channels>2</channels>
+        <codec>EAC3</codec>
+        <language>eng</language>
+      </audio>
+      <subtitle>
+        <language>engeng</language>
+      </subtitle>
+    </streamdetails>
+  </fileinfo>
+  <actor>
+    <name>Niall Matter</name>
+    <role>Sam</role>
+    <order>1</order>
+    <thumb>https://image.tmdb.org/t/p/original/9hlmypLILRkaEVOazFdg11nfsJm.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Michael Gross</name>
+    <role>Ted</role>
+    <order>8</order>
+    <thumb>https://image.tmdb.org/t/p/original/qznUukUDTLDjRqbP3GdcMYqYSiI.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Giles Panton</name>
+    <role>Daniel Harrison</role>
+    <order>11</order>
+    <thumb>https://image.tmdb.org/t/p/original/ixZb1aUaL7yScZYLgUU9LS2Grwk.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Christine Willes</name>
+    <role>Martha</role>
+    <order>15</order>
+    <thumb>https://image.tmdb.org/t/p/original/bOSrIT6eir8mzwO7KfA6NaFbKMh.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Cardi Wong</name>
+    <role>Spencer</role>
+    <order>17</order>
+    <thumb>https://image.tmdb.org/t/p/original/zOzUBSR1yPia5YyQbuJLrL34aZD.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Chiara Zanni</name>
+    <role>Lucy</role>
+    <order>18</order>
+    <thumb>https://image.tmdb.org/t/p/original/dq1rqHIpRV9F5guFupyxglIix4a.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Latonya Williams</name>
+    <role>Sarah</role>
+    <order>16</order>
+    <thumb>https://image.tmdb.org/t/p/original/hkwpYfbp1IqCQ1SrdhSs1NnHYMU.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Naika Toussaint</name>
+    <role>Julie</role>
+    <order>12</order>
+    <thumb>https://image.tmdb.org/t/p/original/bggKxiJjUAOwbb5kYKfdWzbvvG5.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Kathleen Duborg</name>
+    <role>Susan</role>
+    <order>6</order>
+    <thumb>https://image.tmdb.org/t/p/original/y2ydKXs8ORtwKsbq1gPXfcvvnGG.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Chelsea Gill</name>
+    <role>Waitress</role>
+    <order>7</order>
+    <thumb>https://image.tmdb.org/t/p/original/22riRLu8YECBeKodZLKnEfb3CBv.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Nicholas Holmes</name>
+    <role>Young Max</role>
+    <order>9</order>
+    <thumb>https://image.tmdb.org/t/p/original/7G7F6Yqk6VXv4xmL6yoMSF6gKyM.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Catherine Lough Haggquist</name>
+    <role>Naomi</role>
+    <order>10</order>
+    <thumb>https://image.tmdb.org/t/p/original/i8WNwTXrfVxmsCfOGirh1MtVppz.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Nevis Unipan</name>
+    <role>Lizzy</role>
+    <order>13</order>
+    <thumb>https://image.tmdb.org/t/p/original/9pYgHEOpW4uvDo42VzHSr8oRK3d.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Talana Watt Madu</name>
+    <role>Ice Skater</role>
+    <order>14</order>
+  </actor>
+  <actor>
+    <name>Sarah Drew</name>
+    <role>Hannah</role>
+    <order>0</order>
+    <thumb>https://image.tmdb.org/t/p/original/65hUM3Egh5roemP3Cgn0bA38rDj.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Jesse Carroll</name>
+    <role>Mike Jones</role>
+    <order>4</order>
+    <thumb>https://image.tmdb.org/t/p/original/knJJS4AQwIQ9PiFIhqE6yC2d0XT.jpg</thumb>
+  </actor>
+  <actor>
+    <name>William Vaughan</name>
+    <role>Joe</role>
+    <order>2</order>
+    <thumb>https://image.tmdb.org/t/p/original/4KFaIOMfsadrHQkRSQhjs1ZGzvZ.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Vincent Dangerfield</name>
+    <role>Greg Williams</role>
+    <order>5</order>
+    <thumb>https://image.tmdb.org/t/p/original/rG2SZFBaIovK8B5sC3RwTNML5Mp.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Jag Bal</name>
+    <role>Ian</role>
+    <order>3</order>
+    <thumb>https://image.tmdb.org/t/p/original/mVqWhFhUfSYr7Vz5zl3opoZCd90.jpg</thumb>
+  </actor>
+</movie>
