@@ -7,3 +7,5 @@
 /output.thd
 /poster.jpg
 /test_movie_lib
+.direnv
+*test_movie_lib
