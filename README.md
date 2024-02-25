@@ -24,7 +24,7 @@ cd PMM-walkthrough
 
 This will:
 
-1. create five base 15-minute testpattern videos in 4k, 1080p, 720p, 576p, and 480p [if they don't already exist]
+1. create five base 1-minute testpattern videos in 4k, 1080p, 720p, 576p, and 480p [if they don't already exist]
 2. create a directory `test_movie_lib`, which contains 40 movies meeting the requirements listed on the PMM walkthough pages [at time of writing]:
 
 > For best results with this walkthrough, your test library will contain:
@@ -39,7 +39,7 @@ This will:
 >
 > A couple different resolutions among the movies.
 
-All those 40 movies are 15 minutes long; they display a test pattern and play some music.
+All those 40 movies are 1 minute long; they display a test pattern and play some music.
 
 The "popular" list might be an issue as I imagine there's a fair amount of churn there.
 
