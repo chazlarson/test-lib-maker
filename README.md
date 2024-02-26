@@ -1,8 +1,8 @@
 ## Builds test libraries for Plex
 
-Work in progress, but the idea is to be able to run a script and dummy up the files you need to test various aspects of Plex, specifically as related to Plex-Meta-Manager.
+Work in progress, but the idea is to be able to run a script and dummy up the files you need to test various aspects of Plex, specifically as related to [Plex-Meta-Manager](https://github.com/meisnate12/Plex-Meta-Manager.git).
 
-Currently the script to generate the library for the PMM walkthroughs is available.
+Currently the script to generate the library for the PMM [local](https://metamanager.wiki/en/latest/pmm/install/local/) and [docker](https://metamanager.wiki/en/latest/pmm/install/docker/) walkthroughs is available.
 
 ### Requirements:
 ```
@@ -47,4 +47,4 @@ Maybe someday this will grab the list from IMDB.
 
 Create a Movie library in Plex and point it at that folder.  You can move it elsewhere if you want; it's less than 150 MB.
 
-Now proceed with the PMM walkthough.
+Now you have the "small test library" described in the PMM walkthough.
