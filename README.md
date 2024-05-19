@@ -2,7 +2,7 @@
 
 Work in progress, but the idea is to be able to run a script and dummy up the files you need to test various aspects of Plex, specifically as related to [Kometa](https://kometa.wiki).
 
-Currently the script to generate the library for the PMM [local](https://kometa.wiki/en/latest/pmm/install/local/) and [docker](https://kometa.wiki/en/latest/pmm/install/docker/) walkthroughs is available.
+Currently the script to generate the library for the Kometa [local](https://kometa.wiki/en/latest/pmm/install/local/) and [docker](https://kometa.wiki/en/latest/pmm/install/docker/) walkthroughs is available.
 
 There is also a tv library script that will generate a TV library with a variety of resolutions and sources; "Happy Days" has randomized sources and resolutions.
 
