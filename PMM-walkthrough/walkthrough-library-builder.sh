@@ -30,7 +30,7 @@ createbasevideo '480' '854:480'
 
 createtestvideo () {
     mkdir -p "test_movie_lib/$1 $2"
-    docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg -i "$3.mkv" -i /config/sounds/1-min-audio.m4a -c copy -map 0:v:0 -map 1:a:0 "/config/test_movie_lib/$1 $2/$1 [WEBDL-$4 H264 AAC 2.0]-BINGBANG.mkv"
+    docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg -i "/config/$3.mkv" -i /config/sounds/1-min-audio.m4a -c copy -map 0:v:0 -map 1:a:0 "/config/test_movie_lib/$1 $2/$1 [WEBDL-$4 H264 AAC 2.0]-BINGBANG.mkv"
 }
 
 # Comedy after 2012
