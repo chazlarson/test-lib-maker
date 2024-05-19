@@ -16,7 +16,7 @@ createbasevideo () {
         echo "File $FILE exists."
     else
         echo "Creating $FILE..."
-        ffmpeg -loop 1 -i testpattern.png -c:v libx264 -t 60 -pix_fmt yuv420p -vf scale=$2 $FILE
+        docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg -loop 1 -i /config/testpattern.png -c:v libx264 -t 60 -pix_fmt yuv420p -vf scale=$2 /config/$FILE
         echo "$FILE created"
         echo "==================="
     fi
@@ -30,7 +30,7 @@ createbasevideo '480' '854:480'
 
 createtestvideo () {
     mkdir -p "test_movie_lib/$1 $2"
-    ffmpeg -i "$3.mkv" -i sounds/1-min-audio.m4a -c copy -map 0:v:0 -map 1:a:0 "test_movie_lib/$1 $2/$1 [WEBDL-$4 H264 AAC 2.0]-BINGBANG.mkv"
+    docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg -i "$3.mkv" -i /config/sounds/1-min-audio.m4a -c copy -map 0:v:0 -map 1:a:0 "/config/test_movie_lib/$1 $2/$1 [WEBDL-$4 H264 AAC 2.0]-BINGBANG.mkv"
 }
 
 # Comedy after 2012
