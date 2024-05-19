@@ -4,6 +4,8 @@ Work in progress, but the idea is to be able to run a script and dummy up the fi
 
 Currently the script to generate the library for the PMM [local](https://kometa.wiki/en/latest/pmm/install/local/) and [docker](https://kometa.wiki/en/latest/pmm/install/docker/) walkthroughs is available.
 
+There is also a tv library script that will generate a TV library with a variety of resolutions and sources; "Happy Days" has randomized sources and resolutions.
+
 ### Requirements:
 
 This is a bash script.  It requires bash or a compatible shell.  I do not have a Windows environment available, so have not converted this to Powershell or the like as yet.  PRs welcome.
