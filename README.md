@@ -1,8 +1,8 @@
 ## Build test libraries for Plex
 
-Work in progress, but the idea is to be able to run a script and dummy up the files you need to test various aspects of Plex, specifically as related to [Plex-Meta-Manager](https://github.com/meisnate12/Plex-Meta-Manager.git).
+Work in progress, but the idea is to be able to run a script and dummy up the files you need to test various aspects of Plex, specifically as related to [Kometa](https://kometa.wiki).
 
-Currently the script to generate the library for the PMM [local](https://metamanager.wiki/en/latest/pmm/install/local/) and [docker](https://metamanager.wiki/en/latest/pmm/install/docker/) walkthroughs is available.
+Currently the script to generate the library for the PMM [local](https://kometa.wiki/en/latest/pmm/install/local/) and [docker](https://kometa.wiki/en/latest/pmm/install/docker/) walkthroughs is available.
 
 ### Requirements:
 
