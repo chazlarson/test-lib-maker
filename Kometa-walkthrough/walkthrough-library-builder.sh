@@ -2,6 +2,24 @@
 
 # SCRIPT TO DO STUFF
 
+select_random() {
+    printf "%s\0" "$@" | shuf -z -n1 | tr -d '\0'
+}
+
+editions=("-{edition-Extended-Edition}" "-{edition-Uncut-Edition}" "-{edition-Unrated-Edition}" "-{edition-Special-Edition}" "-{edition-Anniversary-Edition}" "-{edition-Collectors-Edition}" "-{edition-Diamond-Edition}" "-{edition-Platinum-Edition}" "-{edition-Directors-Cut}" "-{edition-Final-Cut}" "-{edition-International-Cut}" "-{edition-Theatrical-Cut}" "-{edition-Ultimate-Cut}" "-{edition-Alternate-Cut}" "-{edition-Coda-Cut}" "-{edition-IMAX-Enhanced}" "-{edition-IMAX}" "-{edition-Remastered}" "-{edition-Criterion}" "-{edition-Richard-Donner}" "-{edition-Black-And-Chrome}" "-{edition-Definitive}" "-{edition-Ulysses}")
+
+cur_edition=""
+
+get_random_edition () {
+    cur_edition=$(select_random "${editions[@]}")
+    echo "switched to $cur_edition"
+}
+
+change_edition () {
+    cur_edition=""
+    [[ $(shuf -i 1-10 -n 1) == 1 ]] && get_random_edition
+}
+
 # At least two comedy movies released since 2012.
 # At least two movies from the IMDB top 250.
 # At least two movies from IMDB's Popular list.
@@ -29,8 +47,9 @@ createbasevideo '576' '1024:576'
 createbasevideo '480' '854:480'
 
 createtestvideo () {
-    mkdir -p "test_movie_lib/$1 $2"
-    docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg -i "/config/$3.mkv" -i /config/sounds/1-min-audio.m4a -c copy -map 0:v:0 -map 1:a:0 "/config/test_movie_lib/$1 $2/$1 [WEBDL-$4 H264 AAC 2.0]-BINGBANG.mkv"
+    change_edition
+    mkdir -p "test_movie_lib/$1 $2$cur_edition"
+    docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg -loglevel quiet -stats -i "/config/$3.mkv" -i /config/sounds/1-min-audio.m4a -c copy -map 0:v:0 -map 1:a:0 "/config/test_movie_lib/$1 $2$cur_edition/$1 [WEBDL-$4 H264 AAC 2.0]-BINGBANG$cur_edition.mkv"
 }
 
 # Comedy after 2012

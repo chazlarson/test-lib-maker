@@ -96,7 +96,7 @@ createepisode () {
     mkdir -p "test_tv_lib/$1 $2/Season $3"
 
     echo "creating episode video file: $1 - S$3E$4 [$cur_src-$cur_res H264 AAC 2.0]-BINGBANG.mkv"
-    docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg  -i "/config/$5.mkv" -i /config/sounds/1-min-audio.m4a -c copy -map 0:v:0 -map 1:a:0 "/config/test_tv_lib/$1 $2/Season $3/$1 - S$3E$4 [$cur_src-$cur_res H264 AAC 2.0]-BINGBANG.mkv" >> ffmpeg.log
+    docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg  -i "/config/$cur_res.mkv" -i /config/sounds/1-min-audio.m4a -c copy -map 0:v:0 -map 1:a:0 "/config/test_tv_lib/$1 $2/Season $3/$1 - S$3E$4 [$cur_src-$cur_res H264 AAC 2.0]-BINGBANG.mkv" >> ffmpeg.log
 }
 
 # $1 title with year
