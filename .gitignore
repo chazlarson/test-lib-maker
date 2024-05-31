@@ -12,15 +12,6 @@
 *test_movie_lib
 *test_tv_lib
 
-/Kometa-walkthrough/4k.mkv
-/Kometa-walkthrough/480.mkv
-/Kometa-walkthrough/480p.mkv
-/Kometa-walkthrough/576.mkv
-/Kometa-walkthrough/576p.mkv
-/Kometa-walkthrough/720.mkv
-/Kometa-walkthrough/720p.mkv
-/Kometa-walkthrough/1080.mkv
-/Kometa-walkthrough/1080p.mkv
-/Kometa-walkthrough/2160p.mkv
+/Kometa-walkthrough/*.mkv
 /Kometa-walkthrough/ffmpeg.log
 /Kometa-walkthrough/test.sh
