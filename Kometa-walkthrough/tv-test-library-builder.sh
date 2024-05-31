@@ -5,7 +5,10 @@ select_random() {
 }
 
 sources=("Bluray" "Remux" "WEBDL" "WEBRIP" "HDTV" "DVD")
-resolutions=("2160p" "1080p" "720p" "576p" "480p")
+resolutions=("2160p" "1080p" "720p" "576p" "480p", "360p", "240p")
+
+cur_res='2160p'
+cur_src='Bluray'
 
 getnextsource () {
     if [ "$1" = 'Bluray' ]
@@ -25,6 +28,10 @@ getnextsource () {
         cur_src='HDTV'
     fi
     if [ "$1" = 'HDTV' ]
+    then
+        cur_src='DVD'
+    fi
+    if [ "$1" = 'DVD' ]
     then
         cur_src='Bluray'
     fi
@@ -50,8 +57,17 @@ getnextresolution () {
     fi
     if [ "$1" = '480p' ]
     then
+        cur_res='360p'
+    fi
+    if [ "$1" = '360p' ]
+    then
+        cur_res='240p'
+    fi
+    if [ "$1" = '240p' ]
+    then
         cur_res='2160p'
     fi
+
     echo "switched to $cur_res"
 }
 
@@ -84,6 +100,8 @@ createbasevideo '1080p' '1920:1080'
 createbasevideo '720p' '1280:720'
 createbasevideo '576p' '1024:576'
 createbasevideo '480p' '854:480'
+createbasevideo '360p' '641:360'
+createbasevideo '240p' '427:240'
 
 # $1 title with year
 # $2 id string
@@ -127,8 +145,9 @@ createshow () {
     for i in $(seq 1 $3); do createseason "$1" $2 $i $4; done
 }
 
-cur_res='2160p'
-cur_src='Bluray'
+getrandomresolution
+getrandomsource
+
 createseason "American Gods (2017)" "{tvdb-253573}" 1 8
 createseason "American Gods (2017)" "{tvdb-253573}" 2 8
 createseason "American Gods (2017)" "{tvdb-253573}" 3 10
