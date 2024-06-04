@@ -12,6 +12,9 @@
 *test_movie_lib
 *test_tv_lib
 
+/Kometa-walkthrough/sounds/1-min-audio-*.*
+/Kometa-walkthrough/subs/sub.*.srt
 /Kometa-walkthrough/*.mkv
+/Kometa-walkthrough/*.mp4
 /Kometa-walkthrough/ffmpeg.log
 /Kometa-walkthrough/test.sh

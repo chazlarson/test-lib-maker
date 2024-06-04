@@ -1,22 +1,45 @@
 #!/bin/bash
 
-# SCRIPT TO DO STUFF
+docker pull linuxserver/ffmpeg
 
 select_random() {
     printf "%s\0" "$@" | shuf -z -n1 | tr -d '\0'
 }
 
+languages=("afr" "amh" "ara" "ave" "aze" "bak" "bel" "ben" "bis" "bos" "bre" "bul" "cat" "cha" "chi" "chu" "chv" "cor" "cos" "cre" "dan" "dzo" "est" "ewe" "fij" "fin" "fra" "ger" "gla" "gle" "grn" "hat" "hin" "hrv" "hun" "ile" "ind" "ita" "jpn" "kan" "kau" "khm" "kik" "kin" "kon" "lat" "lav" "lim" "lit" "ltz" "lub" "mah" "mal" "mar" "mlg" "mlt" "mon" "ndo" "nep" "nor" "orm" "pan" "phi" "pol" "por" "pus" "rus" "sag" "san" "sin" "sme" "smo" "sna" "snd" "som" "sot" "spa" "srd" "srp" "swe" "tat" "tgk" "tgl" "tha" "tsn" "tur" "twi" "uig" "ukr" "uzb" "ven" "zha")
 sources=("Bluray" "Remux" "WEBDL" "WEBRIP" "HDTV" "DVD")
-resolutions=("2160p" "1080p" "720p" "576p" "480p", "360p", "240p")
+resolutions=("2160p" "1080p" "720p" "576p" "480p" "360p" "240p")
 editions=("-{edition-Extended-Edition}" "-{edition-Uncut-Edition}" "-{edition-Unrated-Edition}" "-{edition-Special-Edition}" "-{edition-Anniversary-Edition}" "-{edition-Collectors-Edition}" "-{edition-Diamond-Edition}" "-{edition-Platinum-Edition}" "-{edition-Directors-Cut}" "-{edition-Final-Cut}" "-{edition-International-Cut}" "-{edition-Theatrical-Cut}" "-{edition-Ultimate-Cut}" "-{edition-Alternate-Cut}" "-{edition-Coda-Cut}" "-{edition-IMAX-Enhanced}" "-{edition-IMAX}" "-{edition-Remastered}" "-{edition-Criterion}" "-{edition-Richard-Donner}" "-{edition-Black-And-Chrome}" "-{edition-Definitive}" "-{edition-Ulysses}")
+all_audios=("truehd_atmos" "dtsx" "plus_atmos" "dolby_atmos" "truehd" "ma" "flac" "pcm" "hra" "plus" "dtses" "dts" "digital" "aac" "mp3" "opus")
+simple_audios=("flac" "m4a" "mp3" "opus")
 
 cur_edition=""
 cur_res='2160p'
 cur_src='Bluray'
+cur_sub1='fra'
+cur_sub2='ger'
+cur_aud1='bul'
+cur_aud2='cat'
+
+get_random_langs () {
+    cur_sub1=$(select_random "${languages[@]}")
+    cur_sub2=$(select_random "${languages[@]}")
+    while [[ "$cur_sub2" == "$cur_sub1" ]]
+    do
+        cur_sub2=$(select_random "${languages[@]}")
+    done
+
+    cur_aud1=$(select_random "${languages[@]}")
+    cur_aud2=$(select_random "${languages[@]}")
+    while [[ "$cur_aud2" == "$cur_aud1" ]]
+    do
+        cur_aud2=$(select_random "${languages[@]}")
+    done
+    echo "subtitle 1: $cur_sub1 subtitle 2: $cur_sub2 audio 1: $cur_aud1 audio 2: $cur_aud2"
+}
 
 get_random_edition () {
     cur_edition=$(select_random "${editions[@]}")
-    echo "switched to $cur_edition"
 }
 
 change_edition () {
@@ -49,7 +72,6 @@ getnextsource () {
     then
         cur_src='Bluray'
     fi
-    echo "switched to $cur_src"
 }
 
 getnextresolution () {
@@ -81,35 +103,71 @@ getnextresolution () {
     then
         cur_res='2160p'
     fi
-
-    echo "switched to $cur_res"
 }
 
 getrandomsource () {
     cur_src=$(select_random "${sources[@]}")
-    echo "switched to $cur_src"
 }
 
 getrandomresolution () {
     cur_res=$(select_random "${resolutions[@]}")
-    echo "switched to $cur_res"
 }
 
+randomizeall () {
+    getrandomresolution
+    getrandomsource
+    change_edition
+    get_random_langs
+}
 # At least two comedy movies released since 2012.
 # At least two movies from the IMDB top 250.
 # At least two movies from IMDB's Popular list.
 # At least two movies from IMDB's Lowest Rated.
 # A couple different resolutions among the movies.
 
-# ffmpeg -f lavfi -i nullsrc=s=1280x720 -filter_complex "geq=random(1)*255:128:128;aevalsrc=-2+random(0)" -t 900 output.mkv
+createsubs () {
+    cp subs/base.srt subs/sub.enu.srt
+    for l in "${languages[@]}"
+    do
+        FILE="subs/sub.$l.srt"
+        if [ -f $FILE ]; then
+            echo "File $FILE exists."
+        else
+            echo "Creating $FILE..."
+            cp subs/base.srt subs/sub.$l.srt
+        fi
+    done
+}
+
+createsubs
+
+createaudiofiles () {
+    for l in "${languages[@]}"
+    do
+        for f in "${simple_audios[@]}"
+        do
+            FILE="1-min-audio-$l.$f"
+            if [ -f sounds/$FILE ]; then
+                echo "File sounds/$FILE exists."
+            else
+                echo "Creating $FILE..."
+                ffmpeg -y -i sounds/1-min-audio.m4a -metadata:s:a:0 language=$l sounds/$FILE
+            fi
+        done
+    done
+}
+
+createaudiofiles
 
 createbasevideo () {
-    FILE="$1.mkv"
+    FILE="$1.mp4"
     if [ -f $FILE ]; then
         echo "File $FILE exists."
     else
         echo "Creating $FILE..."
-        docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg -loop 1 -i /config/testpattern.png -c:v libx264 -t 60 -pix_fmt yuv420p -vf scale=$2 /config/$FILE
+        docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg -loop 1 -i /config/testpattern.png -c:v libx264 -t 60 -pix_fmt yuv420p -vf scale=$2 /config/tmp.mp4
+        docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg -i "/config/tmp.mp4" -i /config/sounds/1-min-audio.m4a -c copy -map 0:v:0 -map 1:a:0 /config/$FILE
+        rm -f tmp.mp4
         echo "$FILE created"
         echo "==================="
     fi
@@ -120,18 +178,30 @@ createbasevideo '1080p' '1920:1080'
 createbasevideo '720p' '1280:720'
 createbasevideo '576p' '1024:576'
 createbasevideo '480p' '854:480'
-createbasevideo '360p' '641:360'
-createbasevideo '240p' '427:240'
+createbasevideo '360p' '640:360'
+createbasevideo '240p' '428:240'
+
 
 createtestvideo () {
-    getrandomresolution
-    getrandomsource
-    change_edition
+    randomizeall
     mkdir -p "test_movie_lib/$1$cur_edition"
     echo "creating $1 [$cur_src-$cur_res H264 AAC 2.0]-BINGBANG$cur_edition.mkv"
-    docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg -loglevel quiet -stats -i "/config/$cur_res.mkv" -i /config/sounds/1-min-audio.m4a -c copy -map 0:v:0 -map 1:a:0 "/config/test_movie_lib/$1$cur_edition/$1 [$cur_src-$cur_res H264 AAC 2.0]-BINGBANG$cur_edition.mkv"
+    docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg \
+    -y -loglevel quiet -stats -i "/config/$cur_res.mp4" \
+    -i "/config/subs/sub.eng.srt" \
+    -i "/config/subs/sub.$cur_sub1.srt" \
+    -i "/config/subs/sub.$cur_sub2.srt" \
+    -i "/config/sounds/1-min-audio-$cur_aud1.m4a" \
+    -i "/config/sounds/1-min-audio-$cur_aud2.m4a" \
+    -c copy \
+    -map 0 -dn -map "-0:s" -map "-0:d" \
+    -map "1:0" "-metadata:s:s:0" "language=eng" "-metadata:s:s:0" "handler_name=English"  "-metadata:s:s:0" "title=English" \
+    -map "2:0" "-metadata:s:s:1" "language=$cur_sub1" "-metadata:s:s:1" "handler_name=$cur_sub1" "-metadata:s:s:1" "title=$cur_sub1" \
+    -map "3:0" "-metadata:s:s:2" "language=$cur_sub2" "-metadata:s:s:2" "handler_name=$cur_sub2" "-metadata:s:s:2" "title=$cur_sub2" \
+    -map "4:0" "-metadata:s:s:3" "language=$cur_aud1" "-metadata:s:s:2" "handler_name=$cur_aud2" "-metadata:s:s:2" "title=$cur_aud2" \
+    -map "5:0" "-metadata:s:s:4" "language=$cur_aud2" "-metadata:s:s:2" "handler_name=$cur_aud2" "-metadata:s:s:2" "title=$cur_aud2" \
+    "/config/test_movie_lib/$1$cur_edition/$1 [$cur_src-$cur_res H264 AAC 2.0]-BINGBANG$cur_edition.mkv"
 }
-
 
 # Comedy after 2012
 createtestvideo "21 Jump Street (2012) {imdb-tt1232829}" # comedy
