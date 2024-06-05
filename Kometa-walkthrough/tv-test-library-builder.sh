@@ -6,7 +6,12 @@ select_random() {
 
 docker pull linuxserver/ffmpeg
 
-languages=("aze" "bel" "bul" "cat" "cha" "chi" "cor" "cos" "cre" "dan" "dzo" "est" "fin" "fra" "ger" "hin" "hun" "ita" "jpn" "lat" "mal" "nor" "phi" "por" "pus" "rus" "sme" "spa" "swe" "tha" "tur" "twi" "ukr" "uzb" "zha")
+# If you want a wider range of languages, rename this to "languages"
+more_languages=("ara" "bul" "ces" "chi" "dan" "fas" "fra" "ger" "hin" "hun" "isl" "ita" "jpn" "kor" "nld" "nor" "pol" "por" "rus" "spa" "swe" "tel" "tha" "tur" "ukr" )
+# and this to anything that is not "languages"
+languages=("fra" "ger" "jpn"  "por" "spa")
+# and add those languages to your kometa config [see readme]
+
 sources=("Bluray" "Remux" "WEBDL" "WEBRIP" "HDTV" "DVD")
 resolutions=("2160p" "1080p" "720p" "576p" "480p" "360p" "240p")
 all_audios=("truehd_atmos" "dtsx" "plus_atmos" "dolby_atmos" "truehd" "ma" "flac" "pcm" "hra" "plus" "dtses" "dts" "digital" "aac" "mp3" "opus")

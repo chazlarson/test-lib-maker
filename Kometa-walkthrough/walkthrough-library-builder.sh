@@ -6,7 +6,12 @@ select_random() {
     printf "%s\0" "$@" | shuf -z -n1 | tr -d '\0'
 }
 
-languages=("aze" "bel" "bul" "cat" "cha" "chi" "cor" "cos" "cre" "dan" "dzo" "est" "fin" "fra" "ger" "hin" "hun" "ita" "jpn" "lat" "mal" "nor" "phi" "por" "pus" "rus" "sme" "spa" "swe" "tha" "tur" "twi" "ukr" "uzb" "zha")
+# If you want a wider range of languages, rename this to "languages"
+more_languages=("ara" "bul" "ces" "chi" "dan" "fas" "fra" "ger" "hin" "hun" "isl" "ita" "jpn" "kor" "nld" "nor" "pol" "por" "rus" "spa" "swe" "tel" "tha" "tur" "ukr" )
+# and this to anything that is not "languages"
+languages=("fra" "ger" "jpn"  "por" "spa")
+# and add those languages to your kometa config [see readme]
+
 sources=("Bluray" "Remux" "WEBDL" "WEBRIP" "HDTV" "DVD")
 resolutions=("2160p" "1080p" "720p" "576p" "480p" "360p" "240p")
 editions=("-{edition-Extended-Edition}" "-{edition-Uncut-Edition}" "-{edition-Unrated-Edition}" "-{edition-Special-Edition}" "-{edition-Anniversary-Edition}" "-{edition-Collectors-Edition}" "-{edition-Diamond-Edition}" "-{edition-Platinum-Edition}" "-{edition-Directors-Cut}" "-{edition-Final-Cut}" "-{edition-International-Cut}" "-{edition-Theatrical-Cut}" "-{edition-Ultimate-Cut}" "-{edition-Alternate-Cut}" "-{edition-Coda-Cut}" "-{edition-IMAX-Enhanced}" "-{edition-IMAX}" "-{edition-Remastered}" "-{edition-Criterion}" "-{edition-Richard-Donner}" "-{edition-Black-And-Chrome}" "-{edition-Definitive}" "-{edition-Ulysses}")
@@ -260,18 +265,14 @@ createtestvideo "Wreck-It Ralph (2012) {imdb-tt1772341}" # comedy
 # IMDB Lowest
 createtestvideo "3 Ninjas: High Noon at Mega Mountain (1998) {imdb-tt0118539} {tmdb-32302}" # imdb lowest
 createtestvideo "365 Days (2020) {imdb-tt10886166} {tmdb-664413}" # imdb lowest
-createtestvideo "365 Days (2020) {imdb-tt10886166}" # imdb lowest
 createtestvideo "365 Days: This Day (2022) {imdb-tt12996154}" # imdb lowest
 createtestvideo "Adipurush (2023) {imdb-tt12915716} {tmdb-734253}" # imdb lowest
 createtestvideo "Alone in the Dark (2005) {imdb-tt0369226} {tmdb-12142}" # imdb lowest
 createtestvideo "Baaghi 3 (2020) {imdb-tt8366590} {tmdb-594669}" # imdb lowest
 createtestvideo "Baby Geniuses (1999) {imdb-tt0118665} {tmdb-22345}" # imdb lowest
 createtestvideo "Barb Wire (1996) {imdb-tt0115624} {tmdb-11867}" # imdb lowest
-createtestvideo "Barb Wire (1996) {imdb-tt0115624}" # imdb lowest
 createtestvideo "Batman & Robin (1997) {imdb-tt0118688} {tmdb-415}" # imdb lowest
-createtestvideo "Batman & Robin (1997) {imdb-tt0118688}" # imdb lowest
 createtestvideo "Battlefield Earth (2000) {imdb-tt0185183} {tmdb-5491}" # imdb lowest
-createtestvideo "Battlefield Earth (2000) {imdb-tt0185183}" # imdb lowest
 createtestvideo "Birdemic: Shock and Terror (2010) {imdb-tt1316037} {tmdb-40016}" # imdb lowest
 createtestvideo "BloodRayne (2005) {imdb-tt0383222}" # imdb lowest
 createtestvideo "Cats (2019) {imdb-tt5697572}" # imdb lowest
@@ -323,9 +324,7 @@ createtestvideo "Winnie-the-Pooh: Blood and Honey (2023) {imdb-tt19623240}" # im
 createtestvideo "Abigail (2024) {imdb-tt27489557}" # imdb popular
 createtestvideo "Amar Singh Chamkila (2024) {imdb-tt26658272}" # imdb popular
 createtestvideo "Anyone But You (2023) {imdb-tt26047818} {tmdb-1072790}" # imdb popular
-createtestvideo "Anyone But You (2023) {imdb-tt26047818}" # imdb popular
 createtestvideo "Argylle (2024) {imdb-tt15009428} {tmdb-848538}" # imdb popular
-createtestvideo "Argylle (2024) {imdb-tt15009428}" # imdb popular
 createtestvideo "Back to Black (2024) {imdb-tt21261712}" # imdb popular
 createtestvideo "Bade Miyan Chote Miyan (2024) {imdb-tt18072316}" # imdb popular
 createtestvideo "Challengers (2024) {imdb-tt16426418}" # imdb popular
@@ -333,7 +332,6 @@ createtestvideo "Civil War (2024) {imdb-tt17279496}" # imdb popular
 createtestvideo "Damaged (2024) {imdb-tt27304026}" # imdb popular
 createtestvideo "Dune (2021) {imdb-tt1160419}" # imdb popular
 createtestvideo "Dune: Part One (2021) {imdb-tt1160419} {tmdb-438631}" # imdb popular
-createtestvideo "Dune: Part Two (2024) {imdb-tt15239678}" # imdb popular
 createtestvideo "Ghostbusters: Frozen Empire (2024) {imdb-tt21235248}" # imdb popular
 createtestvideo "Godzilla x Kong: The New Empire (2024) {imdb-tt14539740}" # imdb popular
 createtestvideo "Immaculate (2024) {imdb-tt23137390}" # imdb popular
@@ -420,6 +418,7 @@ createtestvideo "Top Gun: Maverick (2022) {imdb-tt1745960} {tmdb-361743}" # imdb
 createtestvideo "Whiplash (2014) {imdb-tt2582802} {tmdb-244786}" # imdb top
 
 # dark-comedy test stuff
+
 # createtestvideo "1114 (2003) {imdb-tt0331811}" # dark-comedy test
 # createtestvideo "7 Reasons to Run Away (from Society) (2019) {imdb-tt7416602}" # dark-comedy test
 # createtestvideo "A Clockwork Orange (1971) {imdb-tt0066921}" # dark-comedy test
@@ -430,7 +429,6 @@ createtestvideo "Whiplash (2014) {imdb-tt2582802} {tmdb-244786}" # imdb top
 # createtestvideo "A Simple Plan (1998) {imdb-tt0120324}" # dark-comedy test
 # createtestvideo "A Somewhat Gentle Man (2010) {imdb-tt1386683}" # dark-comedy test
 # createtestvideo "Aaltra (2004) {imdb-tt0405629}" # dark-comedy test
-# createtestvideo "Abigail (2024) {imdb-tt27489557}" # dark-comedy test
 # createtestvideo "Adam's Apples (2005) {imdb-tt0418455}" # dark-comedy test
 # createtestvideo "Adaptation. (2002) {imdb-tt0268126}" # dark-comedy test
 # createtestvideo "After Hours (1985) {imdb-tt0088680}" # dark-comedy test
@@ -440,7 +438,6 @@ createtestvideo "Whiplash (2014) {imdb-tt2582802} {tmdb-244786}" # imdb top
 # createtestvideo "Ali's Wedding (2017) {imdb-tt2782692}" # dark-comedy test
 # createtestvideo "All for Two (2013) {imdb-tt2188655}" # dark-comedy test
 # createtestvideo "All Is Bright (2013) {imdb-tt1462901}" # dark-comedy test
-# createtestvideo "American Beauty (1999) {imdb-tt0169547}" # dark-comedy test
 # createtestvideo "American Fiction (2023) {imdb-tt23561236}" # dark-comedy test
 # createtestvideo "American Psycho (2000) {imdb-tt0144084}" # dark-comedy test
 # createtestvideo "An American Werewolf in London (1981) {imdb-tt0082010}" # dark-comedy test
@@ -464,7 +461,6 @@ createtestvideo "Whiplash (2014) {imdb-tt2582802} {tmdb-244786}" # imdb top
 # createtestvideo "Better Living Through Chemistry (2014) {imdb-tt1609479}" # dark-comedy test
 # createtestvideo "Better Off Dead (1985) {imdb-tt0088794}" # dark-comedy test
 # createtestvideo "Big Nothing (2006) {imdb-tt0488085}" # dark-comedy test
-# createtestvideo "Birdman or (The Unexpected Virtue of Ignorance) (2014) {imdb-tt2562232}" # dark-comedy test
 # createtestvideo "Birds of Prey (2020) {imdb-tt7713068}" # dark-comedy test
 # createtestvideo "Black Sheep (2006) {imdb-tt0779982}" # dark-comedy test
 # createtestvideo "BlacKkKlansman (2018) {imdb-tt7349662}" # dark-comedy test
@@ -502,8 +498,6 @@ createtestvideo "Whiplash (2014) {imdb-tt2582802} {tmdb-244786}" # imdb top
 # createtestvideo "Dead Fish (2005) {imdb-tt0379240}" # dark-comedy test
 # createtestvideo "Dead in a Week Or Your Money Back (2018) {imdb-tt3525168}" # dark-comedy test
 # createtestvideo "Dead Snow (2009) {imdb-tt1278340}" # dark-comedy test
-# createtestvideo "Deadpool (2016) {imdb-tt1431045}" # dark-comedy test
-# createtestvideo "Deadpool 2 (2018) {imdb-tt5463162}" # dark-comedy test
 # createtestvideo "Death at a Funeral (2007) {imdb-tt0795368}" # dark-comedy test
 # createtestvideo "Death at a Funeral (2010) {imdb-tt1321509}" # dark-comedy test
 # createtestvideo "Death Becomes Her (1992) {imdb-tt0104070}" # dark-comedy test
@@ -512,11 +506,9 @@ createtestvideo "Whiplash (2014) {imdb-tt2582802} {tmdb-244786}" # imdb top
 # createtestvideo "Deathtrap (1982) {imdb-tt0083806}" # dark-comedy test
 # createtestvideo "Delicatessen (1991) {imdb-tt0101700}" # dark-comedy test
 # createtestvideo "District 9 (2009) {imdb-tt1136608}" # dark-comedy test
-# createtestvideo "Django Unchained (2012) {imdb-tt1853728}" # dark-comedy test
 # createtestvideo "Do Revenge (2022) {imdb-tt13327038}" # dark-comedy test
 # createtestvideo "Dogma (1999) {imdb-tt0120655}" # dark-comedy test
 # createtestvideo "Dogs Don't Wear Pants (2019) {imdb-tt9074574}" # dark-comedy test
-# createtestvideo "Don't Look Up (2021) {imdb-tt11286314}" # dark-comedy test
 # createtestvideo "Don't Tell Mom the Babysitter's Dead (1991) {imdb-tt0101757}" # dark-comedy test
 # createtestvideo "Double Jeopardy (1999) {imdb-tt0150377}" # dark-comedy test
 # createtestvideo "Dr. Strangelove or How I Learned to Stop Worrying and Love the Bomb (1964) {imdb-tt0057012}" # dark-comedy test
@@ -536,7 +528,6 @@ createtestvideo "Whiplash (2014) {imdb-tt2582802} {tmdb-244786}" # imdb top
 # createtestvideo "Fargo (1996) {imdb-tt0116282}" # dark-comedy test
 # createtestvideo "Fast Food Nation (2006) {imdb-tt0460792}" # dark-comedy test
 # createtestvideo "Fear and Loathing in Las Vegas (1998) {imdb-tt0120669}" # dark-comedy test
-# createtestvideo "Fight Club (1999) {imdb-tt0137523}" # dark-comedy test
 # createtestvideo "Focus (2015) {imdb-tt2381941}" # dark-comedy test
 # createtestvideo "Force Majeure (2014) {imdb-tt2121382}" # dark-comedy test
 # createtestvideo "Four Lions (2010) {imdb-tt1341167}" # dark-comedy test
@@ -600,20 +591,17 @@ createtestvideo "Whiplash (2014) {imdb-tt2582802} {tmdb-244786}" # imdb top
 # createtestvideo "In Bruges (2008) {imdb-tt0780536}" # dark-comedy test
 # createtestvideo "In Order of Disappearance (2014) {imdb-tt2675914}" # dark-comedy test
 # createtestvideo "In the Loop (2009) {imdb-tt1226774}" # dark-comedy test
-# createtestvideo "Inglourious Basterds (2009) {imdb-tt0361748}" # dark-comedy test
 # createtestvideo "Ingrid Goes West (2017) {imdb-tt5962210}" # dark-comedy test
 # createtestvideo "Inherent Vice (2014) {imdb-tt1791528}" # dark-comedy test
 # createtestvideo "Intolerable Cruelty (2003) {imdb-tt0138524}" # dark-comedy test
 # createtestvideo "Jack Be Nimble (1993) {imdb-tt0107242}" # dark-comedy test
 # createtestvideo "Jackie Brown (1997) {imdb-tt0119396}" # dark-comedy test
 # createtestvideo "Jackpot (2011) {imdb-tt1809231}" # dark-comedy test
-# createtestvideo "Jojo Rabbit (2019) {imdb-tt2584384}" # dark-comedy test
 # createtestvideo "Jonny Vang (2003) {imdb-tt0355611}" # dark-comedy test
 # createtestvideo "Joy Ride (2001) {imdb-tt0206314}" # dark-comedy test
 # createtestvideo "Judas Kiss (1998) {imdb-tt0138541}" # dark-comedy test
 # createtestvideo "Just Buried (2007) {imdb-tt0906326}" # dark-comedy test
 # createtestvideo "Kick-Ass (2010) {imdb-tt1250777}" # dark-comedy test
-# createtestvideo "Kill Bill Vol. 1 (2003) {imdb-tt0266697}" # dark-comedy test
 # createtestvideo "Kill Buljo 2 (2013) {imdb-tt2366131}" # dark-comedy test
 # createtestvideo "Kill Buljo The Movie (2007) {imdb-tt0913401}" # dark-comedy test
 # createtestvideo "Kill Me Three Times (2014) {imdb-tt2393845}" # dark-comedy test
@@ -624,7 +612,6 @@ createtestvideo "Whiplash (2014) {imdb-tt2582802} {tmdb-244786}" # imdb top
 # createtestvideo "King of New York (1990) {imdb-tt0099939}" # dark-comedy test
 # createtestvideo "Kingpin (1996) {imdb-tt0116778}" # dark-comedy test
 # createtestvideo "Kiss Kiss Bang Bang (2005) {imdb-tt0373469}" # dark-comedy test
-# createtestvideo "Knives Out (2019) {imdb-tt8946378}" # dark-comedy test
 # createtestvideo "Koko-di Koko-da (2019) {imdb-tt9355200}" # dark-comedy test
 # createtestvideo "Kunsten å tenke negativt (2006) {imdb-tt0945356}" # dark-comedy test
 # createtestvideo "LaRoy, Texas (2023) {imdb-tt20102596}" # dark-comedy test
@@ -635,7 +622,6 @@ createtestvideo "Whiplash (2014) {imdb-tt2582802} {tmdb-244786}" # imdb top
 # createtestvideo "Little Shop of Horrors (1986) {imdb-tt0091419}" # dark-comedy test
 # createtestvideo "Lock, Stock and Two Smoking Barrels (1998) {imdb-tt0120735}" # dark-comedy test
 # createtestvideo "Louise hires a contract killer (2008) {imdb-tt1132594}" # dark-comedy test
-# createtestvideo "Love Lies Bleeding (2024) {imdb-tt19637052}" # dark-comedy test
 # createtestvideo "Lucky (2011) {imdb-tt1473397}" # dark-comedy test
 # createtestvideo "Lune froide (1991) {imdb-tt0102358}" # dark-comedy test
 # createtestvideo "M*A*S*H (1970) {imdb-tt0066026}" # dark-comedy test
@@ -669,13 +655,11 @@ createtestvideo "Whiplash (2014) {imdb-tt2582802} {tmdb-244786}" # imdb top
 # createtestvideo "Novocaine (2001) {imdb-tt0234354}" # dark-comedy test
 # createtestvideo "O Brother, Where Art Thou? (2000) {imdb-tt0190590}" # dark-comedy test
 # createtestvideo "Office Space (1999) {imdb-tt0151804}" # dark-comedy test
-# createtestvideo "Once Upon a Time... in Hollywood (2019) {imdb-tt7131622}" # dark-comedy test
 # createtestvideo "One Night at McCool's (2001) {imdb-tt0203755}" # dark-comedy test
 # createtestvideo "Operation Belvis Bash (2011) {imdb-tt1288367}" # dark-comedy test
 # createtestvideo "Ordinary Decent Criminal (2000) {imdb-tt0160611}" # dark-comedy test
 # createtestvideo "Panic Room (2002) {imdb-tt0258000}" # dark-comedy test
 # createtestvideo "Paprika (2006) {imdb-tt0851578}" # dark-comedy test
-# createtestvideo "Parasite (2019) {imdb-tt6751668}" # dark-comedy test
 # createtestvideo "Patrick (2019) {imdb-tt7618604}" # dark-comedy test
 # createtestvideo "Patriots Day (2016) {imdb-tt4572514}" # dark-comedy test
 # createtestvideo "Pawn Shop Chronicles (2013) {imdb-tt1741243}" # dark-comedy test
@@ -687,8 +671,6 @@ createtestvideo "Whiplash (2014) {imdb-tt2582802} {tmdb-244786}" # imdb top
 # createtestvideo "Planet Terror (2007) {imdb-tt1077258}" # dark-comedy test
 # createtestvideo "Pleasantville (1998) {imdb-tt0120789}" # dark-comedy test
 # createtestvideo "Polyester (1981) {imdb-tt0082926}" # dark-comedy test
-# createtestvideo "Poor Things (2023) {imdb-tt14230458}" # dark-comedy test
-# createtestvideo "Pulp Fiction (1994) {imdb-tt0110912}" # dark-comedy test
 # createtestvideo "Punch-Drunk Love (2002) {imdb-tt0272338}" # dark-comedy test
 # createtestvideo "Queenpins (2021) {imdb-tt9054192}" # dark-comedy test
 # createtestvideo "Raising Arizona (1987) {imdb-tt0093822}" # dark-comedy test
@@ -706,7 +688,6 @@ createtestvideo "Whiplash (2014) {imdb-tt2582802} {tmdb-244786}" # imdb top
 # createtestvideo "Rubber (2010) {imdb-tt1612774}" # dark-comedy test
 # createtestvideo "Run Lola Run (1998) {imdb-tt0130827}" # dark-comedy test
 # createtestvideo "Ruthless People (1986) {imdb-tt0091877}" # dark-comedy test
-# createtestvideo "Saltburn (2023) {imdb-tt17351924}" # dark-comedy test
 # createtestvideo "Sausage Party (2016) {imdb-tt1700841}" # dark-comedy test
 # createtestvideo "Scouts Guide to the Zombie Apocalypse (2015) {imdb-tt1727776}" # dark-comedy test
 # createtestvideo "Scream 4 (2011) {imdb-tt1262416}" # dark-comedy test
@@ -726,7 +707,6 @@ createtestvideo "Whiplash (2014) {imdb-tt2582802} {tmdb-244786}" # imdb top
 # createtestvideo "Small Apartments (2012) {imdb-tt1272886}" # dark-comedy test
 # createtestvideo "Small Soldiers (1998) {imdb-tt0122718}" # dark-comedy test
 # createtestvideo "Smokin' Aces (2006) {imdb-tt0475394}" # dark-comedy test
-# createtestvideo "Snatch (2000) {imdb-tt0208092}" # dark-comedy test
 # createtestvideo "So I Married an Axe Murderer (1993) {imdb-tt0108174}" # dark-comedy test
 # createtestvideo "Sorry to Bother You (2018) {imdb-tt5688932}" # dark-comedy test
 # createtestvideo "Spring Breakers (2012) {imdb-tt2101441}" # dark-comedy test
@@ -751,11 +731,9 @@ createtestvideo "Whiplash (2014) {imdb-tt2582802} {tmdb-244786}" # imdb top
 # createtestvideo "The Baker (2007) {imdb-tt0783234}" # dark-comedy test
 # createtestvideo "The Ballad of Buster Scruggs (2018) {imdb-tt6412452}" # dark-comedy test
 # createtestvideo "The Banshees of Inisherin (2022) {imdb-tt11813216}" # dark-comedy test
-# createtestvideo "The Beekeeper (2024) {imdb-tt15314262}" # dark-comedy test
 # createtestvideo "The Big Feast (1973) {imdb-tt0070130}" # dark-comedy test
 # createtestvideo "The Big Heist (2001) {imdb-tt0287336}" # dark-comedy test
 # createtestvideo "The Big Lebowski (1998) {imdb-tt0118715}" # dark-comedy test
-# createtestvideo "The Big Short (2015) {imdb-tt1596363}" # dark-comedy test
 # createtestvideo "The Big White (2005) {imdb-tt0402850}" # dark-comedy test
 # createtestvideo "The Boondock Saints (1999) {imdb-tt0144117}" # dark-comedy test
 # createtestvideo "The Bothersome Man (2006) {imdb-tt0808185}" # dark-comedy test
@@ -777,7 +755,6 @@ createtestvideo "Whiplash (2014) {imdb-tt2582802} {tmdb-244786}" # imdb top
 # createtestvideo "The Favourite (2018) {imdb-tt5083738}" # dark-comedy test
 # createtestvideo "The Firemen's Ball (1967) {imdb-tt0061781}" # dark-comedy test
 # createtestvideo "The Frighteners (1996) {imdb-tt0116365}" # dark-comedy test
-# createtestvideo "The Gentlemen (2019) {imdb-tt8367814}" # dark-comedy test
 # createtestvideo "The Great Dictator (1940) {imdb-tt0032553}" # dark-comedy test
 # createtestvideo "The Green Butchers (2003) {imdb-tt0342492}" # dark-comedy test
 # createtestvideo "The Guard (2011) {imdb-tt1540133}" # dark-comedy test
@@ -796,7 +773,6 @@ createtestvideo "Whiplash (2014) {imdb-tt2582802} {tmdb-244786}" # imdb top
 # createtestvideo "The Little Hours (2017) {imdb-tt5666304}" # dark-comedy test
 # createtestvideo "The Lobster (2015) {imdb-tt3464902}" # dark-comedy test
 # createtestvideo "The Men Who Stare at Goats (2009) {imdb-tt1234548}" # dark-comedy test
-# createtestvideo "The Menu (2022) {imdb-tt9764362}" # dark-comedy test
 # createtestvideo "The Nice Guys (2016) {imdb-tt3799694}" # dark-comedy test
 # createtestvideo "The Other Guys (2010) {imdb-tt1386588}" # dark-comedy test
 # createtestvideo "The Perfect Host (2010) {imdb-tt1334553}" # dark-comedy test
@@ -807,7 +783,6 @@ createtestvideo "Whiplash (2014) {imdb-tt2582802} {tmdb-244786}" # imdb top
 # createtestvideo "The Rum Diary (2011) {imdb-tt0376136}" # dark-comedy test
 # createtestvideo "The Simpsons Movie (2007) {imdb-tt0462538}" # dark-comedy test
 # createtestvideo "The Sisters Brothers (2018) {imdb-tt4971344}" # dark-comedy test
-# createtestvideo "The Suicide Squad (2021) {imdb-tt6334354}" # dark-comedy test
 # createtestvideo "The To Do List (2013) {imdb-tt1758795}" # dark-comedy test
 # createtestvideo "The Trip (2021) {imdb-tt13109952}" # dark-comedy test
 # createtestvideo "The Trouble with Harry (1955) {imdb-tt0048750}" # dark-comedy test
@@ -819,14 +794,11 @@ createtestvideo "Whiplash (2014) {imdb-tt2582802} {tmdb-244786}" # imdb top
 # createtestvideo "The Willoughbys (2020) {imdb-tt5206260}" # dark-comedy test
 # createtestvideo "The Witches of Eastwick (1987) {imdb-tt0094332}" # dark-comedy test
 # createtestvideo "The Wolf of Snow Hollow (2020) {imdb-tt11140488}" # dark-comedy test
-# createtestvideo "The Wolf of Wall Street (2013) {imdb-tt0993846}" # dark-comedy test
 # createtestvideo "The World's End (2013) {imdb-tt1213663}" # dark-comedy test
 # createtestvideo "The Young Offenders (2016) {imdb-tt4714568}" # dark-comedy test
 # createtestvideo "They Cloned Tyrone (2023) {imdb-tt9873892}" # dark-comedy test
 # createtestvideo "Thin Ice (2011) {imdb-tt1512240}" # dark-comedy test
-# createtestvideo "This Is the End (2013) {imdb-tt1245492}" # dark-comedy test
 # createtestvideo "Thoroughbreds (2017) {imdb-tt5649108}" # dark-comedy test
-# createtestvideo "Three Billboards Outside Ebbing, Missouri (2017) {imdb-tt5027774}" # dark-comedy test
 # createtestvideo "Three Kings (1999) {imdb-tt0120188}" # dark-comedy test
 # createtestvideo "Throw Momma from the Train (1987) {imdb-tt0094142}" # dark-comedy test
 # createtestvideo "Thursday (1998) {imdb-tt0124901}" # dark-comedy test

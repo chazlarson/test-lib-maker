@@ -4,7 +4,45 @@ Work in progress, but the idea is to be able to run a script and dummy up the fi
 
 Currently the script to generate the library for the Kometa [local](https://kometa.wiki/en/latest/pmm/install/local/) and [docker](https://kometa.wiki/en/latest/pmm/install/docker/) walkthroughs is available.
 
-There is also a tv library script that will generate a TV library with a variety of resolutions and sources; "Happy Days" has randomized sources and resolutions.
+There is also a tv library script that will generate a TV library with a variety of resolutions and sources; "Happy Days" has randomized sources and resolutions for each season.
+
+All video files contain English audio and subtitles along with two more audio and subtitle tracks in random languages [from the set of 6 languages that Kometa applies overlays for by default; ("fra" "ger" "jpn" "por" "spa")].
+
+If you want a wider range of languages, follow the instructions at the top of the scripts:
+
+```
+# If you want a wider range of languages, rename this to "languages"
+more_languages=("ara" "bul" ...
+# and this to anything that is not "languages"
+languages=("fra" "ger" "jpn"  "por" "spa")
+# and add those languages to your kometa config [see readme]
+```
+Then enable those languages in the Kometa overlay config:
+```
+      languages:
+        - ar	
+        - bg	
+        - cs	
+        - da	
+        - fa	
+        - hi	
+        - hu	
+        - is	
+        - it	
+        - ko	
+        - nl	
+        - no	
+        - pl	
+        - ru	
+        - sv	
+        - te	
+        - th	
+        - tr	
+        - uk	
+        - zh	
+```
+
+The "more languages" are just the first twenty in the list in the Kometa wiki.
 
 ### Requirements:
 
@@ -25,8 +63,8 @@ cd Kometa-walkthrough
 
 This will:
 
-1. create five base 1-minute testpattern videos in 4k, 1080p, 720p, 576p, and 480p [if they don't already exist]
-2. create a directory `test_movie_lib`, which contains a couple hundred movies meeting the requirements listed on the Kometa walkthough pages [at time of writing]:
+1. create five base 1-minute testpattern videos in 4k, 1080p, 720p, 576p, 480p, 360p, and 240p [if they don't already exist]; these test pattern videos will contain English audio.
+2. create a directory `test_movie_lib`, which contains a bunch of movies meeting the requirements listed on the Kometa walkthough pages [at time of writing]:
 
 > For best results with this walkthrough, your test library will contain:
 >
@@ -49,3 +87,7 @@ The "popular" list might be an issue as I imagine there's a fair amount of churn
 Create a "Movie" library in Plex and point it at that folder.  You can move it elsewhere if you want; it's not all that big.
 
 Now you have the "small test library" described in the Kometa walkthough.
+
+
+TODO:
+1. random audio formats [currently they are all AAC]
