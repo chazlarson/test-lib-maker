@@ -6,18 +6,19 @@ select_random() {
 
 docker pull linuxserver/ffmpeg
 
-languages=("afr" "amh" "ara" "ave" "aze" "bak" "bel" "ben" "bis" "bos" "bre" "bul" "cat" "cha" "chi" "chu" "chv" "cor" "cos" "cre" "dan" "dzo" "est" "ewe" "fij" "fin" "fra" "ger" "gla" "gle" "grn" "hat" "hin" "hrv" "hun" "ile" "ind" "ita" "jpn" "kan" "kau" "khm" "kik" "kin" "kon" "lat" "lav" "lim" "lit" "ltz" "lub" "mah" "mal" "mar" "mlg" "mlt" "mon" "ndo" "nep" "nor" "orm" "pan" "phi" "pol" "por" "pus" "rus" "sag" "san" "sin" "sme" "smo" "sna" "snd" "som" "sot" "spa" "srd" "srp" "swe" "tat" "tgk" "tgl" "tha" "tsn" "tur" "twi" "uig" "ukr" "uzb" "ven" "zha")
+languages=("aze" "bel" "bul" "cat" "cha" "chi" "cor" "cos" "cre" "dan" "dzo" "est" "fin" "fra" "ger" "hin" "hun" "ita" "jpn" "lat" "mal" "nor" "phi" "por" "pus" "rus" "sme" "spa" "swe" "tha" "tur" "twi" "ukr" "uzb" "zha")
 sources=("Bluray" "Remux" "WEBDL" "WEBRIP" "HDTV" "DVD")
 resolutions=("2160p" "1080p" "720p" "576p" "480p" "360p" "240p")
 all_audios=("truehd_atmos" "dtsx" "plus_atmos" "dolby_atmos" "truehd" "ma" "flac" "pcm" "hra" "plus" "dtses" "dts" "digital" "aac" "mp3" "opus")
-simple_audios=("flac" "aac" "mp3" "opus")
+# simple_audios=("flac" "aac" "mp3" "opus")
+simple_audios=("aac")
 
-cur_res='2160p'
-cur_src='Bluray'
-cur_sub1='fra'
-cur_sub2='ger'
-cur_aud1='bul'
-cur_aud2='cat'
+cur_src=$(select_random "${sources[@]}")
+cur_res=$(select_random "${resolutions[@]}")
+cur_sub1=$(select_random "${languages[@]}")
+cur_sub2=$(select_random "${languages[@]}")
+cur_aud1=$(select_random "${languages[@]}")
+cur_aud2=$(select_random "${languages[@]}")
 
 get_random_langs () {
     cur_sub1=$(select_random "${languages[@]}")
@@ -194,8 +195,8 @@ createepisode () {
     -map "1:0" "-metadata:s:s:0" "language=eng" "-metadata:s:s:0" "handler_name=English"  "-metadata:s:s:0" "title=English" \
     -map "2:0" "-metadata:s:s:1" "language=$cur_sub1" "-metadata:s:s:1" "handler_name=$cur_sub1" "-metadata:s:s:1" "title=$cur_sub1" \
     -map "3:0" "-metadata:s:s:2" "language=$cur_sub2" "-metadata:s:s:2" "handler_name=$cur_sub2" "-metadata:s:s:2" "title=$cur_sub2" \
-    -map "4:0" "-metadata:s:s:3" "language=$cur_aud1" "-metadata:s:s:2" "handler_name=$cur_aud2" "-metadata:s:s:2" "title=$cur_aud2" \
-    -map "5:0" "-metadata:s:s:4" "language=$cur_aud2" "-metadata:s:s:2" "handler_name=$cur_aud2" "-metadata:s:s:2" "title=$cur_aud2" \
+    -map "4:0" "-metadata:s:a:1" "language=$cur_aud1" "-metadata:s:a:1" "handler_name=$cur_aud1" "-metadata:s:a:1" "title=$cur_aud1" \
+    -map "5:0" "-metadata:s:a:2" "language=$cur_aud2" "-metadata:s:a:2" "handler_name=$cur_aud2" "-metadata:s:a:2" "title=$cur_aud2" \
     "/config/test_tv_lib/$1 $2/Season $3/$1 - S$3E$4 [$cur_src-$cur_res H264 AAC 2.0]-BINGBANG.mkv"
 }
 
