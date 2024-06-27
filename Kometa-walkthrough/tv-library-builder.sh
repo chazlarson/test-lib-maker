@@ -321,3 +321,78 @@ createseason "Yellowstone (2018)" "{tvdb-341164}" 3 10
 createseason "Yellowstone (2018)" "{tvdb-341164}" 4 10
 createseason "Yellowstone (2018)" "{tvdb-341164}" 5 8
 # 9 10 10 10 8
+
+startnewshow $cur_res $cur_src
+createseason "Star Trek: Enterprise (2001)" "{tvdb-73893}" 0 1
+createseason "Star Trek: Enterprise (2001)" "{tvdb-73893}" 1 26
+createseason "Star Trek: Enterprise (2001)" "{tvdb-73893}" 2 26
+createseason "Star Trek: Enterprise (2001)" "{tvdb-73893}" 3 24
+createseason "Star Trek: Enterprise (2001)" "{tvdb-73893}" 4 22
+
+startnewshow $cur_res $cur_src
+createseason "Star Trek: Short Treks (2018)" "{tvdb-376108}" 0 15
+createseason "Star Trek: Short Treks (2018)" "{tvdb-376108}" 1 4
+createseason "Star Trek: Short Treks (2018)" "{tvdb-376108}" 2 6
+
+startnewshow $cur_res $cur_src
+createseason "Star Trek (1966)" "{tvdb-77526}" 0 5
+createseason "Star Trek (1966)" "{tvdb-77526}" 1 29
+createseason "Star Trek (1966)" "{tvdb-77526}" 2 26
+createseason "Star Trek (1966)" "{tvdb-77526}" 3 24
+
+startnewshow $cur_res $cur_src
+createseason "Star Trek: Discovery (2017)" "{tvdb-328711}" 0 4
+createseason "Star Trek: Discovery (2017)" "{tvdb-328711}" 1 15
+createseason "Star Trek: Discovery (2017)" "{tvdb-328711}" 2 14
+createseason "Star Trek: Discovery (2017)" "{tvdb-328711}" 3 13
+createseason "Star Trek: Discovery (2017)" "{tvdb-328711}" 4 13
+createseason "Star Trek: Discovery (2017)" "{tvdb-328711}" 5 10
+
+startnewshow $cur_res $cur_src
+createseason "Star Trek: Strange New Worlds (2022)" "{tvdb-382389}" 0 3
+createseason "Star Trek: Strange New Worlds (2022)" "{tvdb-382389}" 1 10
+createseason "Star Trek: Strange New Worlds (2022)" "{tvdb-382389}" 2 10
+
+startnewshow $cur_res $cur_src
+createseason "Star Trek: The Animated Series (1973)" "{tvdb-73566}" 0 2
+createseason "Star Trek: The Animated Series (1973)" "{tvdb-73566}" 1 16
+createseason "Star Trek: The Animated Series (1973)" "{tvdb-73566}" 2 6
+
+startnewshow $cur_res $cur_src
+createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 0 2
+createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 1 26
+createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 2 22
+createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 3 26
+createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 4 26
+createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 5 26
+createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 6 26
+createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 7 26
+
+startnewshow $cur_res $cur_src
+createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 0 3
+createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 1 20
+createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 2 26
+createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 3 26
+createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 4 26
+createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 5 26
+createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 6 26
+createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 7 26
+
+startnewshow $cur_res $cur_src
+createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 0 1
+createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 1 16
+createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 2 26
+createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 3 26
+createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 4 26
+createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 5 26
+createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 6 26
+createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 7 26
+
+startnewshow $cur_res $cur_src
+createshow "Star Trek: Lower Decks (2020)" "{tvdb-367138}" 4 10
+
+startnewshow $cur_res $cur_src
+createshow "Star Trek: Prodigy (2021)" "{tvdb-385811}" 2 20
+
+startnewshow $cur_res $cur_src
+createshow "Star Trek: Picard (2020)" "{tvdb-364093}" 3 10
