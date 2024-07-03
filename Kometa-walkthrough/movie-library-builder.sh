@@ -157,7 +157,7 @@ createaudiofiles () {
                 echo "File sounds/$FILE exists."
             else
                 echo "Creating $FILE..."
-                ffmpeg -loglevel quiet -stats -y -i sounds/1-min-audio.m4a -metadata:s:a:0 language=$l sounds/$FILE
+                docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg -stats -y -i /config/sounds/1-min-audio.m4a -metadata:s:a:0 language=$l /config/sounds/$FILE
             fi
         done
     done
@@ -171,8 +171,8 @@ createbasevideo () {
         echo "File $FILE exists."
     else
         echo "Creating $FILE..."
-        docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg -loglevel quiet -stats -loop 1 -i /config/testpattern.png -c:v libx264 -t 60 -pix_fmt yuv420p -vf scale=$2 /config/tmp.mp4
-        docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg -loglevel quiet -stats -i "/config/tmp.mp4" -i /config/sounds/1-min-audio.m4a -c copy -map 0:v:0 -map 1:a:0 /config/$FILE
+        docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg -stats -loop 1 -i /config/testpattern.png -c:v libx264 -t 60 -pix_fmt yuv420p -vf scale=$2 /config/tmp.mp4
+        docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg -stats -i "/config/tmp.mp4" -i /config/sounds/1-min-audio.m4a -c copy -map 0:v:0 -map 1:a:0 /config/$FILE
         rm -f tmp.mp4
         echo "$FILE created"
         echo "==================="
@@ -193,8 +193,8 @@ createtestvideo () {
     mkdir -p "test_movie_lib/$1$cur_edition"
     echo "creating $1 [$cur_src-$cur_res H264 AAC 2.0]-BINGBANG$cur_edition.mkv"
     docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg \
-    -y -loglevel quiet -stats -i "/config/$cur_res.mp4" \
-    -i "/config/subs/sub.eng.srt" \
+    -y -stats -i "/config/$cur_res.mp4" \
+    -i "/config/subs/sub.enu.srt" \
     -i "/config/subs/sub.$cur_sub1.srt" \
     -i "/config/subs/sub.$cur_sub2.srt" \
     -i "/config/sounds/1-min-audio-$cur_aud1.aac" \
