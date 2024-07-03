@@ -121,6 +121,7 @@ startnewshow () {
 }
 
 createsubs () {
+    cp subs/base.srt subs/sub.enu.srt
     cp subs/base.srt subs/sub.eng.srt
     for l in "${languages[@]}"
     do
