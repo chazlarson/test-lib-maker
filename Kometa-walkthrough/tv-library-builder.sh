@@ -147,7 +147,7 @@ createaudiofiles () {
                 echo "File sounds/$FILE exists."
             else
                 echo "Creating $FILE..."
-                ffmpeg -y -loglevel quiet -stats -i sounds/1-min-audio.aac -metadata:s:a:0 language=$l sounds/$FILE
+                docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg -y -loglevel quiet -stats -i /config/sounds/1-min-audio.aac -metadata:s:a:0 language=$l /config/sounds/$FILE
             fi
         done
     done
