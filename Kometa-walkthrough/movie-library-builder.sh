@@ -19,6 +19,7 @@ all_audios=("truehd_atmos" "dtsx" "plus_atmos" "dolby_atmos" "truehd" "ma" "flac
 # simple_audios=("flac" "aac" "mp3" "opus")
 simple_audios=("aac")
 
+section_count=0
 cur_edition=""
 cur_src=$(select_random "${sources[@]}")
 cur_res=$(select_random "${resolutions[@]}")
@@ -141,6 +142,8 @@ createsubs () {
         else
             echo "Creating $FILE..."
             cp subs/base.srt subs/sub.$l.srt
+            echo "$FILE created"
+            echo "==================="
         fi
     done
 }
@@ -157,7 +160,9 @@ createaudiofiles () {
                 echo "File sounds/$FILE exists."
             else
                 echo "Creating $FILE..."
-                docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg -stats -y -i /config/sounds/1-min-audio.m4a -metadata:s:a:0 language=$l /config/sounds/$FILE
+                docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg -loglevel quiet -y -i /config/sounds/1-min-audio.m4a -metadata:s:a:0 language=$l /config/sounds/$FILE
+                echo "$FILE created"
+                echo "==================="
             fi
         done
     done
@@ -171,8 +176,8 @@ createbasevideo () {
         echo "File $FILE exists."
     else
         echo "Creating $FILE..."
-        docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg -stats -loop 1 -i /config/testpattern.png -c:v libx264 -t 60 -pix_fmt yuv420p -vf scale=$2 /config/tmp.mp4
-        docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg -stats -i "/config/tmp.mp4" -i /config/sounds/1-min-audio.m4a -c copy -map 0:v:0 -map 1:a:0 /config/$FILE
+        docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg -loglevel quiet -stats -loop 1 -i /config/testpattern.png -c:v libx264 -t 60 -pix_fmt yuv420p -vf scale=$2 /config/tmp.mp4
+        docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg -loglevel quiet -stats -i "/config/tmp.mp4" -i /config/sounds/1-min-audio.m4a -c copy -map 0:v:0 -map 1:a:0 /config/$FILE
         rm -f tmp.mp4
         echo "$FILE created"
         echo "==================="
@@ -191,9 +196,9 @@ createbasevideo '240p' '428:240'
 createtestvideo () {
     randomizeall
     mkdir -p "test_movie_lib/$1$cur_edition"
-    echo "creating $1 [$cur_src-$cur_res H264 AAC 2.0]-BINGBANG$cur_edition.mkv"
+    echo "creating $section_index/$section_count $1 [$cur_src-$cur_res H264 AAC 2.0]-BINGBANG$cur_edition.mkv"
     docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg \
-    -y -stats -i "/config/$cur_res.mp4" \
+    -y -loglevel quiet -i "/config/$cur_res.mp4" \
     -i "/config/subs/sub.enu.srt" \
     -i "/config/subs/sub.$cur_sub1.srt" \
     -i "/config/subs/sub.$cur_sub2.srt" \
@@ -207,9 +212,14 @@ createtestvideo () {
     -map "4:0" "-metadata:s:a:1" "language=$cur_aud1" "-metadata:s:a:1" "handler_name=$cur_aud1" "-metadata:s:a:1" "title=$cur_aud1" \
     -map "5:0" "-metadata:s:a:2" "language=$cur_aud2" "-metadata:s:a:2" "handler_name=$cur_aud2" "-metadata:s:a:2" "title=$cur_aud2" \
     "/config/test_movie_lib/$1$cur_edition/$1 [$cur_src-$cur_res H264 AAC 2.0]-BINGBANG$cur_edition.mkv"
+    ((section_index+=1))
 }
 
+
 # Comedy after 2012
+echo "Creating 50 comedy movies from 2012+"
+section_count=50
+section_index=1
 createtestvideo "21 Jump Street (2012) {imdb-tt1232829}" # comedy
 createtestvideo "22 Jump Street (2014) {imdb-tt2294449}" # comedy
 createtestvideo "About Time (2013) {imdb-tt2194499}" # comedy
@@ -263,10 +273,9 @@ createtestvideo "The Wolf of Wall Street (2013) {imdb-tt0993846} {tmdb-106646}" 
 createtestvideo "Wreck-It Ralph (2012) {imdb-tt1772341}" # comedy
 
 # IMDB Lowest
-createtestvideo "3 Ninjas: High Noon at Mega Mountain (1998) {imdb-tt0118539} {tmdb-32302}" # imdb lowest
-createtestvideo "365 Days (2020) {imdb-tt10886166} {tmdb-664413}" # imdb lowest
-createtestvideo "365 Days: This Day (2022) {imdb-tt12996154}" # imdb lowest
-createtestvideo "Adipurush (2023) {imdb-tt12915716} {tmdb-734253}" # imdb lowest
+echo "Creating 50 movies from IMDB Lowest"
+section_count=50
+section_index=1
 createtestvideo "The Adventures of Sharkboy and Lavagirl 3-D (2005) {imdb-tt0424774}" # imdb lowest
 createtestvideo "Alone in the Dark (2005) {imdb-tt0369226} {tmdb-12142}" # imdb lowest
 createtestvideo "Baaghi 3 (2020) {imdb-tt8366590} {tmdb-594669}" # imdb lowest
@@ -291,7 +300,6 @@ createtestvideo "The Fog (2005) {imdb-tt0432291}" # imdb lowest
 createtestvideo "Gigli (2003) {imdb-tt0299930}" # imdb lowest
 createtestvideo "The Hottie & the Nottie (2008) {imdb-tt0804492}" # imdb lowest
 createtestvideo "The Human Centipede 2 (Full Sequence) (2011) {imdb-tt1530509}" # imdb lowest
-createtestvideo "The Human Centipede III (Final Sequence) (2015) {imdb-tt1883367}" # imdb lowest
 createtestvideo "I Know Who Killed Me (2007) {imdb-tt0897361}" # imdb lowest
 createtestvideo "In the Name of the King: A Dungeon Siege Tale (2007) {imdb-tt0460780}" # imdb lowest
 createtestvideo "Jack and Jill (2011) {imdb-tt0810913}" # imdb lowest
@@ -321,8 +329,10 @@ createtestvideo "The Wicker Man (2006) {imdb-tt0450345}" # imdb lowest
 createtestvideo "Winnie-the-Pooh: Blood and Honey (2023) {imdb-tt19623240}" # imdb lowest
 
 # IMDB most Popular
+echo "Creating 42 movies from IMDB Popular"
+section_count=42
+section_index=1
 createtestvideo "Abigail (2024) {imdb-tt27489557}" # imdb popular
-createtestvideo "Amar Singh Chamkila (2024) {imdb-tt26658272}" # imdb popular
 createtestvideo "Anyone But You (2023) {imdb-tt26047818} {tmdb-1072790}" # imdb popular
 createtestvideo "Argylle (2024) {imdb-tt15009428} {tmdb-848538}" # imdb popular
 createtestvideo "Back to Black (2024) {imdb-tt21261712}" # imdb popular
@@ -343,7 +353,6 @@ createtestvideo "Immaculate (2024) {imdb-tt23137390}" # imdb popular
 createtestvideo "Joker: Folie à Deux (2024) {imdb-tt11315808}" # imdb popular
 createtestvideo "Kingdom of the Planet of the Apes (2024) {imdb-tt11389872}" # imdb popular
 createtestvideo "Kung Fu Panda 4 (2024) {imdb-tt21692408}" # imdb popular
-createtestvideo "Late Night with the Devil (2023) {imdb-tt14966898}" # imdb popular
 createtestvideo "Love Lies Bleeding (2024) {imdb-tt19637052}" # imdb popular
 createtestvideo "Madame Web (2024) {imdb-tt11057302} {tmdb-634492}" # imdb popular
 createtestvideo "The Ministry of Ungentlemanly Warfare (2024) {imdb-tt5177120}" # imdb popular
@@ -366,6 +375,9 @@ createtestvideo "Wonka (2023) {imdb-tt6166392} {tmdb-787699}" # imdb popular
 createtestvideo "The Zone of Interest (2023) {imdb-tt7160372}" # imdb popular
 
 # IMDB Top 250
+echo "Creating 50 movies from IMDB Top 250"
+section_count=50
+section_index=1
 createtestvideo "12th Fail (2023) {imdb-tt23849204}" # imdb top
 createtestvideo "Alien (1979) {imdb-tt0078748}" # imdb top
 createtestvideo "Amadeus (1984) {imdb-tt0086879}" # imdb top
@@ -419,6 +431,9 @@ createtestvideo "The Usual Suspects (1995) {imdb-tt0114814}" # imdb top
 createtestvideo "Whiplash (2014) {imdb-tt2582802} {tmdb-244786}" # imdb top
 
 # star trek timeline
+echo "Creating 13 movies from Star Trek timeline"
+section_count=13
+section_index=1
 createtestvideo "Star Trek (2009) {tmdb-13475}"
 createtestvideo "Star Trek Into Darkness (2013) {tmdb-54138}"
 createtestvideo "Star Trek Beyond (2016) {tmdb-188927}"
@@ -435,6 +450,9 @@ createtestvideo "Star Trek: Insurrection (1998) {tmdb-200}"
 createtestvideo "Star Trek: Nemesis (2002) {tmdb-201}"
 
 # independence day movies:
+echo "Creating 4 movies from Independence Day list"
+section_count=4
+section_index=1
 createtestvideo "Mr. Smith Goes to Washington (1939) {imdb-tt0031679}"
 createtestvideo "Yankee Doodle Dandy (1942) {imdb-tt0035575}"
 createtestvideo "Patton (1970) {imdb-tt0066206}"
