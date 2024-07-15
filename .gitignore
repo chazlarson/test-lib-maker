@@ -11,8 +11,12 @@
 .direnv
 *test_movie_lib
 *test_tv_lib
+*test-files
+*trakt-test-list
 
-/Kometa-walkthrough/sounds/1-min-audio-*.*
+/Kometa-walkthrough/sounds/1-min-audio*.*
+/Kometa-walkthrough/sounds/output.*
+/Kometa-walkthrough/sounds/*.sh
 /Kometa-walkthrough/subs/sub.*.srt
 /Kometa-walkthrough/*.mkv
 /Kometa-walkthrough/*.mp4
