@@ -2,10 +2,12 @@
 
 use_docker=true
 ffmpeg_cmd='ffmpeg'
+path_prefix=''
 
 if [ "$use_docker" = true ] ; then
     docker pull linuxserver/ffmpeg
     ffmpeg_cmd="docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg"
+    path_prefix='/config/'
 fi
 
 select_random() {
@@ -157,7 +159,7 @@ createaudiofiles () {
                 echo "File sounds/$FILE exists."
             else
                 echo "Creating $FILE..."
-                $ffmpeg_cmd -y -loglevel quiet -i /config/sounds/1-min-audio.m4a -metadata:s:a:0 language=$l /config/sounds/$FILE
+                $ffmpeg_cmd -y -loglevel quiet -i ${path_prefix}sounds/1-min-audio.m4a -metadata:s:a:0 language=$l ${path_prefix}sounds/$FILE
                 echo "$FILE created"
                 echo "==================="
             fi
@@ -173,8 +175,8 @@ createbasevideo () {
         echo "File $FILE exists."
     else
         echo "Creating $FILE... [1500 frames]"
-        $ffmpeg_cmd -loglevel quiet -stats -loop 1 -i /config/testpattern.png -c:v libx264 -t 60 -pix_fmt yuv420p -vf scale=$2 /config/tmp.mp4
-        $ffmpeg_cmd -loglevel quiet -stats -i "/config/tmp.mp4" -i /config/sounds/1-min-audio.m4a -c copy -map 0:v:0 -map 1:a:0 /config/$FILE
+        $ffmpeg_cmd -loglevel quiet -stats -loop 1 -i ${path_prefix}testpattern.png -c:v libx264 -t 60 -pix_fmt yuv420p -vf scale=$2 ${path_prefix}tmp.mp4
+        $ffmpeg_cmd -loglevel quiet -stats -i "${path_prefix}tmp.mp4" -i ${path_prefix}sounds/1-min-audio.m4a -c copy -map 0:v:0 -map 1:a:0 ${path_prefix}$FILE
         rm -f tmp.mp4
         echo "$FILE created"
         echo "==================="
@@ -202,12 +204,12 @@ createepisode () {
     echo "creating episode video file: $1 - S$3E$4 [$cur_src-$cur_res H264 AAC 2.0]-BINGBANG.mkv"
 
     $ffmpeg_cmd \
-    -y -loglevel quiet -i "/config/$cur_res.mp4" \
-    -i "/config/subs/sub.eng.srt" \
-    -i "/config/subs/sub.$cur_sub1.srt" \
-    -i "/config/subs/sub.$cur_sub2.srt" \
-    -i "/config/sounds/1-min-audio-$cur_aud1.aac" \
-    -i "/config/sounds/1-min-audio-$cur_aud2.aac" \
+    -y -loglevel quiet -i "${path_prefix}$cur_res.mp4" \
+    -i "${path_prefix}subs/sub.eng.srt" \
+    -i "${path_prefix}subs/sub.$cur_sub1.srt" \
+    -i "${path_prefix}subs/sub.$cur_sub2.srt" \
+    -i "${path_prefix}sounds/1-min-audio-$cur_aud1.aac" \
+    -i "${path_prefix}sounds/1-min-audio-$cur_aud2.aac" \
     -c copy \
     -map 0 -dn -map "-0:s" -map "-0:d" \
     -map "1:0" "-metadata:s:s:0" "language=eng" "-metadata:s:s:0" "handler_name=English"  "-metadata:s:s:0" "title=English" \
@@ -215,7 +217,7 @@ createepisode () {
     -map "3:0" "-metadata:s:s:2" "language=$cur_sub2" "-metadata:s:s:2" "handler_name=$cur_sub2" "-metadata:s:s:2" "title=$cur_sub2" \
     -map "4:0" "-metadata:s:a:1" "language=$cur_aud1" "-metadata:s:a:1" "handler_name=$cur_aud1" "-metadata:s:a:1" "title=$cur_aud1" \
     -map "5:0" "-metadata:s:a:2" "language=$cur_aud2" "-metadata:s:a:2" "handler_name=$cur_aud2" "-metadata:s:a:2" "title=$cur_aud2" \
-    "/config/test_tv_lib/$1 $2/Season $3/$1 - S$3E$4 [$cur_src-$cur_res H264 AAC 2.0]-BINGBANG.mkv"
+    "${path_prefix}test_tv_lib/$1 $2/Season $3/$1 - S$3E$4 [$cur_src-$cur_res H264 AAC 2.0]-BINGBANG.mkv"
 }
 
 # $1 title with year
@@ -439,3 +441,5 @@ createshow "Star Trek: Prodigy (2021)" "{tvdb-385811}" 2 20
 echo "Creating 3 seasons of Star Trek: Picard"
 startnewshow $cur_res $cur_src
 createshow "Star Trek: Picard (2020)" "{tvdb-364093}" 3 10
+
+
