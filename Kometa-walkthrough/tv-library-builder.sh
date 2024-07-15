@@ -1,5 +1,13 @@
 #!/bin/bash
 
+use_docker=true
+ffmpeg_cmd='ffmpeg'
+
+if [ "$use_docker" = true ] ; then
+    docker pull linuxserver/ffmpeg
+    ffmpeg_cmd="docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg"
+fi
+
 select_random() {
     printf "%s\0" "$@" | shuf -z -n1 | tr -d '\0'
 }
@@ -149,7 +157,7 @@ createaudiofiles () {
                 echo "File sounds/$FILE exists."
             else
                 echo "Creating $FILE..."
-                docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg -y -loglevel quiet -i /config/sounds/1-min-audio.m4a -metadata:s:a:0 language=$l /config/sounds/$FILE
+                $ffmpeg_cmd -y -loglevel quiet -i /config/sounds/1-min-audio.m4a -metadata:s:a:0 language=$l /config/sounds/$FILE
                 echo "$FILE created"
                 echo "==================="
             fi
@@ -165,8 +173,8 @@ createbasevideo () {
         echo "File $FILE exists."
     else
         echo "Creating $FILE... [1500 frames]"
-        docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg -loglevel quiet -stats -loop 1 -i /config/testpattern.png -c:v libx264 -t 60 -pix_fmt yuv420p -vf scale=$2 /config/tmp.mp4
-        docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg -loglevel quiet -stats -i "/config/tmp.mp4" -i /config/sounds/1-min-audio.m4a -c copy -map 0:v:0 -map 1:a:0 /config/$FILE
+        $ffmpeg_cmd -loglevel quiet -stats -loop 1 -i /config/testpattern.png -c:v libx264 -t 60 -pix_fmt yuv420p -vf scale=$2 /config/tmp.mp4
+        $ffmpeg_cmd -loglevel quiet -stats -i "/config/tmp.mp4" -i /config/sounds/1-min-audio.m4a -c copy -map 0:v:0 -map 1:a:0 /config/$FILE
         rm -f tmp.mp4
         echo "$FILE created"
         echo "==================="
@@ -193,7 +201,7 @@ createepisode () {
 
     echo "creating episode video file: $1 - S$3E$4 [$cur_src-$cur_res H264 AAC 2.0]-BINGBANG.mkv"
 
-    docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg \
+    $ffmpeg_cmd \
     -y -loglevel quiet -i "/config/$cur_res.mp4" \
     -i "/config/subs/sub.eng.srt" \
     -i "/config/subs/sub.$cur_sub1.srt" \
