@@ -1,6 +1,6 @@
 #!/bin/bash
 
-use_docker=true
+use_docker=false
 ffmpeg_cmd='ffmpeg'
 path_prefix=''
 
@@ -28,12 +28,15 @@ all_audios=("truehd_atmos" "dtsx" "plus_atmos" "dolby_atmos" "truehd" "ma" "flac
 # simple_audios=("flac" "aac" "mp3" "opus")
 simple_audios=("aac")
 
+audiocodecs=("true-hd atmos" "dts-x" "dolby-digital-plus atmos" "atmos" "true-hd" "dts-hd-xll-hd-hra" "flac" "lpcm" "dts-hd-hra" "dolby-digital-plus e-ac3" "dts-es" "dts" "dolby" "stereo" "mp3" "OPUS")
+
 cur_src=$(select_random "${sources[@]}")
 cur_res=$(select_random "${resolutions[@]}")
 cur_sub1=$(select_random "${languages[@]}")
 cur_sub2=$(select_random "${languages[@]}")
 cur_aud1=$(select_random "${languages[@]}")
 cur_aud2=$(select_random "${languages[@]}")
+cur_codec=$(select_random "${audiocodecs[@]}")
 
 get_random_langs () {
     cur_sub1=$(select_random "${languages[@]}")
@@ -118,10 +121,15 @@ getrandomresolution () {
     cur_res=$(select_random "${resolutions[@]}")
 }
 
+getrandomaudiocodec () {
+    cur_codec=$(select_random "${audiocodecs[@]}")
+}
+
 randomizeall () {
     getrandomresolution
     getrandomsource
     get_random_langs
+    getrandomaudiocodec
 }
 
 startnewshow () {
@@ -215,8 +223,8 @@ createepisode () {
     -map "1:0" "-metadata:s:s:0" "language=eng" "-metadata:s:s:0" "handler_name=English"  "-metadata:s:s:0" "title=English" \
     -map "2:0" "-metadata:s:s:1" "language=$cur_sub1" "-metadata:s:s:1" "handler_name=$cur_sub1" "-metadata:s:s:1" "title=$cur_sub1" \
     -map "3:0" "-metadata:s:s:2" "language=$cur_sub2" "-metadata:s:s:2" "handler_name=$cur_sub2" "-metadata:s:s:2" "title=$cur_sub2" \
-    -map "4:0" "-metadata:s:a:1" "language=$cur_aud1" "-metadata:s:a:1" "handler_name=$cur_aud1" "-metadata:s:a:1" "title=$cur_aud1" \
-    -map "5:0" "-metadata:s:a:2" "language=$cur_aud2" "-metadata:s:a:2" "handler_name=$cur_aud2" "-metadata:s:a:2" "title=$cur_aud2" \
+    -map "4:0" "-metadata:s:a:1" "language=$cur_aud1" "-metadata:s:a:1" "handler_name=$cur_aud1" "-metadata:s:a:1" "title=$cur_aud1 - $cur_codec" \
+    -map "5:0" "-metadata:s:a:2" "language=$cur_aud2" "-metadata:s:a:2" "handler_name=$cur_aud2" "-metadata:s:a:2" "title=$cur_aud2 - $cur_codec" \
     "${path_prefix}test_tv_lib/$1 $2/Season $3/$1 - S$3E$4 [$cur_src-$cur_res H264 AAC 2.0]-BINGBANG.mkv"
 }
 
@@ -355,19 +363,19 @@ createseason "Yellowstone (2018)" "{tvdb-341164}" 4 10
 createseason "Yellowstone (2018)" "{tvdb-341164}" 5 8
 # 9 10 10 10 8
 
-echo "Creating 5 seasons of Star Trek: Enterprise"
-startnewshow $cur_res $cur_src
-createseason "Star Trek: Enterprise (2001)" "{tvdb-73893}" 0 1
-createseason "Star Trek: Enterprise (2001)" "{tvdb-73893}" 1 26
-createseason "Star Trek: Enterprise (2001)" "{tvdb-73893}" 2 26
-createseason "Star Trek: Enterprise (2001)" "{tvdb-73893}" 3 24
-createseason "Star Trek: Enterprise (2001)" "{tvdb-73893}" 4 22
+# echo "Creating 5 seasons of Star Trek: Enterprise"
+# startnewshow $cur_res $cur_src
+# createseason "Star Trek: Enterprise (2001)" "{tvdb-73893}" 0 1
+# createseason "Star Trek: Enterprise (2001)" "{tvdb-73893}" 1 26
+# createseason "Star Trek: Enterprise (2001)" "{tvdb-73893}" 2 26
+# createseason "Star Trek: Enterprise (2001)" "{tvdb-73893}" 3 24
+# createseason "Star Trek: Enterprise (2001)" "{tvdb-73893}" 4 22
 
-echo "Creating 3 seasons of Star Trek: Short Treks"
-startnewshow $cur_res $cur_src
-createseason "Star Trek: Short Treks (2018)" "{tvdb-376108}" 0 15
-createseason "Star Trek: Short Treks (2018)" "{tvdb-376108}" 1 4
-createseason "Star Trek: Short Treks (2018)" "{tvdb-376108}" 2 6
+# echo "Creating 3 seasons of Star Trek: Short Treks"
+# startnewshow $cur_res $cur_src
+# createseason "Star Trek: Short Treks (2018)" "{tvdb-376108}" 0 15
+# createseason "Star Trek: Short Treks (2018)" "{tvdb-376108}" 1 4
+# createseason "Star Trek: Short Treks (2018)" "{tvdb-376108}" 2 6
 
 echo "Creating 4 seasons of Star Trek"
 startnewshow $cur_res $cur_src
@@ -376,70 +384,72 @@ createseason "Star Trek (1966)" "{tvdb-77526}" 1 29
 createseason "Star Trek (1966)" "{tvdb-77526}" 2 26
 createseason "Star Trek (1966)" "{tvdb-77526}" 3 24
 
-echo "Creating 6 seasons of Star Trek: Discovery"
-startnewshow $cur_res $cur_src
-createseason "Star Trek: Discovery (2017)" "{tvdb-328711}" 0 4
-createseason "Star Trek: Discovery (2017)" "{tvdb-328711}" 1 15
-createseason "Star Trek: Discovery (2017)" "{tvdb-328711}" 2 14
-createseason "Star Trek: Discovery (2017)" "{tvdb-328711}" 3 13
-createseason "Star Trek: Discovery (2017)" "{tvdb-328711}" 4 13
-createseason "Star Trek: Discovery (2017)" "{tvdb-328711}" 5 10
+# echo "Creating 6 seasons of Star Trek: Discovery"
+# startnewshow $cur_res $cur_src
+# createseason "Star Trek: Discovery (2017)" "{tvdb-328711}" 0 4
+# createseason "Star Trek: Discovery (2017)" "{tvdb-328711}" 1 15
+# createseason "Star Trek: Discovery (2017)" "{tvdb-328711}" 2 14
+# createseason "Star Trek: Discovery (2017)" "{tvdb-328711}" 3 13
+# createseason "Star Trek: Discovery (2017)" "{tvdb-328711}" 4 13
+# createseason "Star Trek: Discovery (2017)" "{tvdb-328711}" 5 10
 
-echo "Creating 3 seasons of Star Trek: Strange New Worlds"
-startnewshow $cur_res $cur_src
-createseason "Star Trek: Strange New Worlds (2022)" "{tvdb-382389}" 0 3
-createseason "Star Trek: Strange New Worlds (2022)" "{tvdb-382389}" 1 10
-createseason "Star Trek: Strange New Worlds (2022)" "{tvdb-382389}" 2 10
+# echo "Creating 3 seasons of Star Trek: Strange New Worlds"
+# startnewshow $cur_res $cur_src
+# createseason "Star Trek: Strange New Worlds (2022)" "{tvdb-382389}" 0 3
+# createseason "Star Trek: Strange New Worlds (2022)" "{tvdb-382389}" 1 10
+# createseason "Star Trek: Strange New Worlds (2022)" "{tvdb-382389}" 2 10
 
-echo "Creating 3 seasons of Star Trek: The Animated Series"
-startnewshow $cur_res $cur_src
-createseason "Star Trek: The Animated Series (1973)" "{tvdb-73566}" 0 2
-createseason "Star Trek: The Animated Series (1973)" "{tvdb-73566}" 1 16
-createseason "Star Trek: The Animated Series (1973)" "{tvdb-73566}" 2 6
+# echo "Creating 3 seasons of Star Trek: The Animated Series"
+# startnewshow $cur_res $cur_src
+# createseason "Star Trek: The Animated Series (1973)" "{tvdb-73566}" 0 2
+# createseason "Star Trek: The Animated Series (1973)" "{tvdb-73566}" 1 16
+# createseason "Star Trek: The Animated Series (1973)" "{tvdb-73566}" 2 6
 
-echo "Creating 8 seasons of Star Trek: The Next Generation"
-startnewshow $cur_res $cur_src
-createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 0 2
-createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 1 26
-createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 2 22
-createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 3 26
-createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 4 26
-createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 5 26
-createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 6 26
-createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 7 26
+# echo "Creating 8 seasons of Star Trek: The Next Generation"
+# startnewshow $cur_res $cur_src
+# createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 0 2
+# createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 1 26
+# createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 2 22
+# createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 3 26
+# createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 4 26
+# createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 5 26
+# createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 6 26
+# createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 7 26
 
-echo "Creating 8 seasons of Star Trek: Deep Space Nine"
-startnewshow $cur_res $cur_src
-createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 0 3
-createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 1 20
-createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 2 26
-createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 3 26
-createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 4 26
-createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 5 26
-createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 6 26
-createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 7 26
+# echo "Creating 8 seasons of Star Trek: Deep Space Nine"
+# startnewshow $cur_res $cur_src
+# createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 0 3
+# createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 1 20
+# createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 2 26
+# createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 3 26
+# createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 4 26
+# createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 5 26
+# createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 6 26
+# createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 7 26
 
-echo "Creating 8 seasons of Star Trek: Voyager"
-startnewshow $cur_res $cur_src
-createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 0 1
-createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 1 16
-createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 2 26
-createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 3 26
-createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 4 26
-createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 5 26
-createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 6 26
-createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 7 26
+# echo "Creating 8 seasons of Star Trek: Voyager"
+# startnewshow $cur_res $cur_src
+# createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 0 1
+# createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 1 16
+# createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 2 26
+# createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 3 26
+# createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 4 26
+# createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 5 26
+# createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 6 26
+# createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 7 26
 
 echo "Creating 4 seasons of Star Trek: Lower Decks"
 startnewshow $cur_res $cur_src
 createshow "Star Trek: Lower Decks (2020)" "{tvdb-367138}" 4 10
 
-echo "Creating 2 seasons of Star Trek: Prodigy"
+# echo "Creating 2 seasons of Star Trek: Prodigy"
+# startnewshow $cur_res $cur_src
+# createshow "Star Trek: Prodigy (2021)" "{tvdb-385811}" 2 20
+
+# echo "Creating 3 seasons of Star Trek: Picard"
+# startnewshow $cur_res $cur_src
+# createshow "Star Trek: Picard (2020)" "{tvdb-364093}" 3 10
+
+echo "Creating 1 season of Bad Monkey"
 startnewshow $cur_res $cur_src
-createshow "Star Trek: Prodigy (2021)" "{tvdb-385811}" 2 20
-
-echo "Creating 3 seasons of Star Trek: Picard"
-startnewshow $cur_res $cur_src
-createshow "Star Trek: Picard (2020)" "{tvdb-364093}" 3 10
-
-
+createshow "Bad Monkey (2024)" "{tvdb-408436}" 1 10
