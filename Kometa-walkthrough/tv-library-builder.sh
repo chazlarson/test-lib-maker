@@ -28,7 +28,7 @@ all_audios=("truehd_atmos" "dtsx" "plus_atmos" "dolby_atmos" "truehd" "ma" "flac
 # simple_audios=("flac" "aac" "mp3" "opus")
 simple_audios=("aac")
 
-audiocodecs=("true-hd atmos" "dts-x" "dolby-digital-plus atmos" "atmos" "true-hd" "dts-hd-xll-hd-hra" "flac" "lpcm" "dts-hd-hra" "dolby-digital-plus e-ac3" "dts-es" "dts" "dolby" "stereo" "mp3" "OPUS")
+audiocodecs=("AAC" "AAC 1.0" "AAC 12.0" "AAC 2.0" "AAC 24.0" "AAC 2ch" "AAC 3.0" "AAC 4.0" "AAC 5.0" "AAC 5.1" "AAC 6.0" "AC3 1.0" "AC3 2.0" "AC3 2.0ch" "AC3 2.1" "AC3 2ch" "AC3 3.0" "AC3 3.1" "AC3 4.0" "AC3 4.1" "AC3 5.0" "AC3 5.1" "AC3 5.1ch" "AC3 6.0" "AC3 7.1" "AC3 Atmos 2.0" "AC3 Atmos 3.0" "AC3 Atmos 5.1" "AC3 Atmos 7.1" "AC3 Atmos 8.0" "ALAC 2.0" "Atmos 5.1" "DD 5.1" "DD2 0 TWA" "DD5.1" "DDP" "DDP 5.1" "DTS" "DTS 1.0" "DTS 2.0" "DTS 2.1" "DTS 3.0" "DTS 4.0" "DTS 5.0" "DTS 5.1" "DTS 6.0" "DTS 7.1" "DTS Express 5.1" "DTS HD MA 5 1" "DTS LBR 5.1" "DTS RB" "DTS-ES 5.1" "DTS-ES 6.0" "DTS-ES 6.1" "DTS-ES 7.1" "DTS-HD HRA 2.0" "DTS-HD HRA 5.0" "DTS-HD HRA 5.1" "DTS-HD HRA 6.1" "DTS-HD HRA 7.1" "DTS-HD HRA 8.0" "DTS-HD MA 1.0" "DTS-HD MA 2.0" "DTS-HD MA 2.1" "DTS-HD MA 3.0" "DTS-HD MA 3.1" "DTS-HD MA 4.0" "DTS-HD MA 4.1" "DTS-HD MA 5.0" "DTS-HD MA 5.1" "DTS-HD MA 6.0" "DTS-HD MA 6.1" "DTS-HD MA 7.1" "DTS-HD MA 8.0" "DTS-X 5.1" "DTS-X 7.1" "DTS-X 8.0" "DTSHD-MA 2ch" "DTSHD-MA 6ch" "DTSHD-MA 8ch" "FLAC" "FLAC 1.0" "FLAC 2.0" "FLAC 3.0" "FLAC 3.1" "FLAC 4.0" "FLAC 5.0" "FLAC 5.1" "FLAC 6.1" "FLAC 7.1" "MP2 1.0" "MP2 2.0" "MP3 1.0" "MP3 2.0" "MP3 2.0ch" "MP3 2ch" "Ogg" "Opus" "Opus 1.0" "Opus 2.0" "Opus 5.1" "Opus 7.1" "PCM 1.0" "PCM 2.0" "PCM 2ch" "PCM 3.0" "PCM 5.1" "PCM 6.0" "TrueHD 1.0" "TrueHD 2.0" "TrueHD 3.0" "TrueHD 3.1" "TrueHD 5.1" "TrueHD 6.1" "TrueHD Atmos 7.1" "Vorbis 1.0" "Vorbis 2.0" "Vorbis 6.0" "WMA 1.0" "WMA 2.0" "WMA 5.1" "WMA 6.0")
 
 cur_src=$(select_random "${sources[@]}")
 cur_res=$(select_random "${resolutions[@]}")
@@ -36,6 +36,7 @@ cur_sub1=$(select_random "${languages[@]}")
 cur_sub2=$(select_random "${languages[@]}")
 cur_aud1=$(select_random "${languages[@]}")
 cur_aud2=$(select_random "${languages[@]}")
+cur_codec=$(select_random "${audiocodecs[@]}")
 cur_codec=$(select_random "${audiocodecs[@]}")
 
 get_random_langs () {
@@ -136,6 +137,7 @@ startnewshow () {
     getnextresolution $1
     getnextsource $2
     get_random_langs
+    getrandomaudiocodec
 }
 
 createsubs () {
@@ -209,7 +211,7 @@ createbasevideo '240p' '428:240'
 createepisode () {
     mkdir -p "test_tv_lib/$1 $2/Season $3"
 
-    echo "creating episode video file: $1 - S$3E$4 [$cur_src-$cur_res H264 AAC 2.0]-BINGBANG.mkv"
+    echo "creating episode video file: $1 - S$3E$4 [$cur_src-$cur_res][H264][$cur_codec]-BINGBANG.mkv"
 
     $ffmpeg_cmd \
     -y -loglevel quiet -i "${path_prefix}$cur_res.mp4" \
@@ -225,7 +227,7 @@ createepisode () {
     -map "3:0" "-metadata:s:s:2" "language=$cur_sub2" "-metadata:s:s:2" "handler_name=$cur_sub2" "-metadata:s:s:2" "title=$cur_sub2" \
     -map "4:0" "-metadata:s:a:1" "language=$cur_aud1" "-metadata:s:a:1" "handler_name=$cur_aud1" "-metadata:s:a:1" "title=$cur_aud1 - $cur_codec" \
     -map "5:0" "-metadata:s:a:2" "language=$cur_aud2" "-metadata:s:a:2" "handler_name=$cur_aud2" "-metadata:s:a:2" "title=$cur_aud2 - $cur_codec" \
-    "${path_prefix}test_tv_lib/$1 $2/Season $3/$1 - S$3E$4 [$cur_src-$cur_res H264 AAC 2.0]-BINGBANG.mkv"
+    "${path_prefix}test_tv_lib/$1 $2/Season $3/$1 - S$3E$4 [$cur_src-$cur_res][H264][$cur_codec]-BINGBANG.mkv"
 }
 
 # $1 title with year
