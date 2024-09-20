@@ -22,7 +22,7 @@ languages=("fra" "ger" "jpn"  "por" "spa")
 
 sources=("Bluray" "Remux" "WEBDL" "WEBRIP" "HDTV" "DVD")
 resolutions=("2160p" "1080p" "720p" "576p" "480p" "360p" "240p")
-editions=("{edition-Extended Edition} " "{edition-Uncut Edition} " "{edition-Unrated Edition} " "{edition-Special Edition} " "{edition-Anniversary Edition} " "{edition-Collectors Edition} " "{edition-Diamond Edition} " "{edition-Platinum Edition} " "{edition-Directors Cut} " "{edition-Final Cut} " "{edition-International Cut} " "{edition-Theatrical Cut} " "{edition-Ultimate Cut} " "{edition-Alternate Cut} " "{edition-Coda Cut} " "{edition-IMAX Enhanced} " "{edition-IMAX} " "{edition-Remastered} " "{edition-Criterion} " "{edition-Richard Donner} " "{edition-Black And Chrome} " "{edition-Definitive} " "{edition-Ulysses} ")
+editions=("{edition-Extended Edition} " "{edition-Uncut Edition} " "{edition-Unrated Edition} " "{edition-Special Edition} " "{edition-Anniversary Edition} " "{edition-Collectors Edition} " "{edition-Diamond Edition} " "{edition-Platinum Edition} " "{edition-Directors Cut} " "{edition-Final Cut} " "{edition-International Cut} " "{edition-Theatrical Cut} " "{edition-Ultimate Cut} " "{edition-Alternate Cut} " "{edition-Coda Cut} " "{edition-IMAX Enhanced} " "{edition-IMAX} " "{edition-Remastered} " "{edition-Criterion} " "{edition-Richard Donner} " "{edition-Black And Chrome} " "{edition-Definitive} " "{edition-Ulysses}")
 all_audios=("truehd_atmos" "dtsx" "plus_atmos" "dolby_atmos" "truehd" "ma" "flac" "pcm" "hra" "plus" "dtses" "dts" "digital" "aac" "mp3" "opus")
 # simple_audios=("flac" "aac" "mp3" "opus")
 simple_audios=("aac")
@@ -53,16 +53,22 @@ get_random_langs () {
     do
         cur_aud2=$(select_random "${languages[@]}")
     done
-    echo "subtitle 1: $cur_sub1 subtitle 2: $cur_sub2 audio 1: $cur_aud1 audio 2: $cur_aud2"
 }
 
 get_random_edition () {
+    echo "Choosing a new edition"
     cur_edition=$(select_random "${editions[@]}")
+    echo "Edition: $cur_edition"
 }
 
 change_edition () {
     cur_edition=""
-    [[ $(shuf -i 1-10 -n 1) == 1 ]] && get_random_edition
+    x=$(($RANDOM % 10 + 1))
+    y=9
+    if [[ $x -gt $y ]] 
+        then
+            get_random_edition
+    fi
 }
 
 getnextsource () {
@@ -133,7 +139,6 @@ getrandomresolution () {
 
 getrandomaudiocodec () {
     cur_codec=$(select_random "${audiocodecs[@]}")
-    echo "codec: $cur_codec"
 }
 
 randomizeall () {
@@ -142,6 +147,7 @@ randomizeall () {
     change_edition
     get_random_langs
     getrandomaudiocodec
+    echo "subtitle 1: $cur_sub1 subtitle 2: $cur_sub2 audio 1: $cur_aud1 audio 2: $cur_aud2 codec: $cur_codec"
 }
 
 # At least two comedy movies released since 2012.
@@ -247,7 +253,7 @@ createtestvideo () {
     -map "3:0" "-metadata:s:s:2" "language=$cur_sub2" "-metadata:s:s:2" "handler_name=$cur_sub2" "-metadata:s:s:2" "title=$cur_sub2" \
     -map "4:0" "-metadata:s:a:1" "language=$cur_aud1" "-metadata:s:a:1" "handler_name=$cur_aud1" "-metadata:s:a:1" "title=$cur_aud1 - $cur_codec" \
     -map "5:0" "-metadata:s:a:2" "language=$cur_aud2" "-metadata:s:a:2" "handler_name=$cur_aud2" "-metadata:s:a:2" "title=$cur_aud2 - $cur_codec" \
-    "${path_prefix}test_movie_lib/$1$cur_edition/$1 $cur_edition[$cur_src-$cur_res][H264][$cur_codec]-BINGBANG.mkv"
+    "${path_prefix}test_movie_lib/$1/$1 $cur_edition[$cur_src-$cur_res][H264][$cur_codec]-BINGBANG.mkv"
     ((section_index+=1))
 }
 
@@ -1639,3 +1645,5 @@ createtestvideo "Zen - Grogu and Dust Bunnies (2022) {tmdb-1044343}"
 createtestvideo "Zero Effect (1998) {tmdb-16148}"
 createtestvideo "Zombie Island Massacre (1984) {tmdb-27881}"
 createtestvideo "Zootopia (2016) {tmdb-269149}"
+
+
