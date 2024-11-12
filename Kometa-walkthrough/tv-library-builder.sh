@@ -2,6 +2,8 @@
 
 use_docker=false
 ffmpeg_cmd='ffmpeg'
+ffmpeg_log=true
+list_creates=true
 path_prefix=''
 
 if [ "$use_docker" = true ] ; then
@@ -17,9 +19,9 @@ select_random() {
 docker pull linuxserver/ffmpeg
 
 # If you want a wider range of languages, rename this to "languages"
-more_languages=("ara" "bul" "ces" "chi" "dan" "fas" "fra" "ger" "hin" "hun" "isl" "ita" "jpn" "kor" "nld" "nor" "pol" "por" "rus" "spa" "swe" "tel" "tha" "tur" "ukr" )
+more_languages=("ara" "bul" "ces" "chi" "dan" "eng" "fas" "fra" "ger" "hin" "hun" "isl" "ita" "jpn" "kor" "nld" "nor" "pol" "por" "rus" "spa" "swe" "tel" "tha" "tur" "ukr" )
 # and this to anything that is not "languages"
-languages=("fra" "ger" "jpn"  "por" "spa")
+languages=("eng" "fra" "ger" "jpn"  "por" "spa")
 # and add those languages to your kometa config [see readme]
 
 sources=("Bluray" "Remux" "WEBDL" "WEBRIP" "HDTV" "DVD")
@@ -209,12 +211,23 @@ createbasevideo '240p' '428:240'
 # $6 Source
 
 createepisode () {
+    ((total_expected+=1))
     mkdir -p "test_tv_lib/$1 $2/Season $3"
+    FILENAME="$1 - S$3E$4 [$cur_src-$cur_res][H264][$cur_codec]-BINGBANG.mkv"
+    FILEPATH="test_tv_lib/$1 $2/Season $3/$FILENAME"
+    
+    log_path="/dev/null"
 
-    echo "creating episode video file: $1 - S$3E$4 [$cur_src-$cur_res][H264][$cur_codec]-BINGBANG.mkv"
+    if [ "$ffmpeg_log" = true ] ; then
+        log_path="${path_prefix}$FILEPATH.txt"
+    fi
+
+    if [ "$list_creates" = true ] ; then
+        echo "creating episode video file: $1 - S$3E$4 [$cur_src-$cur_res][H264][$cur_codec]-BINGBANG.mkv"
+    fi
 
     $ffmpeg_cmd \
-    -y -loglevel quiet -i "${path_prefix}$cur_res.mp4" \
+    -y -i "${path_prefix}$cur_res.mp4" \
     -i "${path_prefix}subs/sub.eng.srt" \
     -i "${path_prefix}subs/sub.$cur_sub1.srt" \
     -i "${path_prefix}subs/sub.$cur_sub2.srt" \
@@ -227,7 +240,14 @@ createepisode () {
     -map "3:0" "-metadata:s:s:2" "language=$cur_sub2" "-metadata:s:s:2" "handler_name=$cur_sub2" "-metadata:s:s:2" "title=$cur_sub2" \
     -map "4:0" "-metadata:s:a:1" "language=$cur_aud1" "-metadata:s:a:1" "handler_name=$cur_aud1" "-metadata:s:a:1" "title=$cur_aud1 - $cur_codec" \
     -map "5:0" "-metadata:s:a:2" "language=$cur_aud2" "-metadata:s:a:2" "handler_name=$cur_aud2" "-metadata:s:a:2" "title=$cur_aud2 - $cur_codec" \
-    "${path_prefix}test_tv_lib/$1 $2/Season $3/$1 - S$3E$4 [$cur_src-$cur_res][H264][$cur_codec]-BINGBANG.mkv"
+    "${path_prefix}$FILEPATH" 2> "${log_path}"
+
+    if [ -f $"${path_prefix}$FILEPATH" ]; then
+        # echo "File $FILENAME created."
+        ((total_created+=1))
+    else
+        echo "DANGER: File $FILENAME NOT CREATED."
+    fi
 }
 
 # $1 title with year
@@ -245,7 +265,7 @@ createseason () {
 
     for i in $(seq 1 $4); do 
         e_num=$(printf "%02d" $i)
-        createepisode "$1" $2 $s_num $e_num; 
+        createepisode "$1" "$2" $s_num $e_num; 
     done
 
     echo "Season $s_num of $1 COMPLETE"
@@ -261,197 +281,399 @@ createseason () {
 createshow () {
     mkdir -p "test_tv_lib/$1 $2"
 
-    for i in $(seq 1 $3); do createseason "$1" $2 $i $4; done
+    for i in $(seq 1 $3); do createseason "$1" "$2" $i $4; done
 }
 
-echo "Creating 3 seasons of American Gods"
+title () {
+    echo "==============================================="
+    echo "Creating $1 seasons of $2"
+    echo "==============================================="
+}
+
+footer () {
+    echo "==============================================="
+    echo "Created $1 items of expected $2"
+    echo "==============================================="
+}
+
+total_expected=0
+total_created=0
+
+title 3 'American Gods'
 randomizeall
-createseason "American Gods (2017)" "{tvdb-253573}" 1 8
-createseason "American Gods (2017)" "{tvdb-253573}" 2 8
-createseason "American Gods (2017)" "{tvdb-253573}" 3 10
+createseason 'American Gods (2017)' '{tvdb-253573}' 1 8
+createseason 'American Gods (2017)' '{tvdb-253573}' 2 8
+createseason 'American Gods (2017)' '{tvdb-253573}' 3 10
 # 8 8 10
+footer $total_created $total_expected
 
-echo "Creating 3 seasons of Bloodline"
+title 3 'Bloodline'
 startnewshow $cur_res $cur_src
-createseason "Bloodline (2015)" "{tvdb-287314}" 1 13
-createseason "Bloodline (2015)" "{tvdb-287314}" 2 10
-createseason "Bloodline (2015)" "{tvdb-287314}" 3 10
+createseason 'Bloodline (2015)' '{tvdb-287314}' 1 13
+createseason 'Bloodline (2015)' '{tvdb-287314}' 2 10
+createseason 'Bloodline (2015)' '{tvdb-287314}' 3 10
 # 13 10 10
+footer $total_created $total_expected
 
-echo "Creating 5 seasons of Breaking Bad"
+title 5 'Breaking Bad'
 startnewshow $cur_res $cur_src
-createseason "Breaking Bad (2008)" "{tvdb-81189}" 1 7
-createseason "Breaking Bad (2008)" "{tvdb-81189}" 2 13
-createseason "Breaking Bad (2008)" "{tvdb-81189}" 3 13
-createseason "Breaking Bad (2008)" "{tvdb-81189}" 4 13
-createseason "Breaking Bad (2008)" "{tvdb-81189}" 5 16
+createseason 'Breaking Bad (2008)' '{tvdb-81189}' 1 7
+createseason 'Breaking Bad (2008)' '{tvdb-81189}' 2 13
+createseason 'Breaking Bad (2008)' '{tvdb-81189}' 3 13
+createseason 'Breaking Bad (2008)' '{tvdb-81189}' 4 13
+createseason 'Breaking Bad (2008)' '{tvdb-81189}' 5 16
 # 7 13 13 13 16
+footer $total_created $total_expected
 
-echo "Creating 4 seasons of Documentary Now!"
+title 4 'Documentary Now!'
 startnewshow $cur_res $cur_src
-createseason "Documentary Now! (2015)" "{tvdb-295697}" 1 7
-createseason "Documentary Now! (2015)" "{tvdb-295697}" 2 7
-createseason "Documentary Now! (2015)" "{tvdb-295697}" 3 7
-createseason "Documentary Now! (2015)" "{tvdb-295697}" 4 6
+createseason 'Documentary Now! (2015)' '{tvdb-295697}' 1 7
+createseason 'Documentary Now! (2015)' '{tvdb-295697}' 2 7
+createseason 'Documentary Now! (2015)' '{tvdb-295697}' 3 7
+createseason 'Documentary Now! (2015)' '{tvdb-295697}' 4 6
 # 7 7 7 6
+footer $total_created $total_expected
 
-echo "Creating 11 seasons of Happy Days"
+title 11 'Happy Days'
 randomizeall
-createseason "Happy Days (1974)" "{tvdb-74475}"  0  4
+createseason 'Happy Days (1974)' '{tvdb-74475}'  0  4
 randomizeall
-createseason "Happy Days (1974)" "{tvdb-74475}"  1 16
+createseason 'Happy Days (1974)' '{tvdb-74475}'  1 16
 randomizeall
-createseason "Happy Days (1974)" "{tvdb-74475}"  2 23
+createseason 'Happy Days (1974)' '{tvdb-74475}'  2 23
 randomizeall
-createseason "Happy Days (1974)" "{tvdb-74475}"  3 24
+createseason 'Happy Days (1974)' '{tvdb-74475}'  3 24
 randomizeall
-createseason "Happy Days (1974)" "{tvdb-74475}"  4 25
+createseason 'Happy Days (1974)' '{tvdb-74475}'  4 25
 randomizeall
-createseason "Happy Days (1974)" "{tvdb-74475}"  5 26
+createseason 'Happy Days (1974)' '{tvdb-74475}'  5 26
 randomizeall
-createseason "Happy Days (1974)" "{tvdb-74475}"  6 26
+createseason 'Happy Days (1974)' '{tvdb-74475}'  6 26
 randomizeall
-createseason "Happy Days (1974)" "{tvdb-74475}"  7 25
+createseason 'Happy Days (1974)' '{tvdb-74475}'  7 25
 randomizeall
-createseason "Happy Days (1974)" "{tvdb-74475}"  8 22
+createseason 'Happy Days (1974)' '{tvdb-74475}'  8 22
 randomizeall
-createseason "Happy Days (1974)" "{tvdb-74475}"  9 22
+createseason 'Happy Days (1974)' '{tvdb-74475}'  9 22
 randomizeall
-createseason "Happy Days (1974)" "{tvdb-74475}" 10 22
+createseason 'Happy Days (1974)' '{tvdb-74475}' 10 22
 randomizeall
-createseason "Happy Days (1974)" "{tvdb-74475}" 11 22
+createseason 'Happy Days (1974)' '{tvdb-74475}' 11 22
+footer $total_created $total_expected
 
-echo "Creating 5 seasons of New Amsterdam"
+title 5 'New Amsterdam'
 startnewshow $cur_res $cur_src
-createseason "New Amsterdam (2018)" "{tvdb-349272}" 1 22
-createseason "New Amsterdam (2018)" "{tvdb-349272}" 2 18
-createseason "New Amsterdam (2018)" "{tvdb-349272}" 3 14
-createseason "New Amsterdam (2018)" "{tvdb-349272}" 4 22
-createseason "New Amsterdam (2018)" "{tvdb-349272}" 5 13
+createseason 'New Amsterdam (2018)' '{tvdb-349272}' 1 22
+createseason 'New Amsterdam (2018)' '{tvdb-349272}' 2 18
+createseason 'New Amsterdam (2018)' '{tvdb-349272}' 3 14
+createseason 'New Amsterdam (2018)' '{tvdb-349272}' 4 22
+createseason 'New Amsterdam (2018)' '{tvdb-349272}' 5 13
 # 22 18 14 22 13
+footer $total_created $total_expected
 
-echo "Creating 6 seasons of Peaky Blinders"
+title 6 'Peaky Blinders'
 startnewshow $cur_res $cur_src
-createshow "Peaky Blinders (2013)" "{tvdb-270915}" 6 6
+createshow 'Peaky Blinders (2013)' '{tvdb-270915}' 6 6
+footer $total_created $total_expected
 
-echo "Creating 1 season of Picnic at Hanging Rock"
+title 1 'Picnic at Hanging Rock'
 startnewshow $cur_res $cur_src
-createshow "Picnic at Hanging Rock (2018)" "{tvdb-336473}" 1 6
+createshow 'Picnic at Hanging Rock (2018)' '{tvdb-336473}' 1 6
 # 6
+footer $total_created $total_expected
 
-echo "Creating 1 season of Squid Game"
+title 1 'Squid Game'
 startnewshow $cur_res $cur_src
-createshow "Squid Game (2021)" "{tvdb-383275}" 1 9
+createshow 'Squid Game (2021)' '{tvdb-383275}' 1 9
 # 9
+footer $total_created $total_expected
 
-echo "Creating 3 seasons of Ted Lasso"
+title 3 'Ted Lasso'
 startnewshow $cur_res $cur_src
-createseason "Ted Lasso (2020)" "{tvdb-383203}" 1 10
-createseason "Ted Lasso (2020)" "{tvdb-383203}" 2 12
-createseason "Ted Lasso (2020)" "{tvdb-383203}" 3 12
+createseason 'Ted Lasso (2020)' '{tvdb-383203}' 1 10
+createseason 'Ted Lasso (2020)' '{tvdb-383203}' 2 12
+createseason 'Ted Lasso (2020)' '{tvdb-383203}' 3 12
 # 10 12 12
+footer $total_created $total_expected
 
-echo "Creating 2 seasons of A Touch of Cloth"
+title 2 'A Touch of Cloth'
 startnewshow $cur_res $cur_src
-createshow "A Touch of Cloth (2012)" "{tvdb-260750}" 2 2
+createshow 'A Touch of Cloth (2012)' '{tvdb-260750}' 2 2
 # 2 2
+footer $total_created $total_expected
 
-echo "Creating 5 seasons of Yellowstone"
+title 5 'Yellowstone'
 startnewshow $cur_res $cur_src
-createseason "Yellowstone (2018)" "{tvdb-341164}" 1 9
-createseason "Yellowstone (2018)" "{tvdb-341164}" 2 10
-createseason "Yellowstone (2018)" "{tvdb-341164}" 3 10
-createseason "Yellowstone (2018)" "{tvdb-341164}" 4 10
-createseason "Yellowstone (2018)" "{tvdb-341164}" 5 8
+createseason 'Yellowstone (2018)' '{tvdb-341164}' 1 9
+createseason 'Yellowstone (2018)' '{tvdb-341164}' 2 10
+createseason 'Yellowstone (2018)' '{tvdb-341164}' 3 10
+createseason 'Yellowstone (2018)' '{tvdb-341164}' 4 10
+createseason 'Yellowstone (2018)' '{tvdb-341164}' 5 8
 # 9 10 10 10 8
+footer $total_created $total_expected
 
-# echo "Creating 5 seasons of Star Trek: Enterprise"
-# startnewshow $cur_res $cur_src
-# createseason "Star Trek: Enterprise (2001)" "{tvdb-73893}" 0 1
-# createseason "Star Trek: Enterprise (2001)" "{tvdb-73893}" 1 26
-# createseason "Star Trek: Enterprise (2001)" "{tvdb-73893}" 2 26
-# createseason "Star Trek: Enterprise (2001)" "{tvdb-73893}" 3 24
-# createseason "Star Trek: Enterprise (2001)" "{tvdb-73893}" 4 22
-
-# echo "Creating 3 seasons of Star Trek: Short Treks"
-# startnewshow $cur_res $cur_src
-# createseason "Star Trek: Short Treks (2018)" "{tvdb-376108}" 0 15
-# createseason "Star Trek: Short Treks (2018)" "{tvdb-376108}" 1 4
-# createseason "Star Trek: Short Treks (2018)" "{tvdb-376108}" 2 6
-
-echo "Creating 4 seasons of Star Trek"
+title 5 'Star Trek: Enterprise'
 startnewshow $cur_res $cur_src
-createseason "Star Trek (1966)" "{tvdb-77526}" 0 5
-createseason "Star Trek (1966)" "{tvdb-77526}" 1 29
-createseason "Star Trek (1966)" "{tvdb-77526}" 2 26
-createseason "Star Trek (1966)" "{tvdb-77526}" 3 24
+createseason 'Star Trek: Enterprise (2001)' '{tvdb-73893}' 0 1
+createseason 'Star Trek: Enterprise (2001)' '{tvdb-73893}' 1 26
+createseason 'Star Trek: Enterprise (2001)' '{tvdb-73893}' 2 26
+createseason 'Star Trek: Enterprise (2001)' '{tvdb-73893}' 3 24
+createseason 'Star Trek: Enterprise (2001)' '{tvdb-73893}' 4 22
+footer $total_created $total_expected
 
-# echo "Creating 6 seasons of Star Trek: Discovery"
-# startnewshow $cur_res $cur_src
-# createseason "Star Trek: Discovery (2017)" "{tvdb-328711}" 0 4
-# createseason "Star Trek: Discovery (2017)" "{tvdb-328711}" 1 15
-# createseason "Star Trek: Discovery (2017)" "{tvdb-328711}" 2 14
-# createseason "Star Trek: Discovery (2017)" "{tvdb-328711}" 3 13
-# createseason "Star Trek: Discovery (2017)" "{tvdb-328711}" 4 13
-# createseason "Star Trek: Discovery (2017)" "{tvdb-328711}" 5 10
-
-# echo "Creating 3 seasons of Star Trek: Strange New Worlds"
-# startnewshow $cur_res $cur_src
-# createseason "Star Trek: Strange New Worlds (2022)" "{tvdb-382389}" 0 3
-# createseason "Star Trek: Strange New Worlds (2022)" "{tvdb-382389}" 1 10
-# createseason "Star Trek: Strange New Worlds (2022)" "{tvdb-382389}" 2 10
-
-# echo "Creating 3 seasons of Star Trek: The Animated Series"
-# startnewshow $cur_res $cur_src
-# createseason "Star Trek: The Animated Series (1973)" "{tvdb-73566}" 0 2
-# createseason "Star Trek: The Animated Series (1973)" "{tvdb-73566}" 1 16
-# createseason "Star Trek: The Animated Series (1973)" "{tvdb-73566}" 2 6
-
-# echo "Creating 8 seasons of Star Trek: The Next Generation"
-# startnewshow $cur_res $cur_src
-# createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 0 2
-# createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 1 26
-# createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 2 22
-# createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 3 26
-# createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 4 26
-# createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 5 26
-# createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 6 26
-# createseason "Star Trek: The Next Generation (1987)" "{tvdb-71470}" 7 26
-
-# echo "Creating 8 seasons of Star Trek: Deep Space Nine"
-# startnewshow $cur_res $cur_src
-# createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 0 3
-# createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 1 20
-# createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 2 26
-# createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 3 26
-# createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 4 26
-# createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 5 26
-# createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 6 26
-# createseason "Star Trek: Deep Space Nine (1993)" "{tvdb-72073}" 7 26
-
-# echo "Creating 8 seasons of Star Trek: Voyager"
-# startnewshow $cur_res $cur_src
-# createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 0 1
-# createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 1 16
-# createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 2 26
-# createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 3 26
-# createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 4 26
-# createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 5 26
-# createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 6 26
-# createseason "Star Trek: Voyager (1995)" "{tvdb-74550}" 7 26
-
-echo "Creating 4 seasons of Star Trek: Lower Decks"
+title 3 'Star Trek: Short Treks'
 startnewshow $cur_res $cur_src
-createshow "Star Trek: Lower Decks (2020)" "{tvdb-367138}" 4 10
+createseason 'Star Trek: Short Treks (2018)' '{tvdb-376108}' 0 15
+createseason 'Star Trek: Short Treks (2018)' '{tvdb-376108}' 1 4
+createseason 'Star Trek: Short Treks (2018)' '{tvdb-376108}' 2 6
+footer $total_created $total_expected
 
-# echo "Creating 2 seasons of Star Trek: Prodigy"
-# startnewshow $cur_res $cur_src
-# createshow "Star Trek: Prodigy (2021)" "{tvdb-385811}" 2 20
-
-# echo "Creating 3 seasons of Star Trek: Picard"
-# startnewshow $cur_res $cur_src
-# createshow "Star Trek: Picard (2020)" "{tvdb-364093}" 3 10
-
-echo "Creating 1 season of Bad Monkey"
+title 4 'Star Trek'
 startnewshow $cur_res $cur_src
-createshow "Bad Monkey (2024)" "{tvdb-408436}" 1 10
+createseason 'Star Trek (1966)' '{tvdb-77526}' 0 5
+createseason 'Star Trek (1966)' '{tvdb-77526}' 1 29
+createseason 'Star Trek (1966)' '{tvdb-77526}' 2 26
+createseason 'Star Trek (1966)' '{tvdb-77526}' 3 24
+footer $total_created $total_expected
+
+title 6 'Star Trek: Discovery'
+startnewshow $cur_res $cur_src
+createseason 'Star Trek: Discovery (2017)' '{tvdb-328711}' 0 4
+createseason 'Star Trek: Discovery (2017)' '{tvdb-328711}' 1 15
+createseason 'Star Trek: Discovery (2017)' '{tvdb-328711}' 2 14
+createseason 'Star Trek: Discovery (2017)' '{tvdb-328711}' 3 13
+createseason 'Star Trek: Discovery (2017)' '{tvdb-328711}' 4 13
+createseason 'Star Trek: Discovery (2017)' '{tvdb-328711}' 5 10
+footer $total_created $total_expected
+
+title 3 'Star Trek: Strange New Worlds'
+startnewshow $cur_res $cur_src
+createseason 'Star Trek: Strange New Worlds (2022)' '{tvdb-382389}' 0 3
+createseason 'Star Trek: Strange New Worlds (2022)' '{tvdb-382389}' 1 10
+createseason 'Star Trek: Strange New Worlds (2022)' '{tvdb-382389}' 2 10
+footer $total_created $total_expected
+
+title 3 'Star Trek: The Animated Series'
+startnewshow $cur_res $cur_src
+createseason 'Star Trek: The Animated Series (1973)' '{tvdb-73566}' 0 2
+createseason 'Star Trek: The Animated Series (1973)' '{tvdb-73566}' 1 16
+createseason 'Star Trek: The Animated Series (1973)' '{tvdb-73566}' 2 6
+footer $total_created $total_expected
+
+title 8 'Star Trek: The Next Generation'
+startnewshow $cur_res $cur_src
+createseason 'Star Trek: The Next Generation (1987)' '{tvdb-71470}' 0 2
+createseason 'Star Trek: The Next Generation (1987)' '{tvdb-71470}' 1 26
+createseason 'Star Trek: The Next Generation (1987)' '{tvdb-71470}' 2 22
+createseason 'Star Trek: The Next Generation (1987)' '{tvdb-71470}' 3 26
+createseason 'Star Trek: The Next Generation (1987)' '{tvdb-71470}' 4 26
+createseason 'Star Trek: The Next Generation (1987)' '{tvdb-71470}' 5 26
+createseason 'Star Trek: The Next Generation (1987)' '{tvdb-71470}' 6 26
+createseason 'Star Trek: The Next Generation (1987)' '{tvdb-71470}' 7 26
+footer $total_created $total_expected
+
+title 8 'Star Trek: Deep Space Nine'
+startnewshow $cur_res $cur_src
+createseason 'Star Trek: Deep Space Nine (1993)' '{tvdb-72073}' 0 3
+createseason 'Star Trek: Deep Space Nine (1993)' '{tvdb-72073}' 1 20
+createseason 'Star Trek: Deep Space Nine (1993)' '{tvdb-72073}' 2 26
+createseason 'Star Trek: Deep Space Nine (1993)' '{tvdb-72073}' 3 26
+createseason 'Star Trek: Deep Space Nine (1993)' '{tvdb-72073}' 4 26
+createseason 'Star Trek: Deep Space Nine (1993)' '{tvdb-72073}' 5 26
+createseason 'Star Trek: Deep Space Nine (1993)' '{tvdb-72073}' 6 26
+createseason 'Star Trek: Deep Space Nine (1993)' '{tvdb-72073}' 7 26
+footer $total_created $total_expected
+
+title 8 'Star Trek: Voyager'
+startnewshow $cur_res $cur_src
+createseason 'Star Trek: Voyager (1995)' '{tvdb-74550}' 0 1
+createseason 'Star Trek: Voyager (1995)' '{tvdb-74550}' 1 16
+createseason 'Star Trek: Voyager (1995)' '{tvdb-74550}' 2 26
+createseason 'Star Trek: Voyager (1995)' '{tvdb-74550}' 3 26
+createseason 'Star Trek: Voyager (1995)' '{tvdb-74550}' 4 26
+createseason 'Star Trek: Voyager (1995)' '{tvdb-74550}' 5 26
+createseason 'Star Trek: Voyager (1995)' '{tvdb-74550}' 6 26
+createseason 'Star Trek: Voyager (1995)' '{tvdb-74550}' 7 26
+footer $total_created $total_expected
+
+title 4 'Star Trek: Lower Decks'
+startnewshow $cur_res $cur_src
+createshow 'Star Trek: Lower Decks (2020)' '{tvdb-367138}' 4 10
+footer $total_created $total_expected
+
+title 2 'Star Trek: Prodigy'
+startnewshow $cur_res $cur_src
+createshow 'Star Trek: Prodigy (2021)' '{tvdb-385811}' 2 20
+footer $total_created $total_expected
+
+title 3 'Star Trek: Picard'
+startnewshow $cur_res $cur_src
+createshow 'Star Trek: Picard (2020)' '{tvdb-364093}' 3 10
+footer $total_created $total_expected
+
+title 1 'Bad Monkey'
+startnewshow $cur_res $cur_src
+createshow 'Bad Monkey (2024)' '{tvdb-408436}' 1 10
+footer $total_created $total_expected
+
+title 2 'Monster'
+startnewshow $cur_res $cur_src
+createseason 'Monster (2022)' '{tvdb-389492}' 1 10
+createseason 'Monster (2022)' '{tvdb-389492}' 2 9
+footer $total_created $total_expected
+
+title 13 'Chicago Fire'
+startnewshow $cur_res $cur_src
+createseason 'Chicago Fire (2012)' '{tvdb-258541}' 1 24
+createseason 'Chicago Fire (2012)' '{tvdb-258541}' 2 22
+createseason 'Chicago Fire (2012)' '{tvdb-258541}' 3 23
+createseason 'Chicago Fire (2012)' '{tvdb-258541}' 4 23
+createseason 'Chicago Fire (2012)' '{tvdb-258541}' 5 22
+createseason 'Chicago Fire (2012)' '{tvdb-258541}' 6 23
+createseason 'Chicago Fire (2012)' '{tvdb-258541}' 7 22
+createseason 'Chicago Fire (2012)' '{tvdb-258541}' 8 20
+createseason 'Chicago Fire (2012)' '{tvdb-258541}' 9 16
+createseason 'Chicago Fire (2012)' '{tvdb-258541}' 10 22
+createseason 'Chicago Fire (2012)' '{tvdb-258541}' 11 22
+createseason 'Chicago Fire (2012)' '{tvdb-258541}' 12 13
+createseason 'Chicago Fire (2012)' '{tvdb-258541}' 13 5
+footer $total_created $total_expected
+
+title 1 'Chicago Justice'
+startnewshow $cur_res $cur_src
+createseason 'Chicago Justice (2017)' '{tvdb-311896}' 1 13
+footer $total_created $total_expected
+
+title 10 'Chicago Med'
+startnewshow $cur_res $cur_src
+createseason 'Chicago Med (2015)' '{tvdb-295640}' 1 18
+createseason 'Chicago Med (2015)' '{tvdb-295640}' 2 23
+createseason 'Chicago Med (2015)' '{tvdb-295640}' 3 20
+createseason 'Chicago Med (2015)' '{tvdb-295640}' 4 22
+createseason 'Chicago Med (2015)' '{tvdb-295640}' 5 20
+createseason 'Chicago Med (2015)' '{tvdb-295640}' 6 16
+createseason 'Chicago Med (2015)' '{tvdb-295640}' 7 22
+createseason 'Chicago Med (2015)' '{tvdb-295640}' 8 22
+createseason 'Chicago Med (2015)' '{tvdb-295640}' 9 13
+createseason 'Chicago Med (2015)' '{tvdb-295640}' 10 5
+footer $total_created $total_expected
+
+title 12 'Chicago P.D.'
+startnewshow $cur_res $cur_src
+createseason 'Chicago P.D. (2014)' '{tvdb-269641}' 1 15
+createseason 'Chicago P.D. (2014)' '{tvdb-269641}' 2 23
+createseason 'Chicago P.D. (2014)' '{tvdb-269641}' 3 23
+createseason 'Chicago P.D. (2014)' '{tvdb-269641}' 4 23
+createseason 'Chicago P.D. (2014)' '{tvdb-269641}' 5 22
+createseason 'Chicago P.D. (2014)' '{tvdb-269641}' 6 22
+createseason 'Chicago P.D. (2014)' '{tvdb-269641}' 7 20
+createseason 'Chicago P.D. (2014)' '{tvdb-269641}' 8 16
+createseason 'Chicago P.D. (2014)' '{tvdb-269641}' 9 22
+createseason 'Chicago P.D. (2014)' '{tvdb-269641}' 10 22
+createseason 'Chicago P.D. (2014)' '{tvdb-269641}' 11 13
+createseason 'Chicago P.D. (2014)' '{tvdb-269641}' 12 5
+footer $total_created $total_expected
+
+title 27 'Law & Order: Special Victims Unit (1999)'
+startnewshow $cur_res $cur_src
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 0 6
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 1 22
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 2 21
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 3 23
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 4 25
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 5 25
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 6 23
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 7 22
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 8 22
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 9 19
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 10 22
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 11 24
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 12 24
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 13 23
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 14 24
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 15 24
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 16 23
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 17 23
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 18 21
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 19 24
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 20 24
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 21 20
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 22 16
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 23 22
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 24 22
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 25 13
+createseason 'Law & Order: Special Victims Unit (1999)' '{tvdb-75692}' 26 5
+footer $total_created $total_expected
+
+title 9 'Fear the Walking Dead (2015)'
+startnewshow $cur_res $cur_src
+createseason 'Fear the Walking Dead (2015)' '{tvdb-290853}' 8 12
+createseason 'Fear the Walking Dead (2015)' '{tvdb-290853}' 7 16
+createseason 'Fear the Walking Dead (2015)' '{tvdb-290853}' 6 16
+createseason 'Fear the Walking Dead (2015)' '{tvdb-290853}' 5 16
+createseason 'Fear the Walking Dead (2015)' '{tvdb-290853}' 4 16
+createseason 'Fear the Walking Dead (2015)' '{tvdb-290853}' 3 16
+createseason 'Fear the Walking Dead (2015)' '{tvdb-290853}' 2 15
+createseason 'Fear the Walking Dead (2015)' '{tvdb-290853}' 1 6
+createseason 'Fear the Walking Dead (2015)' '{tvdb-290853}' 0 49
+footer $total_created $total_expected
+
+title 1 'Tales of the Walking Dead (2022)'
+startnewshow $cur_res $cur_src
+createshow 'Tales of the Walking Dead (2022)' '{tvdb-411314}' 1 6
+footer $total_created $total_expected
+
+title 11 'The Walking Dead (2010)'
+startnewshow $cur_res $cur_src
+createseason 'The Walking Dead (2010)' '{tvdb-153021}' 11 24
+createseason 'The Walking Dead (2010)' '{tvdb-153021}' 10 22
+createseason 'The Walking Dead (2010)' '{tvdb-153021}' 9 16
+createseason 'The Walking Dead (2010)' '{tvdb-153021}' 8 16
+createseason 'The Walking Dead (2010)' '{tvdb-153021}' 7 16
+createseason 'The Walking Dead (2010)' '{tvdb-153021}' 6 16
+createseason 'The Walking Dead (2010)' '{tvdb-153021}' 5 16
+createseason 'The Walking Dead (2010)' '{tvdb-153021}' 4 16
+createseason 'The Walking Dead (2010)' '{tvdb-153021}' 3 16
+createseason 'The Walking Dead (2010)' '{tvdb-153021}' 2 13
+createseason 'The Walking Dead (2010)' '{tvdb-153021}' 1 6
+createseason 'The Walking Dead (2010)' '{tvdb-153021}' 0 77
+footer $total_created $total_expected
+
+title 1 'The Walking Dead: Daryl Dixon (2023)'
+startnewshow $cur_res $cur_src
+createshow 'The Walking Dead: Daryl Dixon (2023)' '{tvdb-427464}' 2 6 
+footer $total_created $total_expected
+
+title 2 'The Walking Dead: The Ones Who Live (2024)'
+startnewshow $cur_res $cur_src
+createseason 'The Walking Dead: The Ones Who Live (2024)' '{tvdb-427202}' 1 6
+createseason 'The Walking Dead: The Ones Who Live (2024)' '{tvdb-427202}' 0 1
+footer $total_created $total_expected
+
+title 2 'The Walking Dead: World Beyond (2020)'
+startnewshow $cur_res $cur_src
+createseason 'The Walking Dead: World Beyond (2020)' '{tvdb-372787}' 2 10
+createseason 'The Walking Dead: World Beyond (2020)' '{tvdb-372787}' 1 10
+footer $total_created $total_expected
+
+title 2 'The Walking Dead: Dead City (2023)'
+startnewshow $cur_res $cur_src
+createseason 'The Walking Dead: Dead City (2023)' '{tvdb-417549}' 1 6
+createseason 'The Walking Dead: Dead City (2023)' '{tvdb-417549}' 0 2
+footer $total_created $total_expected
+
+title 1 'Battlestar Galactica (2003)'
+createshow 'Battlestar Galactica (2003)' '{imdb-tt0314979} {tmdb-71365}' 1 2
+footer $total_created $total_expected
+
+title 5 'Battlestar Galactica (2004)'
+createseason 'Battlestar Galactica (2004)' '{imdb-tt0407362} {tmdb-1972}' 0 50
+createseason 'Battlestar Galactica (2004)' '{imdb-tt0407362} {tmdb-1972}' 1 13
+createseason 'Battlestar Galactica (2004)' '{imdb-tt0407362} {tmdb-1972}' 2 20
+createseason 'Battlestar Galactica (2004)' '{imdb-tt0407362} {tmdb-1972}' 3 20
+createseason 'Battlestar Galactica (2004)' '{imdb-tt0407362} {tmdb-1972}' 4 20
+footer $total_created $total_expected
+
+title 1 'Caprica (2010)'
+createshow 'Caprica (2010)' '{imdb-tt1286130} {tmdb-105077}' 1 18
+footer $total_created $total_expected
