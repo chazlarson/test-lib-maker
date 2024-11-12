@@ -214,12 +214,13 @@ createepisode () {
     ((total_expected+=1))
     mkdir -p "test_tv_lib/$1 $2/Season $3"
     FILENAME="$1 - S$3E$4 [$cur_src-$cur_res][H264][$cur_codec]-BINGBANG.mkv"
-    FILEPATH="test_tv_lib/$1 $2/Season $3/$FILENAME"
+    FOLDERPATH="test_tv_lib/$1 $2/"
+    FILEPATH="$FOLDERPATH/Season $3/$FILENAME"
     
     log_path="/dev/null"
 
     if [ "$ffmpeg_log" = true ] ; then
-        log_path="${path_prefix}$FILEPATH.txt"
+        log_path="${path_prefix}${FOLDERPATH}ffmpeg-S$3E$4.log"
     fi
 
     if [ "$list_creates" = true ] ; then

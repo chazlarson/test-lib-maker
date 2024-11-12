@@ -224,12 +224,13 @@ createtestvideo () {
     ((total_expected+=1))
     mkdir -p "test_movie_lib/$1"
     FILENAME="$1 $cur_edition[$cur_src-$cur_res][H264][$cur_codec]-BINGBANG.mkv"
-    FILEPATH="test_movie_lib/""$1/""$FILENAME"
+    FOLDERPATH="test_movie_lib/$1/"
+    FILEPATH="$FOLDERPATH/$FILENAME"
 
     log_path="/dev/null"
 
     if [ "$ffmpeg_log" = true ] ; then
-        log_path="${path_prefix}$FILEPATH.txt"
+        log_path="${path_prefix}${FOLDERPATH}ffmpeg.log"
     fi
 
     if [ "$list_creates" = true ] ; then
@@ -1136,6 +1137,40 @@ createrandomvideo "The Fast and the Furious (2001) {imdb-tt0232500} {tmdb-9799}"
 createrandomvideo "The Fast and the Furious: Tokyo Drift (2006) {imdb-tt0463985} {tmdb-9615}"
 createrandomvideo "The Fate of the Furious (2017) {imdb-tt4630562} {tmdb-337339}"
 createrandomvideo "The Turbo Charged Prelude for 2 Fast 2 Furious (2003) {imdb-tt2055789} {tmdb-77959}"
+footer $total_created $total_expected
+
+section_count=29
+section_index=1
+title "Arizona Westerns" $section_count
+createrandomvideo "¡Three Amigos! (1986) {imdb-tt0092086} {tmdb-8388}"
+createrandomvideo "Angel and the Badman (1947) {imdb-tt0039152} {tmdb-22356}"
+createrandomvideo "Appaloosa (2008) {imdb-tt0800308} {tmdb-12690}"
+createrandomvideo "Arizona (1940) {imdb-tt0032221} {tmdb-35561}"
+createrandomvideo "Broken Arrow (1950) {imdb-tt0042286} {tmdb-37292}"
+createrandomvideo "Broken Lance (1954) {imdb-tt0046808} {tmdb-42328}"
+createrandomvideo "Fort Apache (1948) {imdb-tt0040369} {tmdb-37347}"
+createrandomvideo "Gunfight at the O.K. Corral (1957) {imdb-tt0050468} {tmdb-22201}"
+createrandomvideo "Hombre (1967) {imdb-tt0061770} {tmdb-27945}"
+createrandomvideo "How the West Was Won (1962) {imdb-tt0056085} {tmdb-11897}"
+createrandomvideo "Johnny Guitar (1954) {imdb-tt0047136} {tmdb-26596}"
+createrandomvideo "Junior Bonner (1972) {imdb-tt0068786} {tmdb-5927}"
+createrandomvideo "Little Big Man (1970) {imdb-tt0065988} {tmdb-11040}"
+createrandomvideo "Mackenna's Gold (1969) {imdb-tt0064615} {tmdb-18118}"
+createrandomvideo "McLintock! (1963) {imdb-tt0057298} {tmdb-15263}"
+createrandomvideo "My Darling Clementine (1946) {imdb-tt0038762} {tmdb-3088}"
+createrandomvideo "Red River (1948) {imdb-tt0040724} {tmdb-3089}"
+createrandomvideo "Riders of the Purple Sage (1941) {imdb-tt0034104} {tmdb-433305}"
+createrandomvideo "Rio Bravo (1959) {imdb-tt0053221} {tmdb-301}"
+createrandomvideo "Rio Grande (1950) {imdb-tt0042895} {tmdb-11617}"
+createrandomvideo "She Wore a Yellow Ribbon (1949) {imdb-tt0041866} {tmdb-13909}"
+createrandomvideo "Stagecoach (1939) {imdb-tt0031971} {tmdb-995}"
+createrandomvideo "The Last Wagon (1956) {imdb-tt0049434} {tmdb-44921}"
+createrandomvideo "The Lone Ranger (2013) {imdb-tt1210819} {tmdb-57201}"
+createrandomvideo "The Magnificent Seven (1960) {imdb-tt0054047} {tmdb-966}"
+createrandomvideo "The Outlaw Josey Wales (1976) {imdb-tt0075029} {tmdb-10747}"
+createrandomvideo "The Quick and the Dead (1995) {imdb-tt0114214} {tmdb-12106}"
+createrandomvideo "The Searchers (1956) {imdb-tt0049730} {tmdb-3114}"
+createrandomvideo "Tombstone (1993) {imdb-tt0108358} {tmdb-11969}"
 footer $total_created $total_expected
 
 # section_count=8466
