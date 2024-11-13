@@ -3,7 +3,8 @@
 use_docker=false
 ffmpeg_cmd='ffmpeg'
 ffmpeg_log=true
-list_creates=true
+show_create_start=true
+show_create_done=true
 path_prefix=''
 
 if [ "$use_docker" = true ] ; then
@@ -223,7 +224,7 @@ createepisode () {
         log_path="${path_prefix}${FOLDERPATH}ffmpeg-S$3E$4.log"
     fi
 
-    if [ "$list_creates" = true ] ; then
+    if [ "$show_create_start" = true ] ; then
         echo "creating episode video file: $1 - S$3E$4 [$cur_src-$cur_res][H264][$cur_codec]-BINGBANG.mkv"
     fi
 
@@ -243,11 +244,13 @@ createepisode () {
     -map "5:0" "-metadata:s:a:2" "language=$cur_aud2" "-metadata:s:a:2" "handler_name=$cur_aud2" "-metadata:s:a:2" "title=$cur_aud2 - $cur_codec" \
     "${path_prefix}$FILEPATH" 2> "${log_path}"
 
-    if [ -f $"${path_prefix}$FILEPATH" ]; then
-        # echo "File $FILENAME created."
+    if [ -f "$FILEPATH" ]; then
+        if [ "$show_create_done" = true ] ; then
+            echo "File $FILEPATH created."
+        fi
         ((total_created+=1))
     else
-        echo "DANGER: File $FILENAME NOT CREATED."
+        echo "DANGER: File $FILEPATH NOT CREATED."
     fi
 }
 

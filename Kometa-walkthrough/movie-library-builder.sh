@@ -3,7 +3,8 @@
 use_docker=false
 ffmpeg_cmd='ffmpeg'
 ffmpeg_log=true
-list_creates=false
+show_create_start=false
+show_create_done=false
 path_prefix=''
 
 if [ "$use_docker" = true ] ; then
@@ -225,7 +226,7 @@ createtestvideo () {
     mkdir -p "test_movie_lib/$1"
     FILENAME="$1 $cur_edition[$cur_src-$cur_res][H264][$cur_codec]-BINGBANG.mkv"
     FOLDERPATH="test_movie_lib/$1/"
-    FILEPATH="$FOLDERPATH/$FILENAME"
+    FILEPATH="$FOLDERPATH$FILENAME"
 
     log_path="/dev/null"
 
@@ -233,7 +234,7 @@ createtestvideo () {
         log_path="${path_prefix}${FOLDERPATH}ffmpeg.log"
     fi
 
-    if [ "$list_creates" = true ] ; then
+    if [ "$show_create_start" = true ] ; then
         echo "creating $section_index/$section_count $FILENAME - subs: $cur_sub1/$cur_sub2 audio: $cur_aud1/$cur_aud2 codec: $cur_codec"
     fi
 
@@ -254,11 +255,13 @@ createtestvideo () {
     "${path_prefix}$FILEPATH" 2> "${log_path}"
     ((section_index+=1))
 
-    if [ -f $"${path_prefix}$FILEPATH" ]; then
-        # echo "File $FILENAME created."
+    if [ -f "$FILEPATH" ]; then
+        if [ "$show_create_done" = true ] ; then
+            echo "File $FILEPATH created."
+        fi
         ((total_created+=1))
     else
-        echo "DANGER: File $FILENAME NOT CREATED."
+        echo "DANGER: File $FILEPATH NOT CREATED."
     fi
 }
 
@@ -326,7 +329,7 @@ footer () {
 total_expected=0
 total_created=0
 
-section_count=4
+section_count=5
 section_index=1
 title "The Matrix" $section_count
 createrandomvideo "The Animatrix (2003) {imdb-tt0328832}"
