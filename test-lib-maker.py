@@ -29,9 +29,9 @@ def main():
     print(f"Processing input file: {args.input_file}")
 
     # Set up data files
-    create_audio_files()
-    create_subtitle_files()
-    create_video_files()
+    create_audio_files(config)
+    create_subtitle_files(config)
+    create_video_files(config)
 
     process_file_line_by_line(args.input_file, config)
 

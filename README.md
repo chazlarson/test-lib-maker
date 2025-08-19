@@ -2,6 +2,29 @@
 
 Work in progress, but the idea is to be able to run a script and dummy up the files you need to test various aspects of Plex, specifically as related to [Kometa](https://kometa.wiki).
 
+### Config.yaml
+
+```yaml
+tvdb:
+  apikey: YOUR_API_KEY_HERE
+    # Enter TVDb API Key (REQUIRED)
+    # get an API key here: https://www.thetvdb.com/api-information
+
+omdb:
+  apikey: YOUR_API_KEY_HERE
+    # Enter OMDb API Key (REQUIRED)
+    # Get your free API key from: http://www.omdbapi.com/apikey.aspx
+
+default_library_folder: test_movie_library
+default_library_type: movie
+  # If no library or type is specified in the input file these are the defaults
+
+all_languages: false
+  # Set this to true to use the full set of languages rather than the
+  # set of six corresponding to Kometa's default language overlays
+
+```
+
 ### Input file format
 
 There are two input file examples provided:
@@ -9,6 +32,8 @@ There are two input file examples provided:
 `movie_list.txt` which contains 247 movies.
 
 `series_list.txt` which contains 47 series.
+
+These are separated just for clarity.  You can combine both in one file.
 
 There are four recognized "line formats" in these files.
 
@@ -121,6 +146,50 @@ Total created: 12
 ```
 One out of the twelve got a random edition due to the 10% die roll.
 
+Combined example:
+```
+library|scifi_movie_library|movie
+
+group|Alien Movies|7
+Alien|1979
+Aliens|1986
+Alien 3|1992
+Alien: Resurrection|1997
+Prometheus|2012
+Alien: Covenant|2017
+Alien: Romulus|2024
+
+group|Matrix Movies|5
+The Matrix|1999
+The Matrix Reloaded|2003
+The Animatrix|2003
+The Matrix Revolutions|2003
+The Matrix Resurrections|2021
+
+library|scifi_tv_library|shows
+
+group|Star Trek|12
+Star Trek: Deep Space Nine|1993
+Star Trek: Discovery|2017
+Star Trek: Enterprise|2001
+Star Trek: Lower Decks|2020
+Star Trek: Picard|2020
+Star Trek: Prodigy|2021
+Star Trek: Short Treks|2018
+Star Trek: Strange New Worlds|2022
+Star Trek: The Animated Series|1973
+Star Trek: The Next Generation|1987
+Star Trek: Voyager|1995
+Star Trek|1966
+
+group|Walking Dead|5
+The Walking Dead: Daryl Dixon|2023
+The Walking Dead: Dead City|2023
+The Walking Dead: The Ones Who Live|2024
+The Walking Dead: World Beyond|2020
+The Walking Dead|2010
+```
+
 ### Output file details
 
 All video files contain English audio and subtitles along with two more audio and subtitle tracks in random languages [from the set of 6 languages that Kometa applies overlays for by default; ("fra" "ger" "jpn" "por" "spa")].
@@ -193,6 +262,8 @@ It uses the ffmpeg Docker image instead of requiring ffmpeg to be installed on t
 
     default_library_folder: test_movie_library
     default_library_type: movie
+
+    all_languages: false
     ```
 
 ### Usage:

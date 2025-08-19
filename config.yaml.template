@@ -9,3 +9,5 @@ omdb:
 
 default_library_folder: test_movie_library
 default_library_type: movie
+
+all_languages: false

@@ -38,10 +38,15 @@ def random_language_array() :
 
   return language_array
 
-def create_audio_files():
+def create_audio_files(config):
     from_file=Path('sounds/1-min-audio.m4a')
 
-    for lang in all_languages:
+    lang_list = stock_languages
+
+    if config.get('all_languages', use_all_languages):
+        lang_list = all_languages
+
+    for lang in lang_list:
         for audio in simple_audios:
             to_file=Path(f"sounds/1-min-audio-{lang}.{audio}")
             if not to_file.exists():
@@ -75,10 +80,15 @@ def create_audio_files():
                 except Exception as e:
                     print(f"An unexpected error occurred: {e}")
 
-def create_subtitle_files():
+def create_subtitle_files(config):
     from_file=Path('subs/base.srt')
 
-    for lang in all_languages:
+    lang_list = stock_languages
+
+    if config.get('all_languages', use_all_languages):
+        lang_list = all_languages
+
+    for lang in lang_list:
         to_file=Path(f"subs/sub.{lang}.srt")
         if not to_file.exists():
             from_file.copy(to_file)
