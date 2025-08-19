@@ -20,9 +20,10 @@ default_library_type: movie
   # If no library or type is specified in the input file these are the defaults
 
 all_languages: false
-  # Set this to true to use the full set of languages rather than the
+  # Set this to true to use a larger set of languages rather than the
   # set of six corresponding to Kometa's default language overlays
-
+  # using more than the six will require Kometa config changes.
+  # The larger list comprises the first twenty in the list in the Kometa wiki.
 ```
 
 ### Input file format
@@ -193,42 +194,6 @@ The Walking Dead|2010
 ### Output file details
 
 All video files contain English audio and subtitles along with two more audio and subtitle tracks in random languages [from the set of 6 languages that Kometa applies overlays for by default; ("fra" "ger" "jpn" "por" "spa")].
-
-If you want a wider range of languages, follow the instructions at the top of the scripts:
-
-```
-# If you want a wider range of languages, rename this to "languages"
-more_languages=("ara" "bul" ...
-# and this to anything that is not "languages"
-languages=("fra" "ger" "jpn"  "por" "spa")
-# and add those languages to your kometa config [see readme]
-```
-Then enable those languages in the Kometa overlay config:
-```
-      languages:
-        - ar
-        - bg
-        - cs
-        - da
-        - fa
-        - hi
-        - hu
-        - is
-        - it
-        - ko
-        - nl
-        - no
-        - pl
-        - ru
-        - sv
-        - te
-        - th
-        - tr
-        - uk
-        - zh
-```
-
-The "more languages" are just the first twenty in the list in the Kometa wiki.
 
 ### Requirements:
 
