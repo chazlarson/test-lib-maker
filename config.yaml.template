@@ -8,4 +8,4 @@ omdb:
     # Get your free API key from: http://www.omdbapi.com/apikey.aspx
 
 default_library_folder: test_movie_library
-default_library_type: _movie
+default_library_type: movie
