@@ -2,9 +2,126 @@
 
 Work in progress, but the idea is to be able to run a script and dummy up the files you need to test various aspects of Plex, specifically as related to [Kometa](https://kometa.wiki).
 
-Currently the script to generate the library for the Kometa [local](https://kometa.wiki/en/latest/pmm/install/local/) and [docker](https://kometa.wiki/en/latest/pmm/install/docker/) walkthroughs is available.
+### Input file format
 
-There is also a tv library script that will generate a TV library with a variety of resolutions and sources; "Happy Days" has randomized sources and resolutions for each season.
+There are two input file examples provided:
+
+`movie_list.txt` which contains 247 movies.
+
+`series_list.txt` which contains 47 series.
+
+There are four recognized "line formats" in these files.
+
+#### library line:
+```
+library|test_movie_library|movie
+```
+This line defines the library name and type.  The script will put the fake movies in a folder with the name, and every media line that follows will be interpreted as if it's this type, until another `library` line is hit.
+
+#### group line:
+```
+group|Test Movie Library|247
+```
+This optional line defines a group by name and count; it is used purely for cosmetics in the output and tracking how many of the expected items were created.
+
+#### media line:
+There are two types, one for movies and one for series. at this point they differ only in what the third field means.
+
+Movie:
+```
+Title|Year|Edition
+```
+`Edition` is optional.  If it's not present, there is a 10% chance that the movie will be assigned a random edition.
+
+Examples:
+```
+Alarum|2025
+Alien Romulus|2024|Extended
+Alien|1979|Director's Cut
+```
+
+Series:
+```
+Title|Year|Episode Order
+```
+`Episode Order` is optional and can be set to one of:
+
+| Value     | Meaning               |
+|-----------|-----------------------|
+| official  | Aired Order [default] |
+| dvd       | DVD Order             |
+| absolute  | Absolute Order        |
+| alternate | Alternate Order       |
+| regional  | Regional Order        |
+| altdvd    | Alternate DVD Order   |
+| alttwo    | Alternate Order 2     |
+
+Not all series have all these orders.
+
+Examples:
+```
+A Touch of Cloth|2012|absolute
+American Gods|2017
+Bad Monkey|2024|dvd
+```
+
+### Example file and output:
+
+`movie-example.txt`:
+```
+library|scifi_library|movie
+
+group|Alien Movies|7
+Alien|1979
+Aliens|1986
+Alien 3|1992
+Alien: Resurrection|1997
+Prometheus|2012
+Alien: Covenant|2017
+Alien: Romulus|2024
+
+group|Matrix Movies|5
+The Matrix|1999
+The Matrix Reloaded|2003
+The Animatrix|2003
+The Matrix Revolutions|2003
+The Matrix Resurrections|2021
+```
+
+Output:
+```
+Processing input file: movie-example.txt
+changed library_folder to: scifi_library
+changed library_type to: movie
+===============================================
+Creating 7 items for Alien Movies
+===============================================
+Successfully created 'scifi_library/Alien (1979) {imdb-tt0078748}/Alien (1979) {imdb-tt0078748} [WEBDL-2160p h264 DTS]-MARK.mkv'
+Successfully created 'scifi_library/Aliens (1986) {imdb-tt0090605}/Aliens (1986) {imdb-tt0090605} [DVD-360p x264 Opus 7.1]-EDPH.mkv'
+Successfully created 'scifi_library/Alien 3 (1992) {imdb-tt0349773}/Alien 3 (1992) {imdb-tt0349773} [DVD-576p x264 PCM 5.1]-TAGWEB.mkv'
+Successfully created 'scifi_library/Alien Resurrection (1997) {imdb-tt0118583}/Alien Resurrection (1997) {imdb-tt0118583} [WEBRIP-240p x265 DV Opus 7.1]-AlteZachen.mkv'
+Successfully created 'scifi_library/Prometheus (2012) {imdb-tt1446714}/Prometheus (2012) {imdb-tt1446714} [DVD-1080p VP9 DTS 2.1]-HiGH.mkv'
+Successfully created 'scifi_library/Alien Covenant (2017) {imdb-tt2316204}/Alien Covenant (2017) {imdb-tt2316204} [WEBRIP-720p HEVC Ogg]-HEHEHE.mkv'
+Successfully created 'scifi_library/Alien Romulus (2024) {imdb-tt18412256}/Alien Romulus (2024) {imdb-tt18412256} [DVD-480p x264 DTS-HD HRA 5.0]-PiA.mkv'
+===============================================
+Created 7 items of expected 7
+===============================================
+===============================================
+Creating 5 items for Matrix Movies
+===============================================
+Successfully created 'scifi_library/The Matrix (1999) {imdb-tt0133093} {edition-Theatrical Cut}/The Matrix (1999) {imdb-tt0133093} {edition-Theatrical Cut} [HDTV-576p h264 DTS Express 5.1]-PineapplePizza.mkv'
+Successfully created 'scifi_library/The Matrix Reloaded (2003) {imdb-tt0234215}/The Matrix Reloaded (2003) {imdb-tt0234215} [WEBRIP-1080p h264 HDR10 DTS 1.0]-SkilledMelodicSparrowFromHyperborea.mkv'
+Successfully created 'scifi_library/The Animatrix (2003) {imdb-tt5700244}/The Animatrix (2003) {imdb-tt5700244} [Bluray-576p x265 DV MP3 2ch]-TTT.mkv'
+Successfully created 'scifi_library/The Matrix Revolutions (2003) {imdb-tt0242653}/The Matrix Revolutions (2003) {imdb-tt0242653} [WEBRIP-720p VP9 DV DTS-HD MA 6.1]-saMMie.mkv'
+Successfully created 'scifi_library/The Matrix Resurrections (2021) {imdb-tt10838180}/The Matrix Resurrections (2021) {imdb-tt10838180} [HDTV-1080p h264 AC3 1.0]-IFCKINGLOVENF.mkv'
+===============================================
+Created 5 items of expected 5
+===============================================
+Total created: 12
+```
+One out of the twelve got a random edition due to the 10% die roll.
+
+### Output file details
 
 All video files contain English audio and subtitles along with two more audio and subtitle tracks in random languages [from the set of 6 languages that Kometa applies overlays for by default; ("fra" "ger" "jpn" "por" "spa")].
 
@@ -20,74 +137,79 @@ languages=("fra" "ger" "jpn"  "por" "spa")
 Then enable those languages in the Kometa overlay config:
 ```
       languages:
-        - ar	
-        - bg	
-        - cs	
-        - da	
-        - fa	
-        - hi	
-        - hu	
-        - is	
-        - it	
-        - ko	
-        - nl	
-        - no	
-        - pl	
-        - ru	
-        - sv	
-        - te	
-        - th	
-        - tr	
-        - uk	
-        - zh	
+        - ar
+        - bg
+        - cs
+        - da
+        - fa
+        - hi
+        - hu
+        - is
+        - it
+        - ko
+        - nl
+        - no
+        - pl
+        - ru
+        - sv
+        - te
+        - th
+        - tr
+        - uk
+        - zh
 ```
 
 The "more languages" are just the first twenty in the list in the Kometa wiki.
 
 ### Requirements:
 
-This is a bash script.  It requires bash or a compatible shell.  I do not have a Windows environment available, so have not converted this to Powershell or the like as yet.  PRs welcome.
+This is a Python script.  It should run under any release of Python 3.
 
 It uses the ffmpeg Docker image instead of requiring ffmpeg to be installed on the host.  Of course, this means that you need Docker installed.
 
-#### Install:
-```
-git clone https://github.com/chazlarson/test-lib-maker.git
-```
-#### Usage:
+### Setup:
+
+1. clone the repo
+
+2. install requirements
+
+    ```
+    python -m pip install -r requirements.txt
+    ```
+
+3. create a config file
+
+    copy `config.yaml.template` to `config.yaml` then edit it to add the requied keys [two at this point]:
+
+    ```yaml
+    tvdb:
+      apikey: YOUR_API_KEY_HERE
+        # Enter TVDb API Key (REQUIRED)
+
+    omdb:
+      apikey: YOUR_API_KEY_HERE
+        # Enter OMDb API Key (REQUIRED)
+        # Get your free API key from: http://www.omdbapi.com/apikey.aspx
+
+    default_library_folder: test_movie_library
+    default_library_type: movie
+    ```
+
+### Usage:
 
 ```
-cd Kometa-walkthrough
-./walkthrough-library-builder.sh
+python test-lib-maker.py some_file.txt
 ```
 
-This will:
+Where `some_file.txt` is a text file following the format shown above.
 
-1. create five base 1-minute testpattern videos in 4k, 1080p, 720p, 576p, 480p, 360p, and 240p [if they don't already exist]; these test pattern videos will contain English audio.
-2. create a directory `test_movie_lib`, which contains a bunch of movies meeting the requirements listed on the Kometa walkthough pages [at time of writing]:
-
-> For best results with this walkthrough, your test library will contain:
->
-> At least two comedy movies released since 2012.
->
-> At least two movies from the IMDB top 250.
->
-> At least two movies from IMDB's Popular list.
->
-> At least two movies from IMDB's Lowest Rated.
->
-> A couple different resolutions among the movies.
-
-All those movies are 1 minute long; they display a test pattern and play some music.
+All movies and episodes are 1 minute long; they display a test pattern and play some music.
 
 They will have random combinations of resolution and source; 10% of them will have a random edition.  They'll all have three audio [english + 2 random languages] and three subtitle [english + 2 random languages] tracks.
 
-The "popular" list might be an issue as I imagine there's a fair amount of churn there. Maybe someday this will grab the list from IMDB.
-
-Create a "Movie" library in Plex and point it at that folder.  You can move it elsewhere if you want; it's not all that big.
+Once complete, create a "Movie" or "TV Shows" library (as appropriate) in Plex and point it at the folder full of generated files.  You can move it elsewhere if you want; it's not all that big.
 
 Now you have the "small test library" described in the Kometa walkthough.
-
 
 TODO:
 1. random audio formats [currently they are all AAC]
