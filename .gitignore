@@ -13,6 +13,7 @@
 *test_tv_lib
 *test-files
 *trakt-test-list
+**/__pycache__/*
 
 /Kometa-walkthrough/sounds/1-min-audio*.*
 /Kometa-walkthrough/sounds/output.*
