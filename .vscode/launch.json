@@ -1,0 +1,38 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "test-lib-maker movie_list.txt",
+      "type": "debugpy",
+      "justMyCode": false,
+      "request": "launch",
+      "program": "test-lib-maker.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "purpose": [
+        "debug-in-terminal"
+      ],
+      "args": [
+        "movie_list.txt"
+      ]
+    },
+    {
+      "name": "test-lib-maker series_list.txt",
+      "type": "debugpy",
+      "justMyCode": false,
+      "request": "launch",
+      "program": "test-lib-maker.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "purpose": [
+        "debug-in-terminal"
+      ],
+      "args": [
+        "series_list.txt"
+      ]
+    }
+  ]
+}

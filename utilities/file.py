@@ -1,12 +1,23 @@
-from pathlib import Path
+"""
+File processing and media creation orchestration.
+
+Handles reading input files, parsing media specifications, and orchestrating
+the creation of test media files with randomized properties.
+"""
 from utilities.audio import random_language_array, getrandomaudiocodec
-from utilities.video import getrandomresolution, getrandomsource, change_edition, getrandomvideocodec, change_dv, change_hdr
+from utilities.video import (
+    getrandomresolution, getrandomsource, change_edition,
+    getrandomvideocodec, change_dv, change_hdr
+)
 from utilities.output import show_footer, show_title, is_a_media_line
 from utilities.paths import get_random_release_group
 from utilities.tvdb import get_tvdb_id
 from utilities.media import create_movie, create_series
 from utilities.omdb import get_imdb_id_omdb
-from utilities.exceptions import ComponentNotFoundException, DuplicateTargetException, InvalidLanguageException, Failed
+from utilities.exceptions import (
+    ComponentNotFoundException, DuplicateTargetException,
+    InvalidLanguageException
+)
 
 def randomize_all():
     settings = {}

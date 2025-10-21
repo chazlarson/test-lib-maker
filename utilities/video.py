@@ -1,3 +1,9 @@
+"""
+Video file creation and codec/resolution utilities.
+
+Provides functions to create video files with various resolutions, sources,
+codecs, and HDR/DV options for testing media libraries.
+"""
 from pathlib import Path
 import random
 import subprocess

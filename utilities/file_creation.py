@@ -1,7 +1,17 @@
+"""
+Video file creation with muxing of audio and subtitle tracks.
+
+Handles the creation of MKV video files with multiple audio and subtitle tracks,
+properly tagged with language metadata using mkvmerge.
+"""
 import os
-from pathlib import Path
 import subprocess
-from utilities.exceptions import ComponentNotFoundException, DuplicateTargetException, InvalidLanguageException, Failed
+
+from utilities.exceptions import (
+    ComponentNotFoundException,
+    InvalidLanguageException, Failed
+)
+
 
 def create_video_file(video_path: str, settings: dict) -> None:
     """
@@ -92,15 +102,19 @@ def create_video_file(video_path: str, settings: dict) -> None:
         # text=True decodes stdout/stderr as text
         # check=True raises CalledProcessError if the command returns a non-zero exit code
         process = subprocess.run(command, capture_output=True, text=True, check=True)
-        print(f"Successfully created '{video_path}'")
+        if process.returncode == 0:
+            print(f"Successfully created '{video_path}'")
+        else:
+            print(f"Error creating '{video_path}': {process.returncode}")
+            raise Failed(f"Error creating '{video_path}': {process.returncode}")
         # print("FFmpeg Output (stdout):\n", process.stdout)
         # print("FFmpeg Errors (stderr):\n", process.stderr) # FFmpeg often prints progress to stderr
     except subprocess.CalledProcessError as e:
-        print(f"Error during FFmpeg execution:")
+        print("Error during FFmpeg execution:")
         print(f"Command: {e.cmd}")
         print(f"Return Code: {e.returncode}")
         print(f"Stdout: {e.stdout}")
         print(f"Stderr: {e.stderr}")
-        raise Failed(f"Error during FFmpeg execution")
+        raise Failed("Error during FFmpeg execution") from e
     except Exception as e:
         raise e

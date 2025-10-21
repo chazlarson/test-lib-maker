@@ -1,3 +1,11 @@
+"""
+Output formatting utilities for console display.
+
+Provides functions to format and display progress information and media details
+during the test library creation process.
+"""
+
+
 def show_title(bits):
     # group|Beverly Hills Cop|4
     print("===============================================")

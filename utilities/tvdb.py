@@ -1,3 +1,9 @@
+"""
+TVDB API integration for TV series and episode data retrieval.
+
+Provides functions to search for and retrieve TV series information from the
+TVDB API, including series details, seasons, and episodes.
+"""
 import tvdb_v4_official
 from utilities.config import Config
 

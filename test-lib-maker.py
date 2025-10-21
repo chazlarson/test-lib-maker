@@ -1,3 +1,10 @@
+"""
+Main entry point for the test library maker.
+
+This script generates dummy test files for Plex media libraries, including movies and TV series.
+It reads configuration from a YAML file and processes input files to create test media with
+various combinations of resolutions, sources, audio tracks, and subtitle tracks.
+"""
 import argparse
 from utilities.audio import create_audio_files, create_subtitle_files
 from utilities.video import create_video_files
@@ -6,7 +13,9 @@ from utilities.config import Config
 
 config = Config()
 
-section_count=0
+
+section_count = 0
+
 
 def main():
     """
@@ -31,7 +40,7 @@ def main():
     # Set up data files
     create_audio_files(config)
     create_subtitle_files(config)
-    create_video_files(config)
+    create_video_files()
 
     process_file_line_by_line(args.input_file, config)
 

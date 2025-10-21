@@ -8,6 +8,12 @@
 /poster.jpg
 /test_movie_lib
 /test_tv_lib
+sounds/*.aac
+subs/sub.*.srt
+*p.mp4
+*.sqlite
+**/*tvdb-*/*
+
 .direnv
 *test_movie_lib
 *test_tv_lib

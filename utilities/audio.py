@@ -1,3 +1,9 @@
+"""
+Audio file management and generation utilities.
+
+Provides functions for creating audio files with various codecs and languages,
+managing subtitle files, and selecting random audio/language combinations.
+"""
 from pathlib import Path
 import random
 import subprocess
