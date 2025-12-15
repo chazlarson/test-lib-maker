@@ -36,6 +36,18 @@ def randomize_all():
 
     settings['release_group'] = get_random_release_group()
 
+    print(f"===============================================")
+    print(f"resolution:      {settings['resolution']}")
+    print(f"source:          {settings['source']}")
+    print(f"edition:         {settings['edition']}")
+    print(f"subtitle_tracks: {settings['subtitle_tracks']}")
+    print(f"audio_tracks:    {settings['audio_tracks']}")
+    print(f"audio_codec:     {settings['audio_codec']}")
+    print(f"video_codec:     {settings['video_codec']}")
+    print(f"dv:              {settings['dv']}")
+    print(f"hdr:             {settings['hdr']}")
+    print(f"release_group:   {settings['release_group']}")
+
     return settings
 
 def process_file_line_by_line(filepath, config):
@@ -86,6 +98,7 @@ def process_file_line_by_line(filepath, config):
                                     }
 
                                 if movie_data:
+                                    print(f"Creating movie: {movie_data['title']} ({movie_data['year']})")
                                     settings = randomize_all()
                                     settings['library_folder'] = library_folder
 
@@ -123,6 +136,7 @@ def process_file_line_by_line(filepath, config):
                                     }
 
                                 if series_data:
+                                    print(f"Creating series: {series_data['title']} ({series_data['year']})")
                                     settings = randomize_all()
                                     settings['library_folder'] = library_folder
 

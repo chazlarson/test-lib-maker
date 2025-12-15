@@ -19,7 +19,7 @@ Path.copy = _copy
 # should this script draw form the list of all languages?
 # "False" here means use the stock languages,
 # which are the ones enabled by default in the language overlays
-use_all_languages = False
+use_all_languages = True
 
 all_languages = ['ara', 'bul', 'ces', 'chi', 'dan', 'eng', 'fas', 'fra', 'ger', 'hin', 'hun', 'isl', 'ita', 'jpn', 'kor', 'nld', 'nor', 'pol', 'por', 'rus', 'spa', 'swe', 'tel', 'tha', 'tur', 'ukr']
 stock_languages = ['eng', 'fra', 'ger', 'jpn', 'por', 'spa']

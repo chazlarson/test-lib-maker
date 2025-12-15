@@ -1,50 +1,51 @@
-library|test_tv_library|shows
+library|Damienlee69|shows
 
-group|Test Series|47
-A Touch of Cloth|2012
-American Gods|2017
-Bad Monkey|2024
-Battlestar Galactica|2003
-Battlestar Galactica|2004
-Bloodline|2015
-Breaking Bad|2008
-Caprica|2010
-Chicago Fire|2012
-Chicago Justice|2017
-Chicago Med|2015
-Chicago P.D.|2014
-Documentary Now!|2015
-Fear the Walking Dead|2015
-Happy Days|1974
-Law & Order: Special Victims Unit|1999
-Monster|2022
-New Amsterdam|2018
-Peaky Blinders|2013
-Picnic at Hanging Rock|2018
-Squid Game|2021
-Star Trek: Deep Space Nine|1993
-Star Trek: Discovery|2017
-Star Trek: Enterprise|2001
-Star Trek: Lower Decks|2020
-Star Trek: Picard|2020
-Star Trek: Prodigy|2021
-Star Trek: Short Treks|2018
-Star Trek: Strange New Worlds|2022
-Star Trek: The Animated Series|1973
-Star Trek: The Next Generation|1987
-Star Trek: Voyager|1995
-Star Trek|1966
-Succession|2018
-Tales of the Walking Dead|2022
-Ted Lasso|2020
-The 100|2014
-The Righteous Gemstones|2019
-The Santa Clauses|2022
-The Walking Dead: Daryl Dixon|2023
-The Walking Dead: Dead City|2023
-The Walking Dead: The Ones Who Live|2024
-The Walking Dead: World Beyond|2020
+group|Damienlee69|48
+Malcolm in the Middle|2000
+Married... with Children|1987
+Marvel's Spider-Man|2017
+Marvel's Ultimate Spider-Man|2012
+Mickey Mouse Clubhouse|2006
+Mike & Molly|2010
+Modern Family|2009
+My Name Is Earl|2005
+NewsRadio|1995
+Night Court|1984
+Orange Is the New Black|2013
+Parks and Recreation|2009
+Quantum Leap|1989
+Raising Hope|2010
+Rick and Morty|2013
+Rocko's Modern Life|1993
+Roseanne|1988
+Scrubs|2001
+South Park|1997
+Stranger Things|2016
+Supernatural|2005
+Tales From the Crypt|1989
+Teenage Mutant Ninja Turtles|2003
+Teenage Mutant Ninja Turtles|1987
+That '70s Show|1998
+The Adventures of Super Mario Bros. 3|1990
+The Andy Griffith Show|1960
+The Baby-Sitters Club|2020
+The Big Bang Theory|2007
+The Drew Carey Show|1995
+The Flash|2014
+The Flintstones|1960
+The Fresh Prince of Bel-Air|1990
+The Goldbergs|2013
+The IT Crowd|2006
+The Jetsons|1962
+The Office (US)|2005
+The Ren & Stimpy Show|1991
+The Simpsons|1989
+The Spectacular Spider-Man|2008
 The Walking Dead|2010
-Wellington Paranormal|2018
-What If...|2021
-Yellowstone|2018
+The X-Files|1993
+This Is Us|2016
+Tiny Toon Adventures|1990
+Two Guys and a Girl|1998
+WandaVision|2021
+Yellowjackets|2021
+Your Friendly Neighborhood Spider-Man|2025
