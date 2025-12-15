@@ -247,5 +247,6 @@ Once complete, create a "Movie" or "TV Shows" library (as appropriate) in Plex a
 
 Now you have the "small test library" described in the Kometa walkthough.
 
-TODO:
-1. random audio formats [currently they are all AAC]
+Planned [in no particular order]:
+1. make the files "real" with the actual codecs and whatnot.
+2. directly support online lists [trakt/mdb/imdb/letterboxd]
